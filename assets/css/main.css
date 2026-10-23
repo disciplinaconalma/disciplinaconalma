@@ -1,5 +1,5 @@
 /* ============================================
-   DISCIPLINA CON ALMA — MAIN CSS UNIFICADO
+   DISCIPLINA CON ALMA — MAIN CSS
    ============================================ */
 
 /* ---------- NAVBAR (Elegante y Premium) ---------- */
@@ -8,7 +8,6 @@
   top: 0; left: 0; width: 100%;
   z-index: 1000;
   padding: var(--espacio-sm) 0;
-  transition: var(--transicion-suave);
   background-color: rgba(248, 245, 239, 0.95); 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -26,49 +25,45 @@
 
 .navbar__logo {
   font-family: var(--font-titulo);
-  font-size: var(--fs-md);
+  font-size: clamp(1rem, 4vw, 1.2rem); /* Se adapta al cel */
   letter-spacing: 0.15em;
   color: var(--color-bronce);
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .navbar__logo span {
   font-family: var(--font-firma);
   text-transform: none;
-  font-size: calc(var(--fs-lg) + 4px);
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
   color: var(--color-cobre);
   position: relative;
   top: 2px;
 }
 
-/* --- BOTÓN HAMBURGUESA (Móvil) --- */
+/* --- BOTÓN HAMBURGUESA --- */
 .navbar__toggle {
   display: block; 
-  background: transparent;
-  border: none;
-  cursor: pointer;
   padding: 5px;
   z-index: 1001;
 }
 
 .navbar__toggle span {
   display: block;
-  width: 25px;
-  height: 2px;
+  width: 22px; /* Más fino para celular */
+  height: 1.5px;
   background-color: var(--color-cobre);
-  margin: 5px 0;
+  margin: 4px 0;
   transition: var(--transicion-suave);
 }
 
-/* Animación del botón hamburguesa al abrir */
-.navbar__toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__toggle.active span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
 .navbar__toggle.active span:nth-child(2) { opacity: 0; }
-.navbar__toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.navbar__toggle.active span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
-/* --- MENÚ MÓVIL (Oculto por defecto) --- */
+/* --- MENÚ MÓVIL --- */
 .navbar__menu {
   position: absolute;
   top: 100%; left: 0; width: 100%;
@@ -88,11 +83,10 @@
   z-index: 999;
 }
 
-.navbar__menu li { margin: 10px 0; width: 100%; text-align: center; }
+.navbar__menu li { margin: 8px 0; width: 100%; text-align: center; }
 
 .navbar__menu a {
-  font-family: var(--font-texto);
-  font-size: var(--fs-sm);
+  font-size: 0.8rem; /* Letra pequeña y fina */
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -101,18 +95,15 @@
   display: block;
 }
 
-.navbar__menu a.activo { color: var(--color-cobre); font-weight: 600; }
-
 /* ============================================
-   BOTONES (Optimizados para tacto)
+   BOTONES (Refinados para tacto)
    ============================================ */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.1rem 2.5rem;
-  font-family: var(--font-texto);
-  font-size: var(--fs-sm);
+  padding: 1rem 2rem;
+  font-size: 0.8rem; /* Texto un poco más pequeño en móvil */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
@@ -120,17 +111,16 @@
   cursor: pointer;
   text-align: center;
   width: 100%;
-  max-width: 350px;
+  max-width: 300px; /* No ocupan todo el ancho, dejan aire */
+  margin: 0 auto;
 }
 
 .btn--primario { background-color: var(--color-cobre); color: var(--color-marfil); border: 1px solid var(--color-cobre); }
-.btn--primario:hover { background-color: var(--color-bronce); border-color: var(--color-bronce); }
 .btn--secundario { background: transparent; color: var(--color-bronce); border: 1px solid var(--color-bronce); }
 .btn--outline-cobre { background: transparent; color: var(--color-cobre); border: 1px solid var(--color-cobre); }
-.btn--outline-cobre:hover { background: var(--color-cobre); color: var(--color-marfil); }
 
 /* ============================================
-   HERO (Móvil primero)
+   HERO (Proporciones perfectas en cel)
    ============================================ */
 .hero-luxury {
   position: relative;
@@ -138,126 +128,142 @@
   display: flex;
   align-items: center;
   background-color: var(--color-marfil);
-  overflow: hidden;
   padding-top: 100px; 
   padding-bottom: 40px; 
 }
 
 .hero-luxury__contenedor {
-  position: relative; z-index: 2;
   max-width: var(--contenedor-max);
   margin: 0 auto;
   padding: 0 var(--espacio-md);
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  width: 100%;
   gap: var(--espacio-md);
 }
 
 .hero-luxury__texto {
-  display: flex; flex-direction: column; justify-content: center;
-  color: var(--color-bronce); text-align: center;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
 }
 
 .hero-luxury__etiqueta {
-  display: flex; align-items: center; justify-content: center; gap: var(--espacio-sm);
-  font-family: var(--font-texto); font-size: var(--fs-xs);
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; /* Más pequeño */
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--color-cobre); margin-bottom: var(--espacio-sm);
 }
 
 .hero-luxury__titulo {
   font-family: var(--font-titulo);
-  font-size: clamp(2.8rem, 8vw, 5.5rem);
-  font-weight: 500; line-height: 1;
-  color: var(--color-bronce); margin-bottom: var(--espacio-sm);
+  font-size: clamp(2rem, 8vw, 3rem); /* Título controlado */
+  line-height: 1.1;
+  color: var(--color-bronce); 
+  margin-bottom: var(--espacio-xs);
 }
 
 .hero-luxury__titulo span {
   display: block; color: var(--color-cobre);
   font-family: var(--font-firma);
-  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-size: clamp(3rem, 12vw, 4.5rem); /* Subtítulo controlado */
   margin-top: -0.1em; line-height: 0.8;
 }
 
 .hero-luxury__desc {
-  font-size: var(--fs-base); color: var(--color-bronce);
-  opacity: 0.85; max-width: 100%;
-  margin: 0 auto var(--espacio-md); line-height: 1.6;
+  font-size: 0.95rem; /* Texto legible pero no tosco */
+  color: var(--color-bronce);
+  opacity: 0.8; 
+  line-height: 1.6;
+  margin-bottom: var(--espacio-md);
 }
 
 .hero-luxury__acciones { 
   display: flex; flex-direction: column; gap: var(--espacio-sm); 
-  align-items: center; width: 100%;
+  width: 100%; align-items: center;
 }
 
 .hero-luxury__imagen {
-  position: relative; height: 100%; min-height: 300px;
-  display: flex; align-items: center; justify-content: center;
-  width: 100%;
+  position: relative; width: 100%; min-height: 250px;
 }
 
 .hero-luxury__imagen img {
   width: 100%; height: 100%; object-fit: cover;
-  border-radius: var(--radio-lg); box-shadow: var(--sombra-fuerte);
+  border-radius: var(--radio-lg); 
 }
 
+/* Hexágono adaptado para móvil */
 .hero-luxury__badge {
-  position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
-  width: 130px; height: 150px; background-color: var(--color-marfil);
+  position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+  width: 110px; height: 120px; background-color: var(--color-marfil);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  border: 1px solid rgba(182, 106, 53, 0.3); box-shadow: var(--sombra-fuerte); z-index: 10;
+  border: 1px solid rgba(182, 106, 53, 0.3);
 }
 
-.hero-luxury__badge p { font-size: 0.6rem; text-transform: uppercase; margin: 0; }
-.hero-luxury__badge h3 { font-family: var(--font-titulo); font-size: 1.5rem; color: var(--color-cobre); margin: 2px 0; }
+.hero-luxury__badge p { font-size: 0.5rem; text-transform: uppercase; margin: 0; }
+.hero-luxury__badge h3 { font-family: var(--font-titulo); font-size: 1.1rem; color: var(--color-cobre); margin: 2px 0; }
 
 /* ============================================
-   HERO INTERNO (Páginas secundarias)
+   HERO INTERNO
    ============================================ */
 .hero--interno {
-  position: relative;
-  background-color: var(--color-marfil);
-  padding: 120px var(--espacio-md) 40px;
+  padding: 100px var(--espacio-md) 30px;
   text-align: center;
   border-bottom: 1px solid rgba(182, 106, 53, 0.1);
 }
 
-.hero__logo-horizontal { max-width: 220px; margin: 0 auto var(--espacio-sm); }
-.hero__frase { font-family: var(--font-firma); font-size: var(--fs-lg); color: var(--color-cobre); margin-top: 0; }
+.hero__logo-horizontal { max-width: 180px; margin: 0 auto var(--espacio-sm); }
+.hero__frase { font-family: var(--font-firma); font-size: 1.3rem; color: var(--color-cobre); }
 
 /* ============================================
-   SECCIONES Y GRILLAS (Móvil)
+   SECCIONES Y GRILLAS (Móvil estético)
    ============================================ */
 .seccion { padding: var(--espacio-lg) 0; }
 .seccion--arena { background-color: var(--color-arena); }
 .seccion--verde { background-color: var(--color-verde-bosque); color: var(--color-marfil); }
 .seccion--verde h2, .seccion--verde p, .seccion--verde h3 { color: var(--color-marfil); }
 
-.seccion__titulo { font-family: var(--font-titulo); font-size: var(--fs-xl); text-align: center; margin-bottom: var(--espacio-xs); }
-.seccion__subtitulo { font-family: var(--font-firma); font-size: var(--fs-lg); color: var(--color-cobre); text-align: center; margin-bottom: var(--espacio-md); }
+.seccion__titulo { 
+  font-size: clamp(1.6rem, 6vw, 2.2rem); /* Tamaño equilibrado */
+  margin-bottom: 5px; 
+}
+.seccion__subtitulo { 
+  font-size: 1.4rem; 
+  margin-bottom: var(--espacio-md); 
+}
 
 .grid-pilares, .grid-experiencias, .grid-eventos, .grid-testimonios, .grid-dos, .grid-tres, .timeline {
   display: grid; grid-template-columns: 1fr; gap: var(--espacio-md); margin-top: var(--espacio-md);
 }
 
+/* Tarjetas de Pilares y Experiencias */
+.pilar, .experiencia {
+  padding: var(--espacio-md) var(--espacio-sm); 
+  background-color: var(--color-marfil-puro);
+  border-radius: var(--radio-md); 
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+
+.pilar__icono, .experiencia__icono { 
+  width: 32px; height: 32px; /* Iconos más pequeños y delicados */
+  margin-bottom: 10px; 
+}
+.pilar__titulo, .experiencia__nombre { font-size: 0.9rem; letter-spacing: 0.05em; }
+.pilar p { font-size: 0.8rem; opacity: 0.8; }
+
 /* ============================================
    FOOTER
    ============================================ */
-.footer { background-color: var(--color-bronce); color: var(--color-marfil); padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md); text-align: center; }
-.footer__logo { max-width: 100px; margin: 0 auto var(--espacio-md); }
-.footer__frase { font-family: var(--font-firma); font-size: var(--fs-lg); color: var(--color-rosa-cobre); margin-bottom: var(--espacio-md); }
+.footer { padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md); text-align: center; }
+.footer__logo { max-width: 80px; margin: 0 auto var(--espacio-md); }
+.footer__frase { font-family: var(--font-firma); font-size: 1.3rem; color: var(--color-rosa-cobre); margin-bottom: var(--espacio-md); }
 .footer__redes { display: flex; justify-content: center; gap: var(--espacio-md); margin-bottom: var(--espacio-md); }
-.footer__redes a { font-size: var(--fs-sm); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
-.footer__copy { font-size: var(--fs-xs); opacity: 0.6; }
+.footer__redes a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+.footer__copy { font-size: 0.65rem; opacity: 0.6; }
 
 /* ============================================
    MEDIA QUERIES (Tablet y PC)
    ============================================ */
 @media (min-width: 768px) {
-  /* Ocultar menú hamburguesa y mostrar menú horizontal */
   .navbar__toggle { display: none; }
   .navbar__menu {
     position: static; flex-direction: row; gap: var(--espacio-lg);
@@ -274,13 +280,17 @@
 
   /* Restaurar Hero de PC */
   .hero-luxury { padding-bottom: 120px; }
-  .hero-luxury__contenedor { grid-template-columns: 1fr 1fr; text-align: left; gap: var(--espacio-xl); }
+  .hero-luxury__contenedor { grid-template-columns: 1fr 1fr; gap: var(--espacio-xl); text-align: left; }
   .hero-luxury__texto { text-align: left; align-items: flex-start; }
   .hero-luxury__etiqueta { justify-content: flex-start; }
+  .hero-luxury__titulo { font-size: clamp(3.5rem, 5vw, 5.5rem); }
+  .hero-luxury__titulo span { font-size: clamp(4.5rem, 7vw, 7rem); }
+  .hero-luxury__desc { font-size: var(--fs-md); max-width: 90%; margin: 0 0 var(--espacio-lg) 0; }
   .hero-luxury__acciones { flex-direction: row; justify-content: flex-start; }
   .hero-luxury__imagen { min-height: 550px; }
-  .hero-luxury__badge { left: -60px; top: 50%; bottom: auto; transform: translateY(-50%); }
-  
+  .hero-luxury__badge { left: -60px; top: 50%; bottom: auto; transform: translateY(-50%); width: 160px; height: 180px; }
+  .hero-luxury__badge h3 { font-size: 1.8rem; }
+
   /* Restaurar Grillas en PC */
   .grid-dos { grid-template-columns: repeat(2, 1fr); }
   .grid-tres, .grid-testimonios { grid-template-columns: repeat(3, 1fr); }
@@ -288,8 +298,10 @@
   .grid-eventos { grid-template-columns: repeat(2, 1fr); }
   .timeline { grid-template-columns: repeat(5, 1fr); }
   
-  /* Botones y formularios en PC */
-  .btn { width: auto; }
+  .pilar__icono, .experiencia__icono { width: 48px; height: 48px; margin-bottom: var(--espacio-sm); }
+  .pilar__titulo, .experiencia__nombre { font-size: var(--fs-md); }
+
+  .btn { width: auto; max-width: none; }
 }
 
 @keyframes fadeUp {
