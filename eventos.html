@@ -24,6 +24,7 @@
         <li><a href="experiencias.html">Experiencias</a></li>
         <li><a href="comunidad.html">Comunidad</a></li>
         <li><a href="eventos.html" class="activo">Eventos</a></li>
+        <li><a href="solidarios.html">Solidarios</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </div>
@@ -35,7 +36,7 @@
   </header>
 
   <section class="seccion">
-    <div class="contenedor-texto text-center">
+    <div class="contenedor-texto text-center animar">
       <h2 class="seccion__titulo">Próximos Encuentros</h2>
       <p class="seccion__subtitulo">Te esperamos</p>
       <p>Cada experiencia está diseñada para que <em>bajes el ritmo</em>, te escuches y vuelvas a ti con claridad.</p>
@@ -43,8 +44,28 @@
   </section>
 
   <section class="seccion seccion--arena">
-    <div class="contenedor">
+    <div class="contenedor animar">
       <ul class="grid-eventos">
+        
+        <!-- EVENTO SOLIDARIO DESTACADO -->
+        <li class="evento" style="border: 2px solid #D1495B;">
+          <div class="evento__imagen">
+            <img src="assets/img/solidarios/movimiento-zumba.jpg" alt="Movimiento con Alma">
+            <span class="evento__etiqueta" style="background-color: #D1495B;">Solidario</span>
+          </div>
+          <div class="evento__contenido">
+            <p class="evento__fecha" style="color: #D1495B;">Sábado · 14 Noviembre · 7:00 AM</p>
+            <h3 class="evento__titulo">Movimiento con Alma</h3>
+            <p class="evento__descripcion">Actívate por una buena causa. Zumba, entrenamiento funcional, charlas y comunidad.</p>
+            <ul class="evento__detalles">
+              <li>📍 Club Luciola Pión</li>
+              <li>💵 Aporte: RD$500</li>
+            </ul>
+            <a href="solidarios.html" class="btn btn--primario" style="background-color: #D1495B; border-color: #D1495B;">Ver evento especial</a>
+          </div>
+        </li>
+
+        <!-- EVENTOS NORMALES -->
         <li class="evento">
           <div class="evento__imagen">
             <img src="https://placehold.co/800x450/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro" loading="lazy">
@@ -60,6 +81,7 @@
             <a href="registro-evento.html?evento=Retiro de Yoga y Respiración" class="btn btn--primario">Reservar lugar</a>
           </div>
         </li>
+        
         <li class="evento">
           <div class="evento__imagen">
             <img src="https://placehold.co/800x450/D49A7A/B66A35?text=Ceremonia+de+Cacao" alt="Cacao" loading="lazy">

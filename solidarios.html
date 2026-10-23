@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movimiento con Alma — Evento Solidario | Disciplina con Alma</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* --- ESTILOS EXCLUSIVOS EVENTO SOLIDARIO --- */
+    .hero-solidario {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-image: url('assets/img/solidarios/movimiento-portada.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 120px var(--espacio-md) 60px;
+    }
+    
+    .hero-solidario::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(42, 26, 16, 0.5), rgba(42, 26, 16, 0.9));
+      z-index: 1;
+    }
+    
+    .hero-solidario .contenido {
+      position: relative;
+      z-index: 2;
+      color: var(--color-marfil);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .hero-solidario img.logo-evento {
+      max-width: 180px;
+      margin-bottom: var(--espacio-sm);
+    }
+    
+    .hero-solidario h1 {
+      font-family: var(--font-titulo);
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: var(--color-marfil);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    
+    .hero-solidario h1 span {
+      font-family: var(--font-firma);
+      color: #F2A0A0; /* Rosa solidario */
+      display: block;
+      font-size: clamp(4rem, 10vw, 6rem);
+      margin-top: -10px;
+    }
+    
+    .hero-solidario p {
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background-color: #D1495B;
+      color: white;
+      padding: 8px 20px;
+      display: inline-block;
+      border-radius: 50px;
+      margin-top: 10px;
+    }
+
+    .info-evento {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 2rem 0;
+    }
+    
+    @media (min-width: 768px) {
+      .info-evento { grid-template-columns: repeat(4, 1fr); }
+    }
+    
+    .info-item {
+      background-color: var(--color-marfil-puro);
+      padding: 1.5rem 1rem;
+      border-radius: var(--radio-md);
+      text-align: center;
+      border: 1px solid rgba(182, 106, 53, 0.2);
+      box-shadow: var(--sombra-suave);
+    }
+    
+    .info-item strong {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--color-cobre);
+      margin-bottom: 5px;
+      letter-spacing: 0.1em;
+    }
+    
+    .info-item span {
+      font-family: var(--font-titulo);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-bronce);
+    }
+
+    .actividades-lista {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 1.5rem 0 2rem;
+    }
+    
+    .actividades-lista li {
+      background-color: var(--color-marfil-puro);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-bronce);
+      border: 1px solid rgba(182, 106, 53, 0.2);
+    }
+
+    .card-inscripcion {
+      background-color: var(--color-marfil-soft);
+      border: 1px dashed var(--color-cobre);
+      padding: 2rem;
+      border-radius: var(--radio-md);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__contenedor">
+      <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
+      <button class="navbar__toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="experiencias.html">Experiencias</a></li>
+        <li><a href="comunidad.html">Comunidad</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="solidarios.html" class="activo">Solidarios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero-solidario">
+    <div class="contenido">
+      <img src="assets/img/solidarios/movimiento-logo.png" alt="Logo Movimiento" class="logo-evento" loading="lazy">
+      <h1>Movimiento <span>con Alma</span></h1>
+      <p>Actívate por una buena causa</p>
+    </div>
+  </header>
+
+  <section class="seccion">
+    <div class="contenedor-texto text-center">
+      
+      <h2 class="seccion__titulo">Un evento para dar y recibir</h2>
+      <p class="seccion__subtitulo">¡Acompáñanos!</p>
+      <p>Únete a esta jornada de bienestar, ejercicio y comunidad. Todo lo recaudado será a beneficio de una causa solidaria que transforma vidas.</p>
+
+      <div class="info-evento">
+        <div class="info-item">
+          <strong>Fecha</strong>
+          <span>Sábado 14 Nov</span>
+        </div>
+        <div class="info-item">
+          <strong>Hora</strong>
+          <span>7:00 A.M.</span>
+        </div>
+        <div class="info-item">
+          <strong>Aporte</strong>
+          <span>RD$500</span>
+        </div>
+        <div class="info-item">
+          <strong>Lugar</strong>
+          <span>Club Luciola Pión</span>
+        </div>
+      </div>
+
+      <ul class="actividades-lista">
+        <li>Charla Inspiradora</li>
+        <li>Zumba y Baile</li>
+        <li>Entrenamiento Funcional</li>
+        <li>Invitados Especiales</li>
+        <li>¡Y más sorpresas!</li>
+      </ul>
+
+      <div class="card-inscripcion">
+        <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--color-bronce);">Este es un evento abierto para hombres y mujeres. Para participar, debes realizar tu inscripción previa.</p>
+        
+        <!-- Botón al formulario de registro con el nombre del evento exacto -->
+        <a href="registro-evento.html?evento=Movimiento con Alma" class="btn btn--primario" style="width: 100%; max-width: 300px; margin: 0 auto; display: inline-block;">
+          Inscribirme ahora
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="seccion seccion--arena">
+    <div class="contenedor text-center">
+      <h2 class="seccion__titulo">Instructores Invitados</h2>
+      <p class="seccion__subtitulo">Energía de primer nivel</p>
+      
+      <div class="grid-tres">
+        <div class="pilar" style="background-color: var(--color-marfil-puro);">
+          <h3 class="pilar__titulo">Zin Roberto Martínez</h3>
+          <p style="font-size: 0.85rem; color: var(--color-bronce); opacity: 0.8;">Instructor de Zumba</p>
+        </div>
+        <div class="pilar" style="background-color: var(--color-marfil-puro);">
+          <h3 class="pilar__titulo">Zin Cenia Adolphus</h3>
+          <p style="font-size: 0.85rem; color: var(--color-bronce); opacity: 0.8;">Instructora de Zumba</p>
+        </div>
+        <div class="pilar" style="background-color: var(--color-marfil-puro);">
+          <h3 class="pilar__titulo">New Body Fitness RD</h3>
+          <p style="font-size: 0.85rem; color: var(--color-bronce); opacity: 0.8;">Entrenamiento Funcional</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
+    <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
+    <div class="footer__redes">
+      <a href="https://instagram.com/disciplinaconalma" target="_blank" rel="noopener">Instagram</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
