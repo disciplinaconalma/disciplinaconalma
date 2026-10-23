@@ -1,0 +1,93 @@
+/* ============================================
+   DISCIPLINA CON ALMA — DESIGN TOKENS
+   ============================================ */
+
+:root {
+  /* ---------- PALETA OFICIAL ---------- */
+  --color-marfil:        #F8F5EF;
+  --color-cobre:         #B66A35;
+  --color-rosa-cobre:    #D49A7A;
+  --color-bronce:        #7A3E1D;
+  --color-verde-bosque:  #4E5C4A;
+  --color-arena:         #E8D5C8;
+  --color-rosa-polvo:    #DDB7A6;
+  --color-taupe:         #B7A18E;
+
+  /* Variantes suaves */
+  --color-marfil-soft:   #FBF9F4;
+  --color-marfil-puro:   #FFFFFF;
+  
+  /* ---------- TIPOGRAFÍAS ---------- */
+  --font-titulo:  'Cormorant Garamond', 'Cinzel', Georgia, serif;
+  --font-texto:   'Montserrat', 'Poppins', sans-serif;
+  --font-firma:   'Allura', cursive;
+
+  /* ---------- TAMAÑOS TIPOGRÁFICOS ---------- */
+  --fs-xs:    0.75rem;
+  --fs-sm:    0.875rem;
+  --fs-base:  1rem;
+  --fs-md:    1.125rem;
+  --fs-lg:    1.5rem;
+  --fs-xl:    2.5rem;
+  --fs-2xl:   3.5rem;
+  --fs-3xl:   5rem;
+
+  /* ---------- ESPACIADOS ---------- */
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 1rem;
+  --espacio-md: 2rem;
+  --espacio-lg: 4rem;
+  --espacio-xl: 6rem;
+  --espacio-2xl: 8rem;
+
+  /* ---------- LAYOUT ---------- */
+  --contenedor-max: 1400px;
+  --contenedor-texto: 720px;
+
+  /* ---------- BORDES Y SOMBRAS ---------- */
+  --radio-sm: 8px;
+  --radio-md: 12px;
+  --radio-lg: 20px;
+  --sombra-suave:  0 4px 20px rgba(182, 106, 53, 0.08);
+  --sombra-media:  0 8px 30px rgba(122, 62, 29, 0.12);
+  --sombra-fuerte: 0 15px 40px rgba(122, 62, 29, 0.15);
+
+  --transicion-suave: all 0.3s ease;
+  --transicion-lenta: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ============================================
+   RESET Y BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-texto);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  color: var(--color-bronce);
+  background-color: var(--color-marfil);
+  font-weight: 400;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; transition: var(--transicion-suave); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-titulo);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--color-bronce);
+}
+p { margin-bottom: var(--espacio-sm); }
+
+.contenedor { max-width: var(--contenedor-max); margin: 0 auto; padding: 0 var(--espacio-md); }
+.contenedor-texto { max-width: var(--contenedor-texto); margin: 0 auto; padding: 0 var(--espacio-md); }
+
+/* Utilidades */
+.text-center { text-align: center; }
+.mt-sm { margin-top: var(--espacio-sm); }
+.mt-md { margin-top: var(--espacio-md); }
+.mt-lg { margin-top: var(--espacio-lg); }
+.mb-md { margin-bottom: var(--espacio-md); }
+.mb-lg { margin-bottom: var(--espacio-lg); }
