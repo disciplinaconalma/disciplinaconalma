@@ -68,6 +68,7 @@ body {
   color: var(--color-bronce);
   background-color: var(--color-marfil);
   font-weight: 400;
+  overflow-x: hidden; /* Evita scroll horizontal en celular */
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; transition: var(--transicion-suave); }
@@ -84,7 +85,6 @@ p { margin-bottom: var(--espacio-sm); }
 .contenedor { max-width: var(--contenedor-max); margin: 0 auto; padding: 0 var(--espacio-md); }
 .contenedor-texto { max-width: var(--contenedor-texto); margin: 0 auto; padding: 0 var(--espacio-md); }
 
-/* Utilidades */
 .text-center { text-align: center; }
 .mt-sm { margin-top: var(--espacio-sm); }
 .mt-md { margin-top: var(--espacio-md); }

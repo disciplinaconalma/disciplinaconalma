@@ -1,8 +1,8 @@
 /* ============================================
-   DISCIPLINA CON ALMA — MAIN CSS MOBILE FIRST
+   DISCIPLINA CON ALMA — MAIN CSS UNIFICADO
    ============================================ */
 
-/* ---------- NAVBAR (Elegante, Premium y Móvil) ---------- */
+/* ---------- NAVBAR (Elegante y Premium) ---------- */
 .navbar {
   position: absolute; 
   top: 0; left: 0; width: 100%;
@@ -44,43 +44,9 @@
   top: 2px;
 }
 
-/* Menú de Escritorio */
-.navbar__menu {
-  display: flex;
-  gap: var(--espacio-lg);
-  list-style: none;
-  align-items: center;
-}
-
-.navbar__menu a {
-  font-family: var(--font-texto);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-bronce);
-  opacity: 0.7;
-  position: relative;
-  padding: 8px 0;
-  transition: all 0.3s ease;
-}
-
-.navbar__menu a:hover { opacity: 1; color: var(--color-cobre); transform: translateY(-1px); }
-
-.navbar__menu a::after {
-  content: ''; position: absolute; bottom: 0; left: 50%;
-  transform: translateX(-50%); width: 0; height: 1.5px;
-  background-color: var(--color-cobre); transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.navbar__menu a:hover::after, .navbar__menu a.activo::after { width: 100%; }
-.navbar__menu a.activo { opacity: 1; color: var(--color-cobre); font-weight: 600; }
-
-/* Botón Menú Hamburguesa (Oculto en PC) */
+/* --- BOTÓN HAMBURGUESA (Móvil) --- */
 .navbar__toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
+  display: block; 
   background: transparent;
   border: none;
   cursor: pointer;
@@ -90,18 +56,61 @@
 
 .navbar__toggle span {
   display: block;
-  width: 26px;
+  width: 25px;
   height: 2px;
   background-color: var(--color-cobre);
+  margin: 5px 0;
   transition: var(--transicion-suave);
 }
 
-/* ---------- BOTONES ---------- */
+/* Animación del botón hamburguesa al abrir */
+.navbar__toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__toggle.active span:nth-child(2) { opacity: 0; }
+.navbar__toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* --- MENÚ MÓVIL (Oculto por defecto) --- */
+.navbar__menu {
+  position: absolute;
+  top: 100%; left: 0; width: 100%;
+  background-color: var(--color-marfil);
+  flex-direction: column;
+  align-items: center;
+  padding: var(--espacio-md) 0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transform: translateY(-150%);
+  transition: transform 0.4s ease;
+  z-index: -1;
+  border-bottom: 1px solid rgba(182, 106, 53, 0.1);
+}
+
+.navbar__menu.active {
+  transform: translateY(0);
+  z-index: 999;
+}
+
+.navbar__menu li { margin: 10px 0; width: 100%; text-align: center; }
+
+.navbar__menu a {
+  font-family: var(--font-texto);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-bronce);
+  padding: 10px 0;
+  display: block;
+}
+
+.navbar__menu a.activo { color: var(--color-cobre); font-weight: 600; }
+
+/* ============================================
+   BOTONES (Optimizados para tacto)
+   ============================================ */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.1rem 2.5rem; /* Más alto para dedos */
+  padding: 1.1rem 2.5rem;
   font-family: var(--font-texto);
   font-size: var(--fs-sm);
   letter-spacing: 0.1em;
@@ -110,23 +119,18 @@
   transition: var(--transicion-suave);
   cursor: pointer;
   text-align: center;
-  width: 100%; /* En móvil los botones ocupan todo el ancho */
+  width: 100%;
   max-width: 350px;
-}
-
-@media(min-width: 768px) {
-  .btn { width: auto; } /* En PC vuelven a su tamaño normal */
 }
 
 .btn--primario { background-color: var(--color-cobre); color: var(--color-marfil); border: 1px solid var(--color-cobre); }
 .btn--primario:hover { background-color: var(--color-bronce); border-color: var(--color-bronce); }
 .btn--secundario { background: transparent; color: var(--color-bronce); border: 1px solid var(--color-bronce); }
-.btn--secundario:hover { background-color: var(--color-bronce); color: var(--color-marfil); }
 .btn--outline-cobre { background: transparent; color: var(--color-cobre); border: 1px solid var(--color-cobre); }
 .btn--outline-cobre:hover { background: var(--color-cobre); color: var(--color-marfil); }
 
 /* ============================================
-   HERO LUXURY (PÁGINA DE INICIO)
+   HERO (Móvil primero)
    ============================================ */
 .hero-luxury {
   position: relative;
@@ -136,13 +140,7 @@
   background-color: var(--color-marfil);
   overflow: hidden;
   padding-top: 100px; 
-  padding-bottom: 120px; 
-}
-
-.hero-luxury::before {
-  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background-image: repeating-linear-gradient(45deg, rgba(182, 106, 53, 0.03) 0px, rgba(182, 106, 53, 0.03) 1px, transparent 1px, transparent 15px);
-  z-index: 1;
+  padding-bottom: 40px; 
 }
 
 .hero-luxury__contenedor {
@@ -160,7 +158,6 @@
 .hero-luxury__texto {
   display: flex; flex-direction: column; justify-content: center;
   color: var(--color-bronce); text-align: center;
-  animation: fadeUp 1s ease forwards;
 }
 
 .hero-luxury__etiqueta {
@@ -172,7 +169,7 @@
 
 .hero-luxury__titulo {
   font-family: var(--font-titulo);
-  font-size: clamp(2.8rem, 8vw, 5.5rem); /* Se adapta al cel */
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
   font-weight: 500; line-height: 1;
   color: var(--color-bronce); margin-bottom: var(--espacio-sm);
 }
@@ -211,28 +208,19 @@
   width: 130px; height: 150px; background-color: var(--color-marfil);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  color: var(--color-bronce); text-align: center;
   border: 1px solid rgba(182, 106, 53, 0.3); box-shadow: var(--sombra-fuerte); z-index: 10;
 }
 
 .hero-luxury__badge p { font-size: 0.6rem; text-transform: uppercase; margin: 0; }
 .hero-luxury__badge h3 { font-family: var(--font-titulo); font-size: 1.5rem; color: var(--color-cobre); margin: 2px 0; }
 
-/* Barra de Filtros (PC) */
-.hero-luxury__barra {
-  position: absolute; bottom: 0; left: 0; width: 100%;
-  background-color: var(--color-marfil-puro); z-index: 20;
-  box-shadow: 0 -10px 30px rgba(122, 62, 29, 0.05);
-  display: none; /* Oculto en celular */
-}
-
 /* ============================================
-   HERO INTERNO (PÁGINAS SECUNDARIAS)
+   HERO INTERNO (Páginas secundarias)
    ============================================ */
 .hero--interno {
   position: relative;
   background-color: var(--color-marfil);
-  padding: 120px var(--espacio-md) 40px; /* Menos espacio en cel */
+  padding: 120px var(--espacio-md) 40px;
   text-align: center;
   border-bottom: 1px solid rgba(182, 106, 53, 0.1);
 }
@@ -241,7 +229,7 @@
 .hero__frase { font-family: var(--font-firma); font-size: var(--fs-lg); color: var(--color-cobre); margin-top: 0; }
 
 /* ============================================
-   SECCIONES Y UTILIDADES
+   SECCIONES Y GRILLAS (Móvil)
    ============================================ */
 .seccion { padding: var(--espacio-lg) 0; }
 .seccion--arena { background-color: var(--color-arena); }
@@ -250,72 +238,42 @@
 
 .seccion__titulo { font-family: var(--font-titulo); font-size: var(--fs-xl); text-align: center; margin-bottom: var(--espacio-xs); }
 .seccion__subtitulo { font-family: var(--font-firma); font-size: var(--fs-lg); color: var(--color-cobre); text-align: center; margin-bottom: var(--espacio-md); }
-.seccion--verde .seccion__subtitulo { color: var(--color-rosa-cobre); }
 
-/* ============================================
-   GRILLAS Y TARJETAS (Todas en 1 columna para Cel)
-   ============================================ */
 .grid-pilares, .grid-experiencias, .grid-eventos, .grid-testimonios, .grid-dos, .grid-tres, .timeline {
   display: grid; grid-template-columns: 1fr; gap: var(--espacio-md); margin-top: var(--espacio-md);
 }
 
-.pilar, .experiencia {
-  padding: var(--espacio-md); background-color: var(--color-marfil-puro);
-  border-radius: var(--radio-md); box-shadow: var(--sombra-suave);
-}
-
-.pilar__icono, .experiencia__icono { width: 40px; height: 40px; margin-bottom: var(--espacio-xs); }
-.pilar__titulo, .experiencia__nombre { font-family: var(--font-titulo); font-size: var(--fs-base); text-transform: uppercase; }
-
-/* ============================================
-   EVENTOS
-   ============================================ */
-.evento { background-color: var(--color-marfil-puro); border-radius: var(--radio-md); overflow: hidden; box-shadow: var(--sombra-suave); }
-.evento__imagen { aspect-ratio: 4 / 3; }
-.evento__contenido { padding: var(--espacio-md); }
-.evento__titulo { font-size: var(--fs-base); }
-.evento__detalles li { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
-
-/* Destacado en index */
-.evento--destacado { display: flex; flex-direction: column; }
-
 /* ============================================
    FOOTER
    ============================================ */
-.footer { padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md); }
-.footer__logo { max-width: 100px; }
-.footer__frase { font-size: var(--fs-base); }
+.footer { background-color: var(--color-bronce); color: var(--color-marfil); padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md); text-align: center; }
+.footer__logo { max-width: 100px; margin: 0 auto var(--espacio-md); }
+.footer__frase { font-family: var(--font-firma); font-size: var(--fs-lg); color: var(--color-rosa-cobre); margin-bottom: var(--espacio-md); }
+.footer__redes { display: flex; justify-content: center; gap: var(--espacio-md); margin-bottom: var(--espacio-md); }
+.footer__redes a { font-size: var(--fs-sm); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+.footer__copy { font-size: var(--fs-xs); opacity: 0.6; }
 
 /* ============================================
-   FORMULARIO Y PAGO
-   ============================================ */
-.formulario { padding: var(--espacio-md); }
-.formulario__input, .formulario__textarea { padding: 1rem; font-size: 16px; /* Evita zoom en iPhone */ }
-
-/* Resumen de Pago */
-.resumen-pago { padding: 1rem; }
-.resumen-pago__fila { font-size: 0.9rem; }
-
-/* Botones de Cuentas */
-.cuenta-numero-wrapper { flex-direction: column; gap: 10px; align-items: flex-start; }
-.btn-copiar { width: 100%; padding: 0.5rem; }
-
-/* ============================================
-   ANIMACIONES Y UTILIDADES
-   ============================================ */
-.animar { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.animar.visible { opacity: 1; transform: translateY(0); }
-
-/* ============================================
-   MEDIA QUERIES (Tablet y Escritorio)
+   MEDIA QUERIES (Tablet y PC)
    ============================================ */
 @media (min-width: 768px) {
-  /* Restaurar menú de PC y ocultar hamburguesa */
+  /* Ocultar menú hamburguesa y mostrar menú horizontal */
   .navbar__toggle { display: none; }
-  .navbar__menu { display: flex; }
-  .navbar { padding: var(--espacio-md) 0; }
+  .navbar__menu {
+    position: static; flex-direction: row; gap: var(--espacio-lg);
+    background: transparent; box-shadow: none; transform: none; padding: 0; width: auto; border: none;
+  }
+  .navbar__menu li { margin: 0; width: auto; }
+  .navbar__menu a { padding: 8px 0; position: relative; }
   
+  .navbar__menu a::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 0; height: 1.5px; background-color: var(--color-cobre); transition: width 0.4s ease;
+  }
+  .navbar__menu a:hover::after, .navbar__menu a.activo::after { width: 100%; }
+
   /* Restaurar Hero de PC */
+  .hero-luxury { padding-bottom: 120px; }
   .hero-luxury__contenedor { grid-template-columns: 1fr 1fr; text-align: left; gap: var(--espacio-xl); }
   .hero-luxury__texto { text-align: left; align-items: flex-start; }
   .hero-luxury__etiqueta { justify-content: flex-start; }
@@ -323,23 +281,14 @@
   .hero-luxury__imagen { min-height: 550px; }
   .hero-luxury__badge { left: -60px; top: 50%; bottom: auto; transform: translateY(-50%); }
   
-  /* Restaurar barra de filtros */
-  .hero-luxury__barra { display: block; }
-
-  /* Restaurar Grillas */
+  /* Restaurar Grillas en PC */
   .grid-dos { grid-template-columns: repeat(2, 1fr); }
   .grid-tres, .grid-testimonios { grid-template-columns: repeat(3, 1fr); }
   .grid-pilares, .grid-experiencias { grid-template-columns: repeat(4, 1fr); }
   .grid-eventos { grid-template-columns: repeat(2, 1fr); }
   .timeline { grid-template-columns: repeat(5, 1fr); }
   
-  /* Evento Destacado PC */
-  .evento--destacado { flex-direction: row; }
-  
-  /* Formulario PC */
-  .cuenta-numero-wrapper { flex-direction: row; align-items: center; }
-  .btn-copiar { width: auto; }
-  
+  /* Botones y formularios en PC */
   .btn { width: auto; }
 }
 

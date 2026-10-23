@@ -47,7 +47,7 @@
       <ul class="grid-eventos">
         <li class="evento">
           <div class="evento__imagen">
-            <img src="https://placehold.co/800x450/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro">
+            <img src="https://placehold.co/800x450/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro" loading="lazy">
             <span class="evento__etiqueta">Retiro</span>
           </div>
           <div class="evento__contenido">
@@ -55,12 +55,13 @@
             <h3 class="evento__titulo">Retiro de Yoga y Respiración</h3>
             <p class="evento__descripcion">Un día completo para detenerte, respirar y reconectar con tu cuerpo en medio de la naturaleza.</p>
             <ul class="evento__detalles"><li>📍 Finca La Esperanza</li><li>⏱ 6 horas</li><li>👥 20 mujeres</li></ul>
+            <!-- Enlace corregido con el parámetro ?evento= -->
             <a href="registro-evento.html?evento=Retiro de Yoga y Respiración" class="btn btn--primario">Reservar lugar</a>
           </div>
         </li>
         <li class="evento">
           <div class="evento__imagen">
-            <img src="https://placehold.co/800x450/D49A7A/B66A35?text=Ceremonia+de+Cacao" alt="Cacao">
+            <img src="https://placehold.co/800x450/D49A7A/B66A35?text=Ceremonia+de+Cacao" alt="Cacao" loading="lazy">
             <span class="evento__etiqueta">Ceremonia</span>
           </div>
           <div class="evento__contenido">
@@ -73,7 +74,7 @@
         </li>
         <li class="evento">
           <div class="evento__imagen">
-            <img src="https://placehold.co/800x450/DDB7A6/B66A35?text=Kintsugi" alt="Kintsugi">
+            <img src="https://placehold.co/800x450/DDB7A6/B66A35?text=Kintsugi" alt="Kintsugi" loading="lazy">
             <span class="evento__etiqueta">Taller</span>
           </div>
           <div class="evento__contenido">
@@ -86,7 +87,7 @@
         </li>
         <li class="evento">
           <div class="evento__imagen">
-            <img src="https://placehold.co/800x450/B7A18E/B66A35?text=Caminata+Consciente" alt="Caminata">
+            <img src="https://placehold.co/800x450/B7A18E/B66A35?text=Caminata+Consciente" alt="Caminata" loading="lazy">
             <span class="evento__etiqueta">Aventura</span>
           </div>
           <div class="evento__contenido">
@@ -101,40 +102,13 @@
     </div>
   </section>
 
-  <section class="seccion">
-    <div class="contenedor text-center animar">
-      <h2 class="seccion__titulo">Cómo Vivimos un Encuentro</h2>
-      <p class="seccion__subtitulo">Cada momento tiene un propósito</p>
-      <ol class="timeline">
-        <li class="timeline__item"><div class="timeline__numero">01</div><h3 class="timeline__titulo">Entrada</h3><p>Bienvenida cálida, belleza visual y claridad logística.</p></li>
-        <li class="timeline__item"><div class="timeline__numero">02</div><h3 class="timeline__titulo">Apertura</h3><p>Intención emocional del encuentro. Un momento para llegar.</p></li>
-        <li class="timeline__item"><div class="timeline__numero">03</div><h3 class="timeline__titulo">Cuerpo</h3><p>Movimiento, reflexión, comunidad, bienestar y pausa.</p></li>
-        <li class="timeline__item"><div class="timeline__numero">04</div><h3 class="timeline__titulo">Momento memorable</h3><p>Un gesto simbólico: plantar, escribir, cerrar en círculo.</p></li>
-        <li class="timeline__item"><div class="timeline__numero">05</div><h3 class="timeline__titulo">Salida</h3><p>Integración, foto de comunidad, próxima acción.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="seccion seccion--verde">
-    <div class="contenedor-texto text-center animar">
-      <h2 class="seccion__titulo">Nuestra Promesa</h2>
-      <p class="seccion__subtitulo">Al terminar cada encuentro</p>
-      <p class="promesa__frase">"Una mujer no debe salir solo con fotos bonitas.<br>Debe salir con una decisión interior más clara."</p>
-    </div>
-  </section>
-
-  <section class="seccion text-center">
-    <div class="contenedor-texto animar">
-      <h2 class="seccion__titulo">¿Lista para vivir la próxima?</h2>
-      <p class="seccion__subtitulo">Reserva tu lugar</p>
-      <a href="contacto.html" class="btn btn--outline-cobre mt-md">Quiero unirme</a>
-    </div>
-  </section>
-
   <footer class="footer">
-    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
+    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
-    <div class="footer__redes"><a href="#">Instagram</a><a href="contacto.html">Contacto</a></div>
+    <div class="footer__redes">
+      <a href="https://instagram.com/disciplinaconalma" target="_blank" rel="noopener">Instagram</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
 
