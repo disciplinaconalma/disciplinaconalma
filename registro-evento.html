@@ -4,37 +4,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro — Disciplina con Alma</title>
+  
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  
+  <!-- CSS Base -->
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
   
+  <!-- Estilos específicos para esta página (Formulario y Pago) -->
   <style>
-    .cuenta-bloque { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(182, 106, 53, 0.15); }
-    .cuenta-bloque:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .cuenta-header { display: flex; align-items: center; gap: 10px; font-weight: 500; color: var(--color-bronce); }
-    .cuenta-logo { height: 30px; width: auto; object-fit: contain; }
-    .cuenta-numero-wrapper { display: flex; align-items: center; justify-content: space-between; background-color: var(--color-marfil-soft); padding: 0.6rem 1rem; border-radius: var(--radio-sm); border: 1px dashed rgba(182, 106, 53, 0.3); flex-direction: column; gap: 10px; align-items: flex-start; }
-    .cuenta-numero { font-family: var(--font-texto); font-size: var(--fs-md); letter-spacing: 0.1em; color: var(--color-cobre); font-weight: 600; }
-    .btn-copiar { background: transparent; border: 1px solid var(--color-cobre); color: var(--color-cobre); padding: 0.5rem; border-radius: 50px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease; width: 100%; }
-    .btn-copiar:hover { background: var(--color-cobre); color: var(--color-marfil); }
-    .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; padding: 1rem 2.5rem; border-radius: 50px; font-family: var(--font-texto); font-size: var(--fs-sm); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.3s ease; border: none; cursor: pointer; width: 100%; max-width: 350px; margin: 0 auto; }
-    .btn-whatsapp:hover { background-color: #128C7E; }
-    .btn-whatsapp svg { width: 24px; height: 24px; fill: currentColor; }
-    .resumen-pago { background-color: var(--color-arena); border-radius: var(--radio-md); padding: 1rem; margin: 0 auto 2rem; max-width: 500px; text-align: left; border-left: 4px solid var(--color-cobre); }
-    .resumen-pago__titulo { font-family: var(--font-titulo); font-size: 1.2rem; color: var(--color-bronce); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em; }
-    .resumen-pago__fila { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--color-bronce); }
-    .resumen-pago__fila--total { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(182, 106, 53, 0.3); font-weight: bold; font-size: 1.2rem; color: var(--color-cobre); }
-    .formulario__input--select { appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23B66A35%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto; }
-    @media(min-width: 768px) {
-      .cuenta-numero-wrapper { flex-direction: row; align-items: center; }
-      .btn-copiar { width: auto; padding: 0.3rem 0.8rem; }
+    /* Contenedor tipo Tarjeta */
+    .form-card {
+      background-color: var(--color-marfil-puro);
+      border-radius: var(--radio-lg);
+      padding: var(--espacio-lg) var(--espacio-md);
+      box-shadow: var(--sombra-suave);
+      max-width: 500px;
+      margin: 0 auto;
+      border: 1px solid rgba(182, 106, 53, 0.1);
     }
+
+    /* Grupos de campos */
+    .form-group {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-bronce);
+      font-weight: 600;
+    }
+
+    /* Inputs y Selects */
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      font-family: var(--font-texto);
+      font-size: 1rem; /* Evita zoom en iPhone */
+      color: var(--color-bronce);
+      background-color: var(--color-marfil-soft);
+      border: 1px solid rgba(182, 106, 53, 0.2);
+      border-radius: var(--radio-sm);
+      transition: var(--transicion-suave);
+      outline: none;
+      appearance: none; /* Quita el estilo por defecto */
+    }
+
+    .form-control:focus {
+      border-color: var(--color-cobre);
+      background-color: var(--color-marfil-puro);
+      box-shadow: 0 0 0 3px rgba(182, 106, 53, 0.1);
+    }
+
+    .form-control::placeholder {
+      color: var(--color-bronce);
+      opacity: 0.4;
+    }
+
+    /* Select personalizado con flecha */
+    select.form-control {
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23B66A35%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem top 50%;
+      background-size: 0.65rem auto;
+      cursor: pointer;
+    }
+
+    /* Botón de envío */
+    .btn-submit {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    /* ---- RESUMEN DE PAGO ---- */
+    .resumen-pago {
+      background-color: var(--color-marfil-soft);
+      border-radius: var(--radio-md);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--color-cobre);
+    }
+    .resumen-pago h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .resumen-fila {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .resumen-total {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(182, 106, 53, 0.2);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--color-cobre);
+    }
+
+    /* ---- DATOS BANCARIOS ---- */
+    .cuenta-bloque {
+      background-color: var(--color-marfil-puro);
+      border: 1px solid rgba(182, 106, 53, 0.15);
+      border-radius: var(--radio-sm);
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .cuenta-header {
+      display: flex; align-items: center; gap: 10px; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;
+    }
+    .cuenta-numero-wrapper {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      background-color: var(--color-marfil-soft); padding: 0.8rem; border-radius: var(--radio-sm);
+    }
+    .cuenta-numero {
+      font-size: 1.1rem; font-weight: 700; color: var(--color-cobre); letter-spacing: 0.05em;
+    }
+    .btn-copiar {
+      background: transparent; border: 1px solid var(--color-cobre); color: var(--color-cobre);
+      padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.7rem; text-transform: uppercase;
+      cursor: pointer; transition: var(--transicion-suave);
+    }
+    .btn-copiar:hover { background: var(--color-cobre); color: var(--color-marfil); }
+
+    /* ---- BOTÓN WHATSAPP ---- */
+    .btn-whatsapp {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background-color: #25D366; color: white; padding: 1.2rem; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+      width: 100%; margin: 2rem 0 1rem; transition: var(--transicion-suave); border: none;
+    }
+    .btn-whatsapp:hover { background-color: #128C7E; transform: translateY(-2px); }
+    .btn-whatsapp svg { width: 20px; height: 20px; fill: currentColor; }
+
   </style>
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
@@ -50,152 +170,165 @@
     </div>
   </nav>
 
-  <header class="hero--interno" style="padding-bottom: 40px;">
+  <!-- HERO INTERNO -->
+  <header class="hero--interno" style="padding-bottom: 20px;">
     <img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="hero__logo-horizontal">
     <p class="hero__frase">"Asegura tu lugar"</p>
   </header>
 
-  <section class="seccion">
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="seccion" style="padding-top: 20px;">
     <div class="contenedor-texto">
       
-      <div id="formulario-container" class="animar visible">
+      <!-- PANTALLA 1: FORMULARIO -->
+      <div id="formulario-container">
         <div class="text-center mb-lg">
           <h2 class="seccion__titulo">Registro al Evento</h2>
           <p class="seccion__subtitulo" id="nombre-evento-display">Selecciona tu experiencia</p>
         </div>
 
-        <form id="registro-form" class="formulario">
-          <div class="formulario__grupo">
-            <label class="formulario__label">Nombre completo</label>
-            <input type="text" name="nombre" id="input-nombre" class="formulario__input" placeholder="Tu nombre" required>
-          </div>
-          <div class="formulario__grupo">
-            <label class="formulario__label">Email</label>
-            <input type="email" name="email" class="formulario__input" placeholder="tu@email.com" required>
-          </div>
-          <div class="formulario__grupo">
-            <label class="formulario__label">Teléfono</label>
-            <input type="tel" name="telefono" class="formulario__input" placeholder="+1 234 567 8900" required>
-          </div>
+        <div class="form-card">
+          <form id="registro-form">
+            
+            <div class="form-group">
+              <label class="form-label">Nombre completo</label>
+              <input type="text" name="nombre" id="input-nombre" class="form-control" placeholder="Tu nombre" required>
+            </div>
 
-          <div class="formulario__grupo">
-            <label class="formulario__label">Selecciona el Evento</label>
-            <select name="evento" id="select-evento" class="formulario__input formulario__input--select" required>
-              <option value="" disabled selected>Elige una experiencia...</option>
-              <option value="Retiro de Yoga y Respiración|150">Retiro de Yoga y Respiración ($150)</option>
-              <option value="Ceremonia de Cacao|60">Ceremonia de Cacao ($60)</option>
-              <option value="Taller de Kintsugi|80">Taller de Kintsugi ($80)</option>
-              <option value="Caminata Consciente al Amanecer|40">Caminata Consciente al Amanecer ($40)</option>
-            </select>
-          </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" placeholder="tu@email.com" required>
+            </div>
 
-          <div class="formulario__grupo">
-            <label class="formulario__label">Cantidad de personas</label>
-            <select name="cantidad" id="select-cantidad" class="formulario__input formulario__input--select" required>
-              <option value="1">1 Persona</option>
-              <option value="2">2 Personas</option>
-              <option value="3">3 Personas</option>
-              <option value="4">4 Personas</option>
-            </select>
-          </div>
-          
-          <button type="submit" id="btn-submit" class="btn btn--primario">Confirmar Registro y Ver Datos de Pago</button>
-          <p class="formulario__aviso">Al registrarte, te mostraremos el resumen y los datos para la transferencia.</p>
-        </form>
+            <div class="form-group">
+              <label class="form-label">Teléfono</label>
+              <input type="tel" name="telefono" class="form-control" placeholder="+1 809 000 0000" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Selecciona el Evento</label>
+              <!-- Los precios están en el atributo value separados por | -->
+              <select name="evento" id="select-evento" class="form-control" required>
+                <option value="" disabled selected>Elige una experiencia...</option>
+                <option value="Retiro de Yoga y Respiración|150">Retiro de Yoga y Respiración ($150)</option>
+                <option value="Ceremonia de Cacao|60">Ceremonia de Cacao ($60)</option>
+                <option value="Taller de Kintsugi|80">Taller de Kintsugi ($80)</option>
+                <option value="Caminata Consciente al Amanecer|40">Caminata Consciente al Amanecer ($40)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Cantidad de personas</label>
+              <select name="cantidad" id="select-cantidad" class="form-control" required>
+                <option value="1">1 Persona</option>
+                <option value="2">2 Personas</option>
+                <option value="3">3 Personas</option>
+                <option value="4">4 Personas</option>
+              </select>
+            </div>
+            
+            <button type="submit" id="btn-submit" class="btn btn--primario btn-submit">Confirmar Registro</button>
+            <p class="text-center" style="font-size: 0.8rem; opacity: 0.7; margin-top: 1rem;">Al registrarte, te mostraremos los datos para la transferencia.</p>
+          </form>
+        </div>
       </div>
 
-      <div id="pago-container" class="animar" style="display: none;">
-        <div class="text-center">
+      <!-- PANTALLA 2: PAGO Y RESUMEN -->
+      <div id="pago-container" style="display: none;">
+        <div class="text-center mb-lg">
           <h2 class="seccion__titulo" style="color: var(--color-verde-bosque);">¡Registro Exitoso!</h2>
-          <p class="seccion__subtitulo" id="evento-exito-display">Resumen de tu reserva</p>
+          <p class="seccion__subtitulo">Ya casi estás dentro</p>
+        </div>
+
+        <div class="form-card">
           
+          <!-- Resumen de Pago -->
           <div class="resumen-pago">
-            <h3 class="resumen-pago__titulo">Resumen de Pago</h3>
-            <div class="resumen-pago__fila">
+            <h3>Resumen de tu reserva</h3>
+            <div class="resumen-fila">
               <span>Evento:</span>
               <span id="resumen-evento-nombre" style="font-weight: 600; text-align: right;"></span>
             </div>
-            <div class="resumen-pago__fila">
+            <div class="resumen-fila">
               <span>Cantidad:</span>
-              <span id="resumen-cantidad">1 persona(s)</span>
+              <span id="resumen-cantidad"></span>
             </div>
-            <div class="resumen-pago__fila">
+            <div class="resumen-fila">
               <span>Precio unitario:</span>
-              <span id="resumen-precio-unitario">$0.00</span>
+              <span id="resumen-precio-unitario"></span>
             </div>
-            <div class="resumen-pago__fila resumen-pago__fila--total">
+            <div class="resumen-fila resumen-total">
               <span>Total a pagar:</span>
-              <span id="resumen-total">$0.00</span>
+              <span id="resumen-total"></span>
             </div>
           </div>
 
-          <p class="mb-md">Para completar tu reserva, realiza una transferencia a cualquiera de nuestras cuentas por el monto total:</p>
-          
-          <div class="info-bloque" style="margin: 2rem auto; max-width: 550px; text-align: left;">
-            <h3 class="info-bloque__titulo">Datos de Transferencia</h3>
-            
-            <div class="cuenta-bloque">
-              <div class="cuenta-header">
-                <img src="https://placehold.co/100x40/ffffff/B66A35?text=BanReservas" alt="BanReservas" class="cuenta-logo">
-                <span>BanReservas</span>
-              </div>
-              <div class="cuenta-numero-wrapper">
-                <span class="cuenta-numero" id="cuenta-reservas">9603467328</span>
-                <button type="button" class="btn-copiar" onclick="copiarCuenta('cuenta-reservas', this)">Copiar</button>
-              </div>
-            </div>
+          <p class="text-center mb-md" style="font-size: 0.9rem;">Realiza una transferencia a cualquiera de nuestras cuentas:</p>
 
-            <div class="cuenta-bloque">
-              <div class="cuenta-header">
-                <img src="https://placehold.co/100x40/ffffff/B66A35?text=Popular" alt="Banco Popular" class="cuenta-logo">
-                <span>Banco Popular</span>
-              </div>
-              <div class="cuenta-numero-wrapper">
-                <span class="cuenta-numero" id="cuenta-popular">801189572</span>
-                <button type="button" class="btn-copiar" onclick="copiarCuenta('cuenta-popular', this)">Copiar</button>
-              </div>
+          <!-- Cuentas Bancarias -->
+          <div class="cuenta-bloque">
+            <div class="cuenta-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-cobre)" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="7" y1="8" x2="7" y2="8.01"></line><line x1="11" y1="8" x2="17" y2="8"></line><line x1="7" y1="12" x2="7" y2="12.01"></line><line x1="11" y1="12" x2="17" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
+              <span>BanReservas</span>
             </div>
-
-            <div class="cuenta-bloque">
-              <div class="cuenta-header">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-cobre)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="7" y1="8" x2="7" y2="8.01"></line><line x1="11" y1="8" x2="17" y2="8"></line><line x1="7" y1="12" x2="7" y2="12.01"></line><line x1="11" y1="12" x2="17" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
-                <span>Cédula (Titular)</span>
-              </div>
-              <div class="cuenta-numero-wrapper">
-                <span class="cuenta-numero" id="cedula-titular">402-1248639-9</span>
-                <button type="button" class="btn-copiar" onclick="copiarCuenta('cedula-titular', this)">Copiar</button>
-              </div>
+            <div class="cuenta-numero-wrapper">
+              <span class="cuenta-numero" id="cuenta-reservas">9603467328</span>
+              <button type="button" class="btn-copiar" onclick="copiarCuenta('cuenta-reservas', this)">Copiar</button>
             </div>
-
-            <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 1.5rem; text-align: center;">
-              <strong>Concepto:</strong> Tu Nombre + <span id="concepto-evento">Evento</span>
-            </p>
           </div>
 
-          <div style="margin-top: 2rem; margin-bottom: 1rem;">
-            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--color-bronce);">
-              Envía tu comprobante por WhatsApp para confirmar tu lugar:
-            </p>
-            <a href="#" id="btn-whatsapp-link" target="_blank" rel="noopener" class="btn-whatsapp">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              Enviar comprobante
-            </a>
+          <div class="cuenta-bloque">
+            <div class="cuenta-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-cobre)" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect><line x1="7" y1="8" x2="7" y2="8.01"></line><line x1="11" y1="8" x2="17" y2="8"></line><line x1="7" y1="12" x2="7" y2="12.01"></line><line x1="11" y1="12" x2="17" y2="12"></line><line x1="7" y1="16" x2="17" y2="16"></line></svg>
+              <span>Banco Popular</span>
+            </div>
+            <div class="cuenta-numero-wrapper">
+              <span class="cuenta-numero" id="cuenta-popular">801189572</span>
+              <button type="button" class="btn-copiar" onclick="copiarCuenta('cuenta-popular', this)">Copiar</button>
+            </div>
           </div>
 
-          <a href="eventos.html" class="btn btn--outline-cobre mt-md">Volver a Eventos</a>
+          <div class="cuenta-bloque">
+            <div class="cuenta-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-cobre)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <span>Cédula Titular</span>
+            </div>
+            <div class="cuenta-numero-wrapper">
+              <span class="cuenta-numero" id="cedula-titular">402-1248639-9</span>
+              <button type="button" class="btn-copiar" onclick="copiarCuenta('cedula-titular', this)">Copiar</button>
+            </div>
+          </div>
+
+          <p class="text-center" style="font-size: 0.8rem; margin-top: 1.5rem;">
+            <strong>Concepto:</strong> Tu Nombre + <span id="concepto-evento">Evento</span>
+          </p>
+
+          <!-- Botón WhatsApp -->
+          <a href="#" id="btn-whatsapp-link" target="_blank" rel="noopener" class="btn-whatsapp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Enviar comprobante
+          </a>
+
+          <a href="eventos.html" class="btn btn--outline-cobre" style="width: 100%;">Volver a Eventos</a>
+
         </div>
       </div>
 
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
+    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
-    <div class="footer__redes"><a href="#">Instagram</a><a href="contacto.html">Contacto</a></div>
+    <div class="footer__redes">
+      <a href="https://instagram.com/disciplinaconalma" target="_blank" rel="noopener">Instagram</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="assets/js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -211,6 +344,7 @@
       const scriptURL = 'https://script.google.com/macros/s/AKfycbw_gs_jnorvkAwRlmXj7el_77vBItn4ecdVIr1-GPFpfdpm9U_R9dCvwBeRxBUALjZi/exec';
       const numeroWhatsApp = '18098438291';
 
+      // Preseleccionar evento desde la URL
       const urlParams = new URLSearchParams(window.location.search);
       const eventoUrl = urlParams.get('evento');
       
@@ -248,7 +382,6 @@
         .then(response => response.json())
         .then(response => {
           if(response.result === 'success') {
-            document.getElementById('evento-exito-display').textContent = nombreEvento;
             document.getElementById('resumen-evento-nombre').textContent = nombreEvento;
             document.getElementById('resumen-cantidad').textContent = cantidad + ' persona(s)';
             document.getElementById('resumen-precio-unitario').textContent = '$' + precioEvento + '.00';
@@ -256,7 +389,7 @@
             document.getElementById('concepto-evento').textContent = nombreEvento;
 
             const nombreUsuario = inputNombre.value.trim();
-            const mensaje = `Hola Melissa, acabo de registrarme para el evento *${nombreEvento}*.\n\nMi nombre es *${nombreUsuario}*.\nCantidad de personas: *${cantidad}*.\nTotal pagado: *$${precioTotal}.00*.\n\nAdjunto mi comprobante de pago para confirmar mi lugar. ¡Gracias!`;
+            const mensaje = `Hola Melissa, acabo de registrarme para el evento *${nombreEvento}*.\n\nMi nombre es *${nombreUsuario}*.\nCantidad: *${cantidad}*.\nTotal: *$${precioTotal}.00*.\n\nAdjunto mi comprobante. ¡Gracias!`;
             btnWhatsapp.href = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
             formContainer.style.display = 'none';
@@ -269,7 +402,7 @@
         .catch(error => {
           console.error('Error!', error.message);
           alert('Hubo un problema al registrar tus datos. Por favor, verifica tu conexión e intenta de nuevo.');
-          btnSubmit.textContent = 'Confirmar Registro y Ver Datos de Pago';
+          btnSubmit.textContent = 'Confirmar Registro';
           btnSubmit.disabled = false;
         });
       });
@@ -283,12 +416,10 @@
         boton.innerText = '¡Copiado!';
         boton.style.backgroundColor = 'var(--color-verde-bosque)';
         boton.style.color = 'white';
-        boton.style.borderColor = 'var(--color-verde-bosque)';
         setTimeout(() => {
           boton.innerText = textoOriginal;
           boton.style.backgroundColor = 'transparent';
           boton.style.color = 'var(--color-cobre)';
-          boton.style.borderColor = 'var(--color-cobre)';
         }, 2000);
       }).catch(err => console.error('Error al copiar: ', err));
     }
