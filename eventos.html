@@ -6,14 +6,18 @@
   <title>Eventos — Disciplina con Alma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
+      <button class="navbar__toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
@@ -34,7 +38,7 @@
     <div class="contenedor-texto text-center animar">
       <h2 class="seccion__titulo">Próximos Encuentros</h2>
       <p class="seccion__subtitulo">Te esperamos</p>
-      <p>Cada experiencia está diseñada para que <em>bajes el ritmo</em>, te escuches y vuelvas a ti con claridad. Una mujer no debe salir solo con fotos bonitas.</p>
+      <p>Cada experiencia está diseñada para que <em>bajes el ritmo</em>, te escuches y vuelvas a ti con claridad.</p>
     </div>
   </section>
 
@@ -43,7 +47,7 @@
       <ul class="grid-eventos">
         <li class="evento">
           <div class="evento__imagen">
-            <img src="https://placehold.co/800x450/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro" loading="lazy">
+            <img src="https://placehold.co/800x450/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro">
             <span class="evento__etiqueta">Retiro</span>
           </div>
           <div class="evento__contenido">
@@ -51,12 +55,12 @@
             <h3 class="evento__titulo">Retiro de Yoga y Respiración</h3>
             <p class="evento__descripcion">Un día completo para detenerte, respirar y reconectar con tu cuerpo en medio de la naturaleza.</p>
             <ul class="evento__detalles"><li>📍 Finca La Esperanza</li><li>⏱ 6 horas</li><li>👥 20 mujeres</li></ul>
-            <a href="contacto.html" class="btn btn--primario">Reservar lugar</a>
+            <a href="registro-evento.html?evento=Retiro de Yoga y Respiración" class="btn btn--primario">Reservar lugar</a>
           </div>
         </li>
         <li class="evento">
           <div class="evento__imagen">
-            <img src="https://placehold.co/800x450/D49A7A/B66A35?text=Ceremonia+de+Cacao" alt="Cacao" loading="lazy">
+            <img src="https://placehold.co/800x450/D49A7A/B66A35?text=Ceremonia+de+Cacao" alt="Cacao">
             <span class="evento__etiqueta">Ceremonia</span>
           </div>
           <div class="evento__contenido">
@@ -64,12 +68,12 @@
             <h3 class="evento__titulo">Ceremonia de Cacao</h3>
             <p class="evento__descripcion">Un ritual ancestral para abrir el corazón, compartir en círculo y cerrar la semana con gratitud.</p>
             <ul class="evento__detalles"><li>📍 Espacio Alma</li><li>⏱ 3 horas</li><li>👥 15 mujeres</li></ul>
-            <a href="contacto.html" class="btn btn--primario">Reservar lugar</a>
+            <a href="registro-evento.html?evento=Ceremonia de Cacao" class="btn btn--primario">Reservar lugar</a>
           </div>
         </li>
         <li class="evento">
           <div class="evento__imagen">
-            <img src="https://placehold.co/800x450/DDB7A6/B66A35?text=Kintsugi" alt="Kintsugi" loading="lazy">
+            <img src="https://placehold.co/800x450/DDB7A6/B66A35?text=Kintsugi" alt="Kintsugi">
             <span class="evento__etiqueta">Taller</span>
           </div>
           <div class="evento__contenido">
@@ -77,12 +81,12 @@
             <h3 class="evento__titulo">Taller de Kintsugi</h3>
             <p class="evento__descripcion">El arte japonés de reparar con oro. Una metáfora viva de que nuestras grietas son parte de nuestra belleza.</p>
             <ul class="evento__detalles"><li>📍 Estudio Creativo</li><li>⏱ 4 horas</li><li>👥 12 mujeres</li></ul>
-            <a href="contacto.html" class="btn btn--primario">Reservar lugar</a>
+            <a href="registro-evento.html?evento=Taller de Kintsugi" class="btn btn--primario">Reservar lugar</a>
           </div>
         </li>
         <li class="evento">
           <div class="evento__imagen">
-            <img src="https://placehold.co/800x450/B7A18E/B66A35?text=Caminata+Consciente" alt="Caminata" loading="lazy">
+            <img src="https://placehold.co/800x450/B7A18E/B66A35?text=Caminata+Consciente" alt="Caminata">
             <span class="evento__etiqueta">Aventura</span>
           </div>
           <div class="evento__contenido">
@@ -90,7 +94,7 @@
             <h3 class="evento__titulo">Caminata Consciente al Amanecer</h3>
             <p class="evento__descripcion">Una caminata en silencio para escuchar la naturaleza y escucharte a ti misma. Cerramos con meditación al sol.</p>
             <ul class="evento__detalles"><li>📍 Sendero El Mirador</li><li>⏱ 3 horas</li><li>👥 25 mujeres</li></ul>
-            <a href="contacto.html" class="btn btn--primario">Reservar lugar</a>
+            <a href="registro-evento.html?evento=Caminata Consciente al Amanecer" class="btn btn--primario">Reservar lugar</a>
           </div>
         </li>
       </ul>
@@ -133,6 +137,7 @@
     <div class="footer__redes"><a href="#">Instagram</a><a href="contacto.html">Contacto</a></div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>

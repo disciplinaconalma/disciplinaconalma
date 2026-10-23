@@ -6,14 +6,19 @@
   <title>Sobre — Disciplina con Alma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
+      <button class="navbar__toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre.html" class="activo">Sobre</a></li>
@@ -25,11 +30,13 @@
     </div>
   </nav>
 
+  <!-- HERO INTERNO -->
   <header class="hero--interno">
     <img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="hero__logo-horizontal">
     <p class="hero__frase">"Bajar el ritmo también es progreso."</p>
   </header>
 
+  <!-- HISTORIA -->
   <section class="seccion">
     <div class="contenedor-texto text-center animar">
       <h2 class="seccion__titulo">Nuestra Historia</h2>
@@ -39,6 +46,7 @@
     </div>
   </section>
 
+  <!-- MISIÓN / VISIÓN -->
   <section class="seccion seccion--arena">
     <div class="contenedor">
       <div class="grid-dos animar">
@@ -54,6 +62,7 @@
     </div>
   </section>
 
+  <!-- VALORES -->
   <section class="seccion">
     <div class="contenedor text-center animar">
       <h2 class="seccion__titulo">Nuestros Valores</h2>
@@ -71,6 +80,7 @@
     </div>
   </section>
 
+  <!-- ARQUETIPOS -->
   <section class="seccion seccion--verde">
     <div class="contenedor text-center animar">
       <h2 class="seccion__titulo">Nuestra Esencia</h2>
@@ -92,6 +102,7 @@
     </div>
   </section>
 
+  <!-- CTA FINAL -->
   <section class="seccion text-center">
     <div class="contenedor-texto animar">
       <p class="seccion__subtitulo">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
@@ -99,12 +110,14 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
     <div class="footer__redes"><a href="#">Instagram</a><a href="contacto.html">Contacto</a></div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>

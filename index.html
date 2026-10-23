@@ -4,22 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Disciplina con Alma — Donde el alma guía y la disciplina sostiene</title>
-  <meta name="description" content="Comunidad y experiencia transformacional para mujeres que desean reconectar consigo mismas.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/logo/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/logo/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/logo/favicon-192x192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo/apple-touch-icon.png">
-  <link rel="icon" href="assets/img/logo/favicon.ico">
 </head>
 <body>
+
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
+      
+      <!-- Botón Hamburguesa (Solo móvil) -->
+      <button class="navbar__toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Menú -->
       <ul class="navbar__menu">
         <li><a href="index.html" class="activo">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
@@ -31,6 +34,7 @@
     </div>
   </nav>
 
+  <!-- HERO TIPO LUXURY -->
   <header class="hero-luxury">
     <div class="hero-luxury__contenedor">
       <div class="hero-luxury__texto">
@@ -41,8 +45,7 @@
         </h1>
         <p class="hero-luxury__desc">
           Un espacio seguro donde cada mujer puede detenerse, reconectar 
-          consigo misma y fortalecer su bienestar en comunidad. 
-          Donde el alma guía y la disciplina sostiene.
+          consigo misma y fortalecer su bienestar en comunidad.
         </p>
         <div class="hero-luxury__acciones">
           <a href="eventos.html" class="btn btn--primario">Ver Eventos</a>
@@ -50,7 +53,7 @@
         </div>
       </div>
       <div class="hero-luxury__imagen">
-        <img src="https://placehold.co/800x1000/E8D5C8/B66A35?text=Foto+Vertical+Elegante" alt="Mujer en conexión" loading="eager">
+        <img src="https://placehold.co/800x1000/E8D5C8/B66A35?text=Foto+Vertical+Elegante" alt="Mujer en conexión">
         <div class="hero-luxury__badge">
           <p>Tu proceso</p>
           <h3>EMPIEZA</h3>
@@ -58,73 +61,44 @@
         </div>
       </div>
     </div>
-    <div class="hero-luxury__barra">
-      <div class="hero-luxury__barra-contenedor">
-        <div class="hero-luxury__filtro">
-          <label>Experiencia</label>
-          <select>
-            <option>Todas las actividades</option>
-            <option>Yoga y Meditación</option>
-            <option>Ceremonia de Cacao</option>
-            <option>Kintsugi y Arte</option>
-          </select>
-        </div>
-        <div class="hero-luxury__filtro">
-          <label>Ubicación</label>
-          <select>
-            <option>Selecciona lugar</option>
-            <option>Finca La Esperanza</option>
-            <option>Espacio Alma</option>
-            <option>Naturaleza</option>
-          </select>
-        </div>
-        <div class="hero-luxury__filtro">
-          <label>Duración</label>
-          <select>
-            <option>Cualquier duración</option>
-            <option>Medio día</option>
-            <option>Día completo</option>
-            <option>Retiro de fin de semana</option>
-          </select>
-        </div>
-        <a href="experiencias.html" class="hero-luxury__btn-bloque">Ver Experiencias</a>
-      </div>
-    </div>
   </header>
 
+  <!-- INTRO -->
   <section class="seccion">
     <div class="contenedor-texto text-center animar">
       <h2 class="seccion__titulo">Mucho más que un evento</h2>
       <p class="seccion__subtitulo">Creamos experiencias que transforman</p>
-      <p>Disciplina con Alma nace para recordarnos la importancia de detenernos, escucharnos y habitarnos. Cada encuentro está diseñado para cultivar presencia, relaciones significativas y crecimiento personal.</p>
+      <p>Disciplina con Alma nace para recordarnos la importancia de detenernos, escucharnos y habitarnos.</p>
     </div>
   </section>
 
+  <!-- PILARES -->
   <section class="seccion seccion--arena">
     <div class="contenedor text-center animar">
       <h2 class="seccion__titulo">Nuestro Propósito</h2>
       <p class="seccion__subtitulo">Lo que nos sostiene</p>
       <ul class="grid-pilares">
         <li class="pilar">
-          <svg class="pilar__icono" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 8c-6 6-10 12-10 18 0 6 4 10 10 10s10-4 10-10c0-6-4-12-10-18z"/><path d="M24 36v6"/><path d="M24 20v10"/></svg>
-          <h3 class="pilar__titulo">Espacios seguros</h3><p>Un lugar donde puedes ser tú, sin juicios.</p>
+          <svg class="pilar__icono" viewBox="0 0 48 48"><path d="M24 8c-6 6-10 12-10 18 0 6 4 10 10 10s10-4 10-10c0-6-4-12-10-18z"/><path d="M24 36v6"/><path d="M24 20v10"/></svg>
+          <h3 class="pilar__titulo">Espacios seguros</h3><p>Un lugar donde puedes ser tú.</p>
         </li>
         <li class="pilar">
-          <svg class="pilar__icono" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="16" r="5"/><circle cx="12" cy="22" r="4"/><circle cx="36" cy="22" r="4"/><path d="M10 40c2-8 8-12 14-12s12 4 14 12"/></svg>
+          <svg class="pilar__icono" viewBox="0 0 48 48"><circle cx="24" cy="16" r="5"/><circle cx="12" cy="22" r="4"/><circle cx="36" cy="22" r="4"/><path d="M10 40c2-8 8-12 14-12s12 4 14 12"/></svg>
           <h3 class="pilar__titulo">Comunidad</h3><p>Mujeres que se sostienen entre sí.</p>
         </li>
         <li class="pilar">
-          <svg class="pilar__icono" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="6"/><path d="M24 6v6"/><path d="M24 36v6"/><path d="M6 24h6"/><path d="M36 24h6"/><path d="M11 11l4 4"/><path d="M33 33l4 4"/><path d="M37 11l-4 4"/><path d="M15 33l-4 4"/></svg>
+          <svg class="pilar__icono" viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><path d="M24 6v6"/><path d="M24 36v6"/><path d="M6 24h6"/><path d="M36 24h6"/><path d="M11 11l4 4"/><path d="M33 33l4 4"/><path d="M37 11l-4 4"/><path d="M15 33l-4 4"/></svg>
           <h3 class="pilar__titulo">Transformación</h3><p>Cambios reales que se sostienen.</p>
         </li>
         <li class="pilar">
-          <svg class="pilar__icono" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M24 40s-14-8-14-18c0-5 4-9 9-9 3 0 5 2 5 2s2-2 5-2c5 0 9 4 9 9 0 10-14 18-14 18z"/></svg>
-          <h3 class="pilar__titulo">Procesos</h3><p>Acompañamos procesos, no solo eventos.</p>
+          <svg class="pilar__icono" viewBox="0 0 48 48"><path d="M24 40s-14-8-14-18c0-5 4-9 9-9 3 0 5 2 5 2s2-2 5-2c5 0 9 4 9 9 0 10-14 18-14 18z"/></svg>
+          <h3 class="pilar__titulo">Procesos</h3><p>Acompañamos procesos.</p>
         </li>
       </ul>
     </div>
   </section>
 
+  <!-- PRÓXIMO ENCUENTRO -->
   <section class="seccion seccion--arena">
     <div class="contenedor animar">
       <div class="contenedor-texto text-center mb-lg">
@@ -133,38 +107,27 @@
       </div>
       <article class="evento evento--destacado">
         <div class="evento__imagen">
-          <img src="https://placehold.co/800x600/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro de Yoga" loading="lazy">
+          <img src="https://placehold.co/800x600/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro de Yoga">
           <span class="evento__etiqueta">Retiro</span>
         </div>
         <div class="evento__contenido">
-          <p class="evento__fecha">Sábado · 15 Noviembre · 9:00 AM</p>
+          <p class="evento__fecha">Sábado · 15 Noviembre</p>
           <h3 class="evento__titulo">Retiro de Yoga y Respiración</h3>
-          <p class="evento__descripcion">Un día completo para detenerte, respirar y reconectar con tu cuerpo en medio de la naturaleza.</p>
-          <ul class="evento__detalles">
-            <li>📍 Finca La Esperanza</li><li>⏱ 6 horas</li><li>👥 20 mujeres</li>
-          </ul>
-          <a href="contacto.html" class="btn btn--primario">Reservar lugar</a>
+          <p class="evento__descripcion">Un día completo para detenerte y reconectar con tu cuerpo.</p>
+          <a href="registro-evento.html?evento=Retiro de Yoga y Respiración" class="btn btn--primario">Reservar lugar</a>
         </div>
       </article>
-      <div class="text-center mt-lg"><a href="eventos.html" class="btn btn--outline-cobre">Ver todos los eventos</a></div>
     </div>
   </section>
 
-  <section class="seccion text-center">
-    <div class="contenedor-texto animar">
-      <p class="seccion__subtitulo">"Bajar el ritmo también es progreso."</p>
-      <a href="contacto.html" class="btn btn--outline-cobre mt-md">Únete a la comunidad</a>
-    </div>
-  </section>
-
+  <!-- FOOTER -->
   <footer class="footer">
     <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
-    <div class="footer__redes">
-      <a href="#">Instagram</a><a href="contacto.html">Contacto</a>
-    </div>
+    <div class="footer__redes"><a href="#">Instagram</a><a href="contacto.html">Contacto</a></div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>
