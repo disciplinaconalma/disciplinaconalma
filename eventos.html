@@ -9,6 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  
+  <style>
+    /* Estilo para que la imagen vertical de la tarjeta no se deforme */
+    .evento__imagen img {
+      object-fit: cover;
+      object-position: top; /* Enfoca la parte superior donde está el título */
+    }
+  </style>
 </head>
 <body>
 
@@ -49,18 +57,15 @@
         
         <!-- EVENTO SOLIDARIO DESTACADO -->
         <li class="evento" style="border: 2px solid #D1495B;">
-          <div class="evento__imagen">
-            <img src="assets/img/solidarios/movimiento-zumba.jpg" alt="Movimiento con Alma">
+          <div class="evento__imagen" style="aspect-ratio: 4 / 5;">
+            <!-- AQUÍ USAMOS LA IMAGEN VERTICAL CON INFO -->
+            <img src="assets/img/solidarios/movimiento-logo.png" alt="Movimiento con Alma">
             <span class="evento__etiqueta" style="background-color: #D1495B;">Solidario</span>
           </div>
           <div class="evento__contenido">
             <p class="evento__fecha" style="color: #D1495B;">Sábado · 14 Noviembre · 7:00 AM</p>
             <h3 class="evento__titulo">Movimiento con Alma</h3>
             <p class="evento__descripcion">Actívate por una buena causa. Zumba, entrenamiento funcional, charlas y comunidad.</p>
-            <ul class="evento__detalles">
-              <li>📍 Club Luciola Pión</li>
-              <li>💵 Aporte: RD$500</li>
-            </ul>
             <a href="solidarios.html" class="btn btn--primario" style="background-color: #D1495B; border-color: #D1495B;">Ver evento especial</a>
           </div>
         </li>

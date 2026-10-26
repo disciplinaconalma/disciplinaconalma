@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/main.css">
 
   <style>
-    /* --- ESTILOS EXCLUSIVOS EVENTO SOLIDARIO --- */
+    /* --- HERO (Portada) --- */
     .hero-solidario {
       position: relative;
       min-height: 75vh;
@@ -22,7 +22,7 @@
       justify-content: center;
       text-align: center;
       
-      /* AQUÍ SE CARGA LA IMAGEN DE FONDO (movimiento-portada.jpg) */
+      /* AQUÍ USAMOS LA FOTO HORIZONTAL DEL GRUPO COMO FONDO */
       background-image: url('assets/img/solidarios/movimiento-portada.jpg'); 
       background-size: cover;
       background-position: center;
@@ -30,12 +30,11 @@
       padding: 120px var(--espacio-md) 60px;
     }
     
-    /* Capa oscura para que el texto se lea bien sobre la foto */
     .hero-solidario::before {
       content: '';
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(to bottom, rgba(42, 26, 16, 0.6), rgba(42, 26, 16, 0.85));
+      background: linear-gradient(to bottom, rgba(42, 26, 16, 0.7), rgba(42, 26, 16, 0.9));
       z-index: 1;
     }
     
@@ -48,13 +47,6 @@
       align-items: center;
     }
     
-    /* AQUÍ SE CARGA EL LOGO TRANSPARENTE (movimiento-logo.png) */
-    .hero-solidario img.logo-evento {
-      max-width: 160px;
-      margin-bottom: var(--espacio-sm);
-      filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.3));
-    }
-    
     .hero-solidario h1 {
       font-family: var(--font-titulo);
       font-size: clamp(3rem, 8vw, 5rem);
@@ -65,7 +57,7 @@
     
     .hero-solidario h1 span {
       font-family: var(--font-firma);
-      color: #F2A0A0; /* Rosa solidario */
+      color: #F2A0A0;
       display: block;
       font-size: clamp(4rem, 10vw, 6rem);
       margin-top: -10px;
@@ -83,7 +75,7 @@
       margin-top: 10px;
     }
 
-    /* Estilos de la sección de información */
+    /* --- INFO DEL EVENTO --- */
     .info-evento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 2rem 0; }
     @media (min-width: 768px) { .info-evento { grid-template-columns: repeat(4, 1fr); } }
     .info-item { background-color: var(--color-marfil-puro); padding: 1.5rem 1rem; border-radius: var(--radio-md); text-align: center; border: 1px solid rgba(182, 106, 53, 0.2); box-shadow: var(--sombra-suave); }
@@ -95,7 +87,7 @@
     
     .card-inscripcion { background-color: var(--color-marfil-soft); border: 1px dashed var(--color-cobre); padding: 2rem; border-radius: var(--radio-md); margin-top: 2rem; }
 
-    /* Estilos específicos para las tarjetas de los instructores con imagen */
+    /* --- TARJETAS DE INSTRUCTORES --- */
     .instructor-card {
       background-color: var(--color-marfil-puro);
       border-radius: var(--radio-md);
@@ -106,33 +98,17 @@
       text-align: center;
       transition: var(--transicion-suave);
     }
-    .instructor-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--sombra-media);
-    }
+    .instructor-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-media); }
+    
     .instructor-card img {
       width: 100%;
-      height: 280px;
+      height: 350px;
       object-fit: cover;
       object-position: top;
     }
-    .instructor-card .info {
-      padding: 1.5rem;
-    }
-    .instructor-card h3 {
-      font-family: var(--font-titulo);
-      font-size: 1.3rem;
-      color: var(--color-bronce);
-      margin-bottom: 5px;
-    }
-    .instructor-card p {
-      font-size: 0.85rem;
-      color: var(--color-cobre);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 600;
-      margin: 0;
-    }
+    .instructor-card .info { padding: 1.5rem; }
+    .instructor-card h3 { font-family: var(--font-titulo); font-size: 1.3rem; color: var(--color-bronce); margin-bottom: 5px; }
+    .instructor-card p { font-size: 0.85rem; color: var(--color-cobre); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin: 0; }
   </style>
 </head>
 <body>
@@ -157,9 +133,6 @@
 
   <header class="hero-solidario">
     <div class="contenido">
-      <!-- Logo transparente -->
-      <img src="assets/img/solidarios/movimiento-logo.png" alt="Logo Movimiento" class="logo-evento" loading="lazy">
-      
       <h1>Movimiento <span>con Alma</span></h1>
       <p>Actívate por una buena causa</p>
     </div>
@@ -195,41 +168,24 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE INSTRUCTORES ACTUALIZADA CON IMÁGENES -->
   <section class="seccion seccion--arena">
     <div class="contenedor text-center">
       <h2 class="seccion__titulo">Instructores Invitados</h2>
       <p class="seccion__subtitulo">Energía de primer nivel</p>
       
       <div class="grid-tres">
-        
-        <!-- Instructor 1: New Body Fitness -->
         <div class="instructor-card">
           <img src="assets/img/solidarios/movimiento-funcional.jpg" alt="New Body Fitness RD" loading="lazy">
-          <div class="info">
-            <h3>New Body Fitness RD</h3>
-            <p>Entrenamiento Funcional</p>
-          </div>
+          <div class="info"><h3>New Body Fitness RD</h3><p>Entrenamiento Funcional</p></div>
         </div>
-
-        <!-- Instructor 2: Zin Roberto -->
         <div class="instructor-card">
           <img src="assets/img/solidarios/movimiento-zumba.jpg" alt="Zin Roberto Martínez" loading="lazy">
-          <div class="info">
-            <h3>Zin Roberto Martínez</h3>
-            <p>Zumba</p>
-          </div>
+          <div class="info"><h3>Zin Roberto Martínez</h3><p>Zumba</p></div>
         </div>
-
-        <!-- Instructora 3: Zin Cenia -->
         <div class="instructor-card">
           <img src="assets/img/solidarios/movimiento-zumba-2.jpg" alt="Zin Cenia Adolphus" loading="lazy">
-          <div class="info">
-            <h3>Zin Cenia Adolphus</h3>
-            <p>Zumba</p>
-          </div>
+          <div class="info"><h3>Zin Cenia Adolphus</h3><p>Zumba</p></div>
         </div>
-
       </div>
     </div>
   </section>
