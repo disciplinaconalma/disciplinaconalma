@@ -4,17 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eventos — Disciplina con Alma</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
-  
+
   <style>
-    /* Estilo para que la imagen vertical de la tarjeta no se deforme */
+    /* --- ESTILOS PARA LA SECCIÓN DE EVENTOS --- */
+    
+    /* Reducimos el espacio superior de la sección */
+    .seccion-eventos-top {
+      padding-top: 40px; 
+      padding-bottom: 20px;
+    }
+
+    /* Texto elegante y destacado */
+    .texto-destacado {
+      font-family: var(--font-titulo);
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      font-style: italic;
+      color: var(--color-bronce);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    /* Pequeña línea decorativa antes y después del texto */
+    .texto-destacado::before {
+      content: '—';
+      color: var(--color-cobre);
+      margin-right: 10px;
+      font-style: normal;
+    }
+    
+    .texto-destacado::after {
+      content: '—';
+      color: var(--color-cobre);
+      margin-left: 10px;
+      font-style: normal;
+    }
+
+    /* --- ESTILOS PARA EVENTOS NO DISPONIBLES --- */
+    .evento--no-disponible {
+      opacity: 0.7;
+      filter: grayscale(0.5);
+      border: 1px solid rgba(182, 106, 53, 0.1);
+    }
+
+    .evento--no-disponible .evento__imagen {
+      position: relative;
+    }
+
+    /* Etiqueta de "Próximamente" */
+    .etiqueta-proximamente {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(248, 245, 239, 0.95);
+      color: var(--color-bronce);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: var(--font-texto);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      box-shadow: var(--sombra-suave);
+      border: 1px solid var(--color-cobre);
+      z-index: 2;
+    }
+
+    /* Botón deshabilitado */
+    .btn--deshabilitado {
+      background-color: transparent;
+      color: var(--color-taupe);
+      border: 1px solid var(--color-taupe);
+      cursor: not-allowed;
+      pointer-events: none; /* No se puede hacer clic */
+    }
+
+    /* Ajuste de la tarjeta de Movimiento con Alma */
     .evento__imagen img {
       object-fit: cover;
-      object-position: top; /* Enfoca la parte superior donde está el título */
+      object-position: top;
     }
   </style>
 </head>
@@ -43,22 +121,24 @@
     <p class="hero__frase">"Experiencias que transforman."</p>
   </header>
 
-  <section class="seccion">
-    <div class="contenedor-texto text-center animar">
-      <h2 class="seccion__titulo">Próximos Encuentros</h2>
-      <p class="seccion__subtitulo">Te esperamos</p>
-      <p>Cada experiencia está diseñada para que <em>bajes el ritmo</em>, te escuches y vuelvas a ti con claridad.</p>
+  <!-- SECCIÓN DE INTRODUCCIÓN (Reducida y elegante) -->
+  <section class="seccion seccion-eventos-top">
+    <div class="contenedor-texto text-center">
+      <!-- Texto destacado y elegante -->
+      <p class="texto-destacado">
+        Cada experiencia está diseñada para que bajes el ritmo, te escuches y vuelvas a ti con claridad.
+      </p>
     </div>
   </section>
 
-  <section class="seccion seccion--arena">
-    <div class="contenedor animar">
+  <!-- SECCIÓN DE EVENTOS -->
+  <section class="seccion seccion--arena" style="padding-top: 20px;">
+    <div class="contenedor">
       <ul class="grid-eventos">
         
-        <!-- EVENTO SOLIDARIO DESTACADO -->
+        <!-- EVENTO SOLIDARIO DESTACADO (DISPONIBLE) -->
         <li class="evento" style="border: 2px solid #D1495B;">
           <div class="evento__imagen" style="aspect-ratio: 4 / 5;">
-            <!-- AQUÍ USAMOS LA IMAGEN VERTICAL CON INFO -->
             <img src="assets/img/solidarios/movimiento-logo.png" alt="Movimiento con Alma">
             <span class="evento__etiqueta" style="background-color: #D1495B;">Solidario</span>
           </div>
@@ -66,42 +146,68 @@
             <p class="evento__fecha" style="color: #D1495B;">Sábado · 14 Noviembre · 7:00 AM</p>
             <h3 class="evento__titulo">Movimiento con Alma</h3>
             <p class="evento__descripcion">Actívate por una buena causa. Zumba, entrenamiento funcional, charlas y comunidad.</p>
+            <ul class="evento__detalles">
+              <li>📍 Club Luciola Pión</li>
+              <li>💵 Aporte: RD$500</li>
+            </ul>
             <a href="solidarios.html" class="btn btn--primario" style="background-color: #D1495B; border-color: #D1495B;">Ver evento especial</a>
           </div>
         </li>
 
-        <!-- EVENTOS NORMALES -->
-        <li class="evento">
+        <!-- EVENTO 2 (PRÓXIMAMENTE) -->
+        <li class="evento evento--no-disponible">
           <div class="evento__imagen">
             <img src="https://placehold.co/800x450/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro" loading="lazy">
+            <span class="etiqueta-proximamente">Próximamente</span>
           </div>
           <div class="evento__contenido">
-            <p class="evento__fecha">Sábado · 15 Noviembre</p>
-            <h3 class="evento__titulo">Retiro de Yoga y Respiración</h3>
+            <p class="evento__fecha" style="color: var(--color-taupe);">Fecha por anunciar</p>
+            <h3 class="evento__titulo" style="color: var(--color-taupe);">Retiro de Yoga y Respiración</h3>
             <p class="evento__descripcion">Un día completo para detenerte, respirar y reconectar con tu cuerpo en medio de la naturaleza.</p>
             <ul class="evento__detalles">
               <li>📍 Finca La Esperanza</li>
               <li>⏱ 6 horas</li>
             </ul>
-            <a href="registro-evento.html?evento=Retiro de Yoga y Respiración" class="btn btn--primario">Reservar lugar</a>
+            <a href="#" class="btn btn--deshabilitado">No disponible</a>
           </div>
         </li>
         
-        <li class="evento">
+        <!-- EVENTO 3 (PRÓXIMAMENTE) -->
+        <li class="evento evento--no-disponible">
           <div class="evento__imagen">
             <img src="https://placehold.co/800x450/D49A7A/B66A35?text=Ceremonia+de+Cacao" alt="Cacao" loading="lazy">
+            <span class="etiqueta-proximamente">Próximamente</span>
           </div>
           <div class="evento__contenido">
-            <p class="evento__fecha">Viernes · 22 Noviembre</p>
-            <h3 class="evento__titulo">Ceremonia de Cacao</h3>
+            <p class="evento__fecha" style="color: var(--color-taupe);">Fecha por anunciar</p>
+            <h3 class="evento__titulo" style="color: var(--color-taupe);">Ceremonia de Cacao</h3>
             <p class="evento__descripcion">Un ritual ancestral para abrir el corazón, compartir en círculo y cerrar la semana con gratitud.</p>
             <ul class="evento__detalles">
               <li>📍 Espacio Alma</li>
               <li>⏱ 3 horas</li>
             </ul>
-            <a href="registro-evento.html?evento=Ceremonia de Cacao" class="btn btn--primario">Reservar lugar</a>
+            <a href="#" class="btn btn--deshabilitado">No disponible</a>
           </div>
         </li>
+
+        <!-- EVENTO 4 (PRÓXIMAMENTE) -->
+        <li class="evento evento--no-disponible">
+          <div class="evento__imagen">
+            <img src="https://placehold.co/800x450/B7A18E/B66A35?text=Taller+de+Kintsugi" alt="Kintsugi" loading="lazy">
+            <span class="etiqueta-proximamente">Próximamente</span>
+          </div>
+          <div class="evento__contenido">
+            <p class="evento__fecha" style="color: var(--color-taupe);">Fecha por anunciar</p>
+            <h3 class="evento__titulo" style="color: var(--color-taupe);">Taller de Kintsugi</h3>
+            <p class="evento__descripcion">El arte japonés de reparar con oro. Una metáfora viva de que nuestras grietas son parte de nuestra belleza.</p>
+            <ul class="evento__detalles">
+              <li>📍 Estudio Creativo</li>
+              <li>⏱ 4 horas</li>
+            </ul>
+            <a href="#" class="btn btn--deshabilitado">No disponible</a>
+          </div>
+        </li>
+
       </ul>
     </div>
   </section>
