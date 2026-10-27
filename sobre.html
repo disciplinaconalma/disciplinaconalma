@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuestra Historia — Disciplina con Alma</title>
+  <title>Sobre — Disciplina con Alma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="navbar__contenedor">
-      <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
+      <a href="index.html"><img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="navbar__logo-img"></a>
       <button class="navbar__toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
@@ -28,26 +30,28 @@
     </div>
   </nav>
 
+  <!-- HERO INTERNO -->
   <header class="hero--interno">
-    <img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="hero__logo-horizontal">
     <p class="hero__frase">"A veces el primer paso no es avanzar más rápido. Es volver a escucharte."</p>
   </header>
 
+  <!-- LA CRISIS SILENCIOSA -->
   <section class="seccion">
-    <div class="contenedor-texto text-center animar">
+    <div class="contenedor-texto text-center">
       <h2 class="seccion__titulo">La Crisis Silenciosa</h2>
       <p class="seccion__subtitulo">Lo que ocurre cuando dejamos de escucharnos</p>
       <p>Vivimos en una época donde estamos más conectadas que nunca. Y, al mismo tiempo, muchas veces más desconectadas de nosotras mismas.</p>
       <p>Cumplimos responsabilidades. Respondemos mensajes. Atendemos compromisos. Seguimos avanzando. Pero pocas veces nos detenemos a preguntarnos cómo estamos realmente.</p>
       <p>Poco a poco, comenzamos a funcionar en automático. Y aquello que alguna vez nos inspiró, nos dio alegría o nos hizo sentir presentes, empieza a quedar en segundo plano.</p>
-      <blockquote style="border-left: 3px solid var(--color-cobre); padding-left: 1.5rem; margin: 2rem 0; text-align: left; font-family: var(--font-titulo); font-style: italic; font-size: 1.2rem;">
+      <blockquote style="border-left: 3px solid var(--color-cobre); padding-left: 1.5rem; margin: 2rem 0; text-align: left; font-family: var(--font-titulo); font-style: italic; font-size: 1.2rem; color: var(--color-bronce);">
         "No siempre nos perdemos de golpe. A veces nos perdemos poco a poco, mientras seguimos cumpliendo con todo."
       </blockquote>
     </div>
   </section>
 
+  <!-- POR QUÉ NACE -->
   <section class="seccion seccion--arena">
-    <div class="contenedor-texto text-center animar">
+    <div class="contenedor-texto text-center">
       <h2 class="seccion__titulo">Por qué nace Disciplina con Alma</h2>
       <p class="seccion__subtitulo">Un espacio donde simplemente ser</p>
       <p>Nace de una necesidad profunda: crear espacios donde las mujeres puedan detenerse, escucharse y volver a conectar con aquello que muchas veces queda en silencio entre las exigencias de la vida cotidiana.</p>
@@ -58,51 +62,90 @@
     </div>
   </section>
 
+  <!-- MISIÓN Y VISIÓN -->
   <section class="seccion">
     <div class="contenedor">
-      <div class="grid-dos animar">
-        <div class="bloque">
-          <h3 class="bloque__titulo">Nuestra Misión</h3>
+      <div class="grid-dos">
+        <div class="pilar" style="text-align: left; align-items: flex-start;">
+          <h3 class="pilar__titulo" style="margin-bottom: 10px;">Nuestra Misión</h3>
           <p>Crear experiencias, contenido y espacios de comunidad que impulsen <strong>bienestar, conexión interior y crecimiento personal</strong>.</p>
         </div>
-        <div class="bloque">
-          <h3 class="bloque__titulo">Nuestra Visión</h3>
+        <div class="pilar" style="text-align: left; align-items: flex-start;">
+          <h3 class="pilar__titulo" style="margin-bottom: 10px;">Nuestra Visión</h3>
           <p>Ser una comunidad femenina reconocida por generar <em>transformación humana real</em>. Espacios que inspiran, mujeres que se eligen, historias que transforman.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- VALORES -->
   <section class="seccion seccion--arena">
-    <div class="contenedor text-center animar">
+    <div class="contenedor text-center">
       <h2 class="seccion__titulo">Nuestros Valores</h2>
       <p class="seccion__subtitulo">Los principios que guían cada decisión</p>
-      <ul class="grid-valores">
-        <li><span>🌿</span><p><strong>Autenticidad</strong><br>Elegimos ser reales, no perfectas.</p></li>
-        <li><span>🌸</span><p><strong>Presencia</strong><br>Volvemos al aquí y ahora.</p></li>
-        <li><span>💛</span><p><strong>Empatía</strong><br>Nos escuchamos y caminamos juntas.</p></li>
-        <li><span>✨</span><p><strong>Crecimiento</strong><br>Nos transformamos de forma amorosa.</p></li>
-        <li><span>🌱</span><p><strong>Responsabilidad</strong><br>Decisiones alineadas con nuestro bienestar.</p></li>
-        <li><span>🤝</span><p><strong>Comunidad</strong><br>Redes que sostienen y elevan.</p></li>
+      
+      <ul class="grid-pilares">
+        <li class="pilar">
+          <svg class="pilar__icono" viewBox="0 0 48 48"><path d="M24 8c-6 6-10 12-10 18 0 6 4 10 10 10s10-4 10-10c0-6-4-12-10-18z"/><path d="M24 36v6"/><path d="M24 20v10"/></svg>
+          <h3 class="pilar__titulo">Autenticidad</h3>
+          <p>Elegimos ser reales, no perfectas.</p>
+        </li>
+        <li class="pilar">
+          <svg class="pilar__icono" viewBox="0 0 48 48"><circle cx="24" cy="16" r="5"/><circle cx="12" cy="22" r="4"/><circle cx="36" cy="22" r="4"/><path d="M10 40c2-8 8-12 14-12s12 4 14 12"/></svg>
+          <h3 class="pilar__titulo">Presencia</h3>
+          <p>Volvemos al aquí y ahora.</p>
+        </li>
+        <li class="pilar">
+          <svg class="pilar__icono" viewBox="0 0 48 48"><path d="M24 40s-14-8-14-18c0-5 4-9 9-9 3 0 5 2 5 2s2-2 5-2c5 0 9 4 9 9 0 10-14 18-14 18z"/></svg>
+          <h3 class="pilar__titulo">Empatía</h3>
+          <p>Nos escuchamos y caminamos juntas.</p>
+        </li>
+        <li class="pilar">
+          <svg class="pilar__icono" viewBox="0 0 48 48"><path d="M24 24c-3-6 0-14 6-14s6 8 0 14c6 3 8 10 3 14s-12 2-12-4"/><path d="M24 24c-6-3-14 0-14 6s8 6 14 0c3 6 10 8 14 3"/></svg>
+          <h3 class="pilar__titulo">Crecimiento</h3>
+          <p>Nos transformamos de forma amorosa.</p>
+        </li>
+        <li class="pilar">
+          <svg class="pilar__icono" viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><path d="M24 6v6"/><path d="M24 36v6"/><path d="M6 24h6"/><path d="M36 24h6"/><path d="M11 11l4 4"/><path d="M33 33l4 4"/><path d="M37 11l-4 4"/><path d="M15 33l-4 4"/></svg>
+          <h3 class="pilar__titulo">Responsabilidad</h3>
+          <p>Decisiones alineadas con nuestro bienestar.</p>
+        </li>
+        <li class="pilar">
+          <svg class="pilar__icono" viewBox="0 0 48 48"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="2.5"/></svg>
+          <h3 class="pilar__titulo">Comunidad</h3>
+          <p>Redes que sostienen y elevan.</p>
+        </li>
       </ul>
     </div>
   </section>
 
+  <!-- AQUÍ CREEMOS QUE... -->
   <section class="seccion seccion--verde">
-    <div class="contenedor-texto text-center animar">
+    <div class="contenedor-texto text-center">
       <h2 class="seccion__titulo">Aquí Creemos Que...</h2>
-      <ul class="lista-compromiso" style="display: inline-block; text-align: left; margin-top: 2rem;">
-        <li>Eres suficiente tal como eres.</li>
-        <li>Mereces bienestar en todas las áreas de tu vida.</li>
-        <li>Tu historia tiene poder e inspira.</li>
-        <li>El apoyo femenino transforma realidades.</li>
-        <li>Pequeños pasos crean grandes cambios.</li>
+      <ul style="display: inline-block; text-align: left; margin-top: 2rem; list-style: none; padding: 0;">
+        <li style="font-family: var(--font-titulo); font-size: 1.2rem; font-style: italic; margin-bottom: 10px; position: relative; padding-left: 1.5rem;">
+          <span style="position: absolute; left: 0; color: var(--color-rosa-cobre);">✦</span> Eres suficiente tal como eres.
+        </li>
+        <li style="font-family: var(--font-titulo); font-size: 1.2rem; font-style: italic; margin-bottom: 10px; position: relative; padding-left: 1.5rem;">
+          <span style="position: absolute; left: 0; color: var(--color-rosa-cobre);">✦</span> Mereces bienestar en todas las áreas de tu vida.
+        </li>
+        <li style="font-family: var(--font-titulo); font-size: 1.2rem; font-style: italic; margin-bottom: 10px; position: relative; padding-left: 1.5rem;">
+          <span style="position: absolute; left: 0; color: var(--color-rosa-cobre);">✦</span> Tu historia tiene poder e inspira.
+        </li>
+        <li style="font-family: var(--font-titulo); font-size: 1.2rem; font-style: italic; margin-bottom: 10px; position: relative; padding-left: 1.5rem;">
+          <span style="position: absolute; left: 0; color: var(--color-rosa-cobre);">✦</span> El apoyo femenino transforma realidades.
+        </li>
+        <li style="font-family: var(--font-titulo); font-size: 1.2rem; font-style: italic; margin-bottom: 10px; position: relative; padding-left: 1.5rem;">
+          <span style="position: absolute; left: 0; color: var(--color-rosa-cobre);">✦</span> Pequeños pasos crean grandes cambios.
+        </li>
       </ul>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
+    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
     <div class="footer__redes">
       <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener">Instagram</a>
@@ -110,6 +153,7 @@
     </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>

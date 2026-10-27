@@ -4,126 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto — Disciplina con Alma</title>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
-
-  <!-- ESTILOS FORZADOS PARA EL NAVBAR Y EL FORMULARIO -->
-  <style>
-    /* Navbar Centralizado */
-    .navbar__contenedor {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding-top: 10px;
-    }
-    .navbar__logo-img {
-      height: 50px !important;
-      margin-bottom: 10px;
-    }
-    .navbar__toggle {
-      position: absolute;
-      right: 15px;
-      top: 25px;
-    }
-
-    /* Estilos del Formulario */
-    .contacto-wrapper { 
-      background-color: var(--color-arena); 
-      padding: 20px; 
-      border-radius: var(--radio-lg); 
-      max-width: 600px; 
-      margin: 0 auto; 
-    }
-    .form-card { 
-      background-color: var(--color-marfil-puro); 
-      border-radius: var(--radio-md); 
-      padding: 25px 20px; 
-      box-shadow: 0 10px 30px rgba(122, 62, 29, 0.08); 
-      border: 1px solid rgba(182, 106, 53, 0.1); 
-    }
-    .form-group { 
-      margin-bottom: 1.2rem; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 0.5rem; 
-    }
-    .form-label { 
-      font-size: 0.75rem; 
-      text-transform: uppercase; 
-      letter-spacing: 0.1em; 
-      color: var(--color-bronce); 
-      font-weight: 600; 
-    }
-    .form-control { 
-      width: 100%; 
-      padding: 0.9rem; 
-      font-family: var(--font-texto); 
-      font-size: 1rem; 
-      color: var(--color-bronce); 
-      background-color: var(--color-marfil-soft); 
-      border: 1px solid rgba(182, 106, 53, 0.2); 
-      border-radius: var(--radio-sm); 
-      outline: none; 
-    }
-    .form-control:focus { 
-      border-color: var(--color-cobre); 
-      background-color: var(--color-marfil-puro); 
-    }
-    textarea.form-control { resize: vertical; min-height: 100px; }
-    
-    .btn-submit { 
-      width: 100%; 
-      padding: 1rem; 
-      font-size: 0.9rem; 
-      background-color: var(--color-cobre); 
-      color: var(--color-marfil); 
-      border: none; 
-      border-radius: var(--radio-sm); 
-      text-transform: uppercase; 
-      font-weight: 600; 
-      cursor: pointer; 
-    }
-    .btn-submit:hover { background-color: var(--color-bronce); }
-    
-    /* Info Contacto */
-    .info-grid { 
-      display: grid; 
-      grid-template-columns: 1fr; 
-      gap: 20px; 
-      margin-top: 40px; 
-      text-align: center;
-    }
-    .info-bloque__titulo { 
-      font-size: 0.75rem; 
-      text-transform: uppercase; 
-      color: var(--color-cobre); 
-      font-weight: 600; 
-      margin-bottom: 5px; 
-    }
-    .info-bloque__link { 
-      font-family: var(--font-titulo); 
-      font-size: 1.2rem; 
-      color: var(--color-bronce); 
-      text-decoration: none; 
-    }
-  </style>
 </head>
 <body>
-
   <nav class="navbar">
     <div class="navbar__contenedor">
-      <a href="index.html">
-        <img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="navbar__logo-img">
-      </a>
-      <button class="navbar__toggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="index.html"><img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="navbar__logo-img"></a>
+      <button class="navbar__toggle"><span></span><span></span><span></span></button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
@@ -136,99 +27,62 @@
     </div>
   </nav>
 
-  <header class="hero--interno" style="padding-top: 140px; padding-bottom: 20px; text-align: center;">
-    <p class="hero__frase" style="font-family: var(--font-firma); font-size: 1.5rem; color: var(--color-cobre); margin: 0;">"Sigamos construyendo juntas."</p>
+  <header class="hero--interno">
+    <p class="hero__frase">"Sigamos construyendo juntas."</p>
   </header>
 
   <section class="seccion">
     <div class="contenedor-texto text-center">
       <h2 class="seccion__titulo">Hablemos</h2>
-      <p class="seccion__subtitulo" style="font-family: var(--font-firma); font-size: 1.4rem; color: var(--color-cobre);">Estamos aquí para ti</p>
+      <p class="seccion__subtitulo">Estamos aquí para ti</p>
       <p>¿Quieres reservar tu lugar, tienes alguna pregunta o simplemente quieres saludarnos? Escríbenos.</p>
     </div>
   </section>
 
   <section class="seccion" style="padding-top: 0;">
     <div class="contenedor">
-      
       <div class="contacto-wrapper">
         <div class="form-card">
           <form id="contacto-form">
-            <div class="form-group">
-              <label class="form-label">Nombre completo</label>
-              <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required>
-            </div>
-            
-            <div class="form-group">
-              <label class="form-label">Edad</label>
-              <input type="number" id="edad" class="form-control" placeholder="Tu edad" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Teléfono</label>
-              <input type="tel" id="telefono" class="form-control" placeholder="+1 809 000 0000" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Mensaje</label>
-              <textarea id="mensaje" class="form-control" placeholder="Cuéntanos qué te trae aquí..." required></textarea>
-            </div>
-            
+            <div class="form-group"><label class="form-label">Nombre completo</label><input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required></div>
+            <div class="form-group"><label class="form-label">Edad</label><input type="number" id="edad" class="form-control" placeholder="Tu edad" required></div>
+            <div class="form-group"><label class="form-label">Teléfono</label><input type="tel" id="telefono" class="form-control" placeholder="+1 809 000 0000" required></div>
+            <div class="form-group"><label class="form-label">Mensaje</label><textarea id="mensaje" class="form-control" placeholder="Cuéntanos qué te trae aquí..." required></textarea></div>
             <button type="submit" class="btn-submit">Enviar mensaje por WhatsApp</button>
           </form>
         </div>
       </div>
 
       <div class="info-grid">
-        <div class="info-bloque">
-          <h3 class="info-bloque__titulo">Email</h3>
-          <a href="mailto:disciplinaconalma@gmail.com" class="info-bloque__link">disciplinaconalma@gmail.com</a>
-        </div>
-        <div class="info-bloque">
-          <h3 class="info-bloque__titulo">Instagram</h3>
-          <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener" class="info-bloque__link">@disciplinaconalma_</a>
-        </div>
-        <div class="info-bloque">
-          <h3 class="info-bloque__titulo">Ubicación</h3>
-          <p class="info-bloque__link" style="font-size: 1.1rem;">Higüey, Rep. Dom.</p>
-        </div>
+        <div class="info-bloque"><h3 class="info-bloque__titulo">Email</h3><a href="mailto:disciplinaconalma@gmail.com" class="info-bloque__link">disciplinaconalma@gmail.com</a></div>
+        <div class="info-bloque"><h3 class="info-bloque__titulo">Instagram</h3><a href="https://instagram.com/disciplinaconalma_" target="_blank" class="info-bloque__link">@disciplinaconalma_</a></div>
+        <div class="info-bloque"><h3 class="info-bloque__titulo">Ubicación</h3><p class="info-bloque__link" style="font-size: 1.1rem;">Higüey, Rep. Dom.</p></div>
       </div>
-
     </div>
   </section>
 
   <footer class="footer">
-    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
+    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
     <div class="footer__redes">
-      <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://instagram.com/disciplinaconalma_" target="_blank">Instagram</a>
       <a href="contacto.html">Contacto</a>
     </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
-
   <script src="assets/js/main.js"></script>
-  
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('contacto-form');
       const numeroWhatsApp = '18098438291';
-
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const nombre = document.getElementById('nombre').value.trim();
         const edad = document.getElementById('edad').value.trim();
         const telefono = document.getElementById('telefono').value.trim();
         const mensaje = document.getElementById('mensaje').value.trim();
-
-        const textoMensaje = `Hola Melissa, te escribo desde la web de Disciplina con Alma.\n\n` +
-                             `👤 *Nombre:* ${nombre}\n` +
-                             `🎂 *Edad:* ${edad}\n` +
-                             `📱 *Teléfono:* ${telefono}\n\n` +
-                             `💬 *Mensaje:* ${mensaje}`;
-
-        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoMensaje)}`;
-        window.open(urlWhatsApp, '_blank');
+        const textoMensaje = `Hola Melissa, te escribo desde la web.\n\n👤 *Nombre:* ${nombre}\n🎂 *Edad:* ${edad}\n📱 *Teléfono:* ${telefono}\n\n💬 *Mensaje:* ${mensaje}`;
+        window.open(`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoMensaje)}`, '_blank');
         form.reset();
       });
     });

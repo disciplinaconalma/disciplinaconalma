@@ -10,20 +10,21 @@
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    .seccion-eventos-top { padding-top: 40px; padding-bottom: 20px; }
-    .texto-destacado { font-family: var(--font-titulo); font-size: clamp(1.2rem, 4vw, 1.5rem); font-style: italic; color: var(--color-bronce); line-height: 1.6; max-width: 600px; margin: 0 auto 30px auto; position: relative; padding: 0 20px; }
-    .texto-destacado::before { content: '—'; color: var(--color-cobre); margin-right: 10px; font-style: normal; }
-    .texto-destacado::after { content: '—'; color: var(--color-cobre); margin-left: 10px; font-style: normal; }
-    .evento--no-disponible { opacity: 0.7; filter: grayscale(0.5); border: 1px solid rgba(182, 106, 53, 0.1); }
-    .etiqueta-proximamente { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(248, 245, 239, 0.95); color: var(--color-bronce); padding: 10px 20px; border-radius: 50px; font-family: var(--font-texto); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: var(--sombra-suave); border: 1px solid var(--color-cobre); z-index: 2; }
-    .btn--deshabilitado { background-color: transparent; color: var(--color-taupe); border: 1px solid var(--color-taupe); cursor: not-allowed; pointer-events: none; }
+    .texto-destacado { font-family: var(--font-titulo); font-size: clamp(1.2rem, 4vw, 1.5rem); font-style: italic; color: var(--color-bronce); line-height: 1.6; max-width: 600px; margin: 0 auto 30px auto; position: relative; padding: 0 20px; text-align: center; }
+    .evento-card { background: white; border-radius: var(--radio-md); overflow: hidden; box-shadow: var(--sombra-suave); margin-bottom: 20px; border: 1px solid rgba(182, 106, 53, 0.1); }
+    .evento-card img { width: 100%; height: auto; object-fit: cover; }
+    .evento-info { padding: 20px; text-align: center; }
+    .evento-info h3 { font-size: 1.5rem; margin-bottom: 10px; }
+    .evento-info p { font-size: 0.9rem; margin-bottom: 15px; }
+    .evento-info .btn { margin-top: 10px; }
+    .evento--proximamente { opacity: 0.6; filter: grayscale(1); }
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="navbar__contenedor">
-      <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
-      <button class="navbar__toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+      <a href="index.html"><img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="navbar__logo-img"></a>
+      <button class="navbar__toggle"><span></span><span></span><span></span></button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
@@ -35,54 +36,64 @@
       </ul>
     </div>
   </nav>
+
   <header class="hero--interno">
-    <img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="hero__logo-horizontal">
     <p class="hero__frase">"Experiencias que transforman."</p>
   </header>
-  <section class="seccion seccion-eventos-top">
-    <div class="contenedor-texto text-center"><p class="texto-destacado">Cada experiencia está diseñada para que bajes el ritmo, te escuches y vuelvas a ti con claridad.</p></div>
-  </section>
-  <section class="seccion seccion--arena" style="padding-top: 20px;">
-    <div class="contenedor">
-      <ul class="grid-eventos">
-        <li class="evento" style="border: 2px solid #D1495B;">
-          <div class="evento__imagen" style="aspect-ratio: 4 / 5;"><img src="assets/img/solidarios/movimiento-logo.png" alt="Movimiento"><span class="evento__etiqueta" style="background-color: #D1495B;">Solidario</span></div>
-          <div class="evento__contenido">
-            <p class="evento__fecha" style="color: #D1495B;">Sábado · 14 Noviembre · 7:00 AM</p>
-            <h3 class="evento__titulo">Movimiento con Alma</h3>
-            <p class="evento__descripcion">Actívate por una buena causa. Zumba, entrenamiento funcional, charlas y comunidad.</p>
-            <ul class="evento__detalles"><li>📍 Club Luciola Pión</li><li>💵 Aporte: RD$500</li></ul>
-            <a href="solidarios.html" class="btn btn--primario" style="background-color: #D1495B; border-color: #D1495B;">Ver evento especial</a>
-          </div>
-        </li>
-        <li class="evento evento--no-disponible">
-          <div class="evento__imagen"><img src="https://placehold.co/800x450/E8D5C8/B66A35?text=Retiro+de+Yoga" alt="Retiro"><span class="etiqueta-proximamente">Próximamente</span></div>
-          <div class="evento__contenido">
-            <p class="evento__fecha" style="color: var(--color-taupe);">Fecha por anunciar</p>
-            <h3 class="evento__titulo" style="color: var(--color-taupe);">Retiro de Yoga</h3>
-            <p class="evento__descripcion">Un día completo para detenerte y reconectar.</p>
-            <ul class="evento__detalles"><li>📍 Finca La Esperanza</li><li>⏱ 6 horas</li></ul>
-            <a href="#" class="btn btn--deshabilitado">No disponible</a>
-          </div>
-        </li>
-        <li class="evento evento--no-disponible">
-          <div class="evento__imagen"><img src="https://placehold.co/800x450/D49A7A/B66A35?text=Ceremonia+de+Cacao" alt="Cacao"><span class="etiqueta-proximamente">Próximamente</span></div>
-          <div class="evento__contenido">
-            <p class="evento__fecha" style="color: var(--color-taupe);">Fecha por anunciar</p>
-            <h3 class="evento__titulo" style="color: var(--color-taupe);">Ceremonia de Cacao</h3>
-            <p class="evento__descripcion">Un ritual ancestral para abrir el corazón.</p>
-            <ul class="evento__detalles"><li>📍 Espacio Alma</li><li>⏱ 3 horas</li></ul>
-            <a href="#" class="btn btn--deshabilitado">No disponible</a>
-          </div>
-        </li>
-      </ul>
+
+  <section class="seccion">
+    <div class="contenedor-texto">
+      <p class="texto-destacado">Cada experiencia está diseñada para que bajes el ritmo, te escuches y vuelvas a ti con claridad.</p>
     </div>
   </section>
+
+  <section class="seccion seccion--arena">
+    <div class="contenedor">
+      
+      <!-- Evento Disponible -->
+      <div class="evento-card" style="border: 2px solid #D1495B;">
+        <img src="assets/img/solidarios/movimiento-logo.png" alt="Movimiento con Alma">
+        <div class="evento-info">
+          <p style="color: #D1495B; font-weight: bold; font-size: 0.8rem; text-transform: uppercase;">Sábado 14 de Noviembre</p>
+          <h3 style="color: #D1495B;">Movimiento con Alma</h3>
+          <p>Actívate por una buena causa. Zumba, entrenamiento funcional, charlas y comunidad.</p>
+          <p style="font-weight: bold;">Aporte: RD$500</p>
+          <a href="solidarios.html" class="btn" style="background-color: #D1495B; color: white;">Ver evento especial</a>
+        </div>
+      </div>
+
+      <!-- Próximamente 1 -->
+      <div class="evento-card evento--proximamente">
+        <div style="background-color: var(--color-arena); height: 200px; display: flex; align-items: center; justify-content: center;">
+          <h3 style="color: var(--color-bronce);">Próximamente</h3>
+        </div>
+        <div class="evento-info">
+          <h3>Retiro de Yoga y Respiración</h3>
+          <p>Fecha por anunciar</p>
+          <a href="#" class="btn btn--secundario" style="pointer-events: none;">No disponible</a>
+        </div>
+      </div>
+
+      <!-- Próximamente 2 -->
+      <div class="evento-card evento--proximamente">
+        <div style="background-color: var(--color-arena); height: 200px; display: flex; align-items: center; justify-content: center;">
+          <h3 style="color: var(--color-bronce);">Próximamente</h3>
+        </div>
+        <div class="evento-info">
+          <h3>Ceremonia de Cacao</h3>
+          <p>Fecha por anunciar</p>
+          <a href="#" class="btn btn--secundario" style="pointer-events: none;">No disponible</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <footer class="footer">
-    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
+    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
     <div class="footer__redes">
-      <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://instagram.com/disciplinaconalma_" target="_blank">Instagram</a>
       <a href="contacto.html">Contacto</a>
     </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>

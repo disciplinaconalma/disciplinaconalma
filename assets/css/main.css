@@ -2,7 +2,7 @@
    DISCIPLINA CON ALMA — MAIN CSS
    ============================================ */
 
-/* ---------- NAVBAR (Fijo y Proporcionado) ---------- */
+/* ---------- NAVBAR (Fijo y Centrado) ---------- */
 .navbar {
   position: absolute; 
   top: 0; left: 0; width: 100%;
@@ -27,30 +27,35 @@
   margin: 0 auto;
   padding: 0 15px;
   display: flex;
+  flex-direction: column; /* Logo arriba, menú abajo */
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
 }
 
-/* EL LOGO EN EL NAVBAR (Control de tamaño estricto) */
 .navbar__logo-img {
-  height: 45px; /* Altura fija para que no se desborde */
+  height: 55px; 
   width: auto;
-  max-width: 200px;
+  max-width: 220px;
   object-fit: contain;
   display: block;
+  margin-bottom: 5px;
 }
 
 .navbar.scrolled .navbar__logo-img {
-  height: 35px;
+  height: 45px;
 }
 
-/* --- MENÚ MÓVIL --- */
+/* Menú (Móvil por defecto) */
 .navbar__toggle {
   display: block; 
   padding: 5px;
   background: none;
   border: none;
   cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 25px;
 }
 
 .navbar__toggle span {
@@ -80,25 +85,24 @@
 .navbar__menu.active { transform: translateY(0); z-index: 999; }
 .navbar__menu li { margin: 10px 0; width: 100%; text-align: center; }
 .navbar__menu a {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-bronce);
   display: block;
   padding: 5px 0;
-  text-decoration: none;
 }
 .navbar__menu a.activo { color: var(--color-cobre); font-weight: 600; }
 
 /* ============================================
-   ICONOS SVG (El error del "Manchón Negro")
+   ICONOS SVG (Arreglo del fondo negro)
    ============================================ */
 .pilar__icono, .experiencia__icono {
   width: 40px;
   height: 40px;
-  stroke: var(--color-cobre); /* Color de la línea */
-  stroke-width: 1.5;          /* Grosor de la línea */
-  fill: none;                 /* ¡ESTO QUITA EL FONDO NEGRO! */
+  stroke: var(--color-cobre);
+  stroke-width: 1.5;
+  fill: none !important; 
   margin: 0 auto 15px auto;
   display: block;
   transition: var(--transicion-suave);
@@ -110,29 +114,7 @@
 }
 
 /* ============================================
-   IMÁGENES (Control para que no se deformen)
-   ============================================ */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ============================================
-   HERO INTERNO (Páginas secundarias)
-   ============================================ */
-.hero--interno {
-  padding: 100px var(--espacio-md) 30px;
-  text-align: center;
-  border-bottom: 1px solid rgba(182, 106, 53, 0.1);
-  background-color: var(--color-marfil);
-}
-
-.hero__logo-horizontal { max-width: 220px; margin: 0 auto 15px auto; }
-.hero__frase { font-family: var(--font-firma); font-size: 1.5rem; color: var(--color-cobre); margin: 0; }
-
-/* ============================================
-   BOTONES GENERALES
+   BOTONES
    ============================================ */
 .btn {
   display: inline-flex; 
@@ -157,15 +139,48 @@ img {
 .btn--secundario { background: transparent; color: var(--color-bronce); border: 1px solid var(--color-bronce); }
 
 /* ============================================
-   GRILLAS Y TARJETAS (Pilares y Experiencias)
+   HERO Y SECCIONES
    ============================================ */
-.grid-pilares, .grid-experiencias {
+.hero-luxury { padding: 160px 20px 60px; background-color: var(--color-marfil); }
+.hero-luxury__contenedor { display: flex; flex-direction: column; gap: 30px; max-width: 1000px; margin: 0 auto; }
+.hero-luxury__texto { text-align: center; }
+.hero-luxury__etiqueta { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-cobre); margin-bottom: 15px; }
+.hero-luxury__titulo { font-size: 2.8rem; margin-bottom: 15px; line-height: 1.1; color: var(--color-bronce); font-family: var(--font-titulo); }
+.hero-luxury__titulo span { display: block; font-family: var(--font-firma); font-size: 4rem; color: var(--color-cobre); margin-top: -15px; }
+.hero-luxury__desc { font-size: 1rem; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-luxury__acciones { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.hero-luxury__imagen img { border-radius: var(--radio-lg); width: 100%; height: auto; object-fit: cover; }
+
+.seccion { padding: 40px 0; }
+.seccion--arena { background-color: var(--color-arena); }
+.seccion--verde { background-color: var(--color-verde-bosque); color: var(--color-marfil); }
+.seccion--verde h2, .seccion--verde p, .seccion--verde h3 { color: var(--color-marfil); }
+
+.seccion__titulo { font-family: var(--font-titulo); font-size: 2rem; text-align: center; margin-bottom: 10px; }
+.seccion__subtitulo { font-size: 1.4rem; color: var(--color-cobre); font-family: var(--font-firma); text-align: center; margin-bottom: 20px; }
+
+.hero--interno { padding: 140px var(--espacio-md) 30px; text-align: center; border-bottom: 1px solid rgba(182, 106, 53, 0.1); background-color: var(--color-marfil); }
+.hero__frase { font-family: var(--font-firma); font-size: 1.5rem; color: var(--color-cobre); margin: 0; }
+
+/* ============================================
+   GRILLAS Y TARJETAS
+   ============================================ */
+.grid-pilares, .grid-experiencias, .grid-dos, .grid-eventos, .grid-testimonios {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 15px;
   padding: 0 15px;
   list-style: none;
   margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .grid-pilares, .grid-experiencias { grid-template-columns: repeat(2, 1fr); }
+  .grid-dos, .grid-eventos { grid-template-columns: repeat(2, 1fr); }
+  .grid-testimonios { grid-template-columns: repeat(3, 1fr); }
+  .hero-luxury__contenedor { flex-direction: row; align-items: center; }
+  .hero-luxury__texto, .hero-luxury__imagen { flex: 1; text-align: left; }
+  .hero-luxury__acciones { flex-direction: row; justify-content: flex-start; }
 }
 
 .pilar, .experiencia {
@@ -205,51 +220,27 @@ img {
 }
 
 /* ============================================
-   SECCIONES Y TEXTOS
+   FORMULARIO DE CONTACTO
    ============================================ */
-.seccion { padding: 40px 0; }
-.seccion--arena { background-color: var(--color-arena); }
-.seccion--verde { background-color: var(--color-verde-bosque); color: var(--color-marfil); }
-.seccion--verde h2, .seccion--verde p, .seccion--verde h3 { color: var(--color-marfil); }
+.contacto-wrapper { background-color: var(--color-arena); padding: 20px; border-radius: var(--radio-lg); max-width: 600px; margin: 0 auto; }
+.form-card { background-color: var(--color-marfil-puro); border-radius: var(--radio-md); padding: 25px 20px; box-shadow: 0 10px 30px rgba(122, 62, 29, 0.08); border: 1px solid rgba(182, 106, 53, 0.1); }
+.form-group { margin-bottom: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.form-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-bronce); font-weight: 600; }
+.form-control { width: 100%; padding: 0.9rem; font-family: var(--font-texto); font-size: 1rem; color: var(--color-bronce); background-color: var(--color-marfil-soft); border: 1px solid rgba(182, 106, 53, 0.2); border-radius: var(--radio-sm); outline: none; }
+.form-control:focus { border-color: var(--color-cobre); background-color: var(--color-marfil-puro); }
+textarea.form-control { resize: vertical; min-height: 100px; }
+.btn-submit { width: 100%; padding: 1rem; font-size: 0.9rem; background-color: var(--color-cobre); color: var(--color-marfil); border: none; border-radius: var(--radio-sm); text-transform: uppercase; font-weight: 600; cursor: pointer; }
+.btn-submit:hover { background-color: var(--color-bronce); }
 
-.seccion__titulo { 
-  font-family: var(--font-titulo);
-  font-size: 2rem; 
-  text-align: center;
-  margin-bottom: 10px; 
-  color: var(--color-bronce);
-}
-
-.seccion__subtitulo { 
-  font-size: 1.4rem; 
-  color: var(--color-cobre); 
-  font-family: var(--font-firma); 
-  text-align: center;
-  margin-bottom: 20px; 
-}
-
-.contenedor-texto {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.contenedor-texto p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--color-bronce);
-  margin-bottom: 1rem;
-}
+.info-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; text-align: center; }
+@media (min-width: 768px) { .info-grid { grid-template-columns: repeat(3, 1fr); } }
+.info-bloque__titulo { font-size: 0.75rem; text-transform: uppercase; color: var(--color-cobre); font-weight: 600; margin-bottom: 5px; }
+.info-bloque__link { font-family: var(--font-titulo); font-size: 1.2rem; color: var(--color-bronce); text-decoration: none; }
 
 /* ============================================
    FOOTER
    ============================================ */
-.footer { 
-  background-color: var(--color-bronce); 
-  color: var(--color-marfil); 
-  padding: 40px 20px 20px; 
-  text-align: center; 
-}
+.footer { background-color: var(--color-bronce); color: var(--color-marfil); padding: 40px 20px 20px; text-align: center; }
 .footer__logo { max-width: 90px; margin: 0 auto 20px auto; }
 .footer__frase { font-family: var(--font-firma); font-size: 1.5rem; color: var(--color-rosa-cobre); margin-bottom: 20px; }
 .footer__redes { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
