@@ -4,17 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto — Disciplina con Alma</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  
+  <style>
+    /* Estilos específicos para la tarjeta de contacto */
+    .contacto-wrapper { background-color: var(--color-arena); padding: 40px 20px; border-radius: var(--radio-lg); max-width: 600px; margin: 0 auto; }
+    .form-card { background-color: var(--color-marfil-puro); border-radius: var(--radio-md); padding: 30px; box-shadow: 0 10px 30px rgba(122, 62, 29, 0.08); border: 1px solid rgba(182, 106, 53, 0.1); }
+    .form-group { margin-bottom: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-bronce); font-weight: 600; }
+    .form-control { width: 100%; padding: 1rem; font-family: var(--font-texto); font-size: 1rem; color: var(--color-bronce); background-color: var(--color-marfil-soft); border: 1px solid rgba(182, 106, 53, 0.2); border-radius: var(--radio-sm); transition: var(--transicion-suave); outline: none; }
+    .form-control:focus { border-color: var(--color-cobre); background-color: var(--color-marfil-puro); box-shadow: 0 0 0 3px rgba(182, 106, 53, 0.1); }
+    .form-control::placeholder { color: var(--color-bronce); opacity: 0.4; }
+    textarea.form-control { resize: vertical; min-height: 100px; }
+    .btn-submit { width: 100%; padding: 1.2rem; font-size: 0.9rem; background-color: var(--color-cobre); color: var(--color-marfil); border: none; border-radius: var(--radio-sm); text-transform: uppercase; font-weight: 600; letter-spacing: 0.1em; cursor: pointer; transition: var(--transicion-suave); }
+    .btn-submit:hover { background-color: var(--color-bronce); }
+    
+    .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+    @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
+
   <nav class="navbar">
     <div class="navbar__contenedor">
-      <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
-      <button class="navbar__toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+      <!-- LOGO EN IMAGEN -->
+      <a href="index.html">
+        <img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="navbar__logo-img">
+      </a>
+      <button class="navbar__toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
@@ -26,10 +51,12 @@
       </ul>
     </div>
   </nav>
+
   <header class="hero--interno">
-    <img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="hero__logo-horizontal">
-    <p class="hero__frase">"Sigamos construyendo juntas."</p>
+    <!-- Ajuste para que el logo no se repita si ya está en el navbar -->
+    <p class="hero__frase" style="font-size: 2rem; margin-top: 40px;">"Sigamos construyendo juntas."</p>
   </header>
+
   <section class="seccion">
     <div class="contenedor-texto text-center animar">
       <h2 class="seccion__titulo">Hablemos</h2>
@@ -37,25 +64,58 @@
       <p>¿Quieres reservar tu lugar, tienes alguna pregunta o simplemente quieres saludarnos? Escríbenos.</p>
     </div>
   </section>
-  <section class="seccion seccion--arena">
-    <div class="contenedor animar">
-      <div class="contacto__grid">
-        <form class="formulario" action="https://formspree.io/f/tu-id-aqui" method="POST">
-          <div class="formulario__grupo"><label class="formulario__label">Nombre</label><input type="text" name="nombre" class="formulario__input" placeholder="Tu nombre" required></div>
-          <div class="formulario__grupo"><label class="formulario__label">Email</label><input type="email" name="email" class="formulario__input" placeholder="tu@email.com" required></div>
-          <div class="formulario__grupo"><label class="formulario__label">Teléfono</label><input type="tel" name="telefono" class="formulario__input" placeholder="+1 809 000 0000"></div>
-          <div class="formulario__grupo"><label class="formulario__label">Mensaje</label><textarea name="mensaje" class="formulario__textarea" rows="5" placeholder="Cuéntanos..." required></textarea></div>
-          <button type="submit" class="btn btn--primario">Enviar mensaje</button>
-        </form>
-        <aside class="info-contacto">
-          <div class="info-bloque"><h3 class="info-bloque__titulo">Email</h3><a href="mailto:hola@disciplinaconalma.com" class="info-bloque__link">hola@disciplinaconalma.com</a></div>
-          <div class="info-bloque"><h3 class="info-bloque__titulo">Instagram</h3><a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener" class="info-bloque__link">@disciplinaconalma_</a></div>
-          <div class="info-bloque"><h3 class="info-bloque__titulo">WhatsApp</h3><a href="https://wa.me/18098438291" target="_blank" rel="noopener" class="info-bloque__link">+1 809 843 8291</a></div>
-          <div class="info-bloque"><h3 class="info-bloque__titulo">Ubicación</h3><p class="info-bloque__texto">Encuentros en espacios naturales y estudios seleccionados.</p></div>
-        </aside>
+
+  <section class="seccion" style="padding-top: 0;">
+    <div class="contenedor">
+      
+      <!-- TARJETA DE CONTACTO -->
+      <div class="contacto-wrapper animar">
+        <div class="form-card">
+          <form id="contacto-form">
+            <div class="form-group">
+              <label class="form-label">Nombre completo</label>
+              <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Edad</label>
+              <input type="number" id="edad" class="form-control" placeholder="Tu edad" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Teléfono</label>
+              <input type="tel" id="telefono" class="form-control" placeholder="+1 809 000 0000" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mensaje</label>
+              <textarea id="mensaje" class="form-control" placeholder="Cuéntanos qué te trae aquí..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">Enviar mensaje por WhatsApp</button>
+          </form>
+        </div>
       </div>
+
+      <!-- INFORMACIÓN DE CONTACTO -->
+      <div class="info-grid text-center animar">
+        <div class="info-bloque">
+          <h3 class="info-bloque__titulo">Email</h3>
+          <a href="mailto:disciplinaconalma@gmail.com" class="info-bloque__link">disciplinaconalma@gmail.com</a>
+        </div>
+        <div class="info-bloque">
+          <h3 class="info-bloque__titulo">Instagram</h3>
+          <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener" class="info-bloque__link">@disciplinaconalma_</a>
+        </div>
+        <div class="info-bloque">
+          <h3 class="info-bloque__titulo">Ubicación</h3>
+          <p class="info-bloque__link" style="font-size: 1.1rem;">Higüey, Rep. Dom.</p>
+        </div>
+      </div>
+
     </div>
   </section>
+
   <footer class="footer">
     <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
@@ -65,7 +125,47 @@
     </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
+
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/formulario.js"></script>
+  
+  <!-- SCRIPT PARA ENVIAR EL MENSAJE A WHATSAPP -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contacto-form');
+      
+      // Tu número de WhatsApp oficial (con código de país, sin el +)
+      const numeroWhatsApp = '18098438291';
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Obtener los valores del formulario
+        const nombre = document.getElementById('nombre').value.trim();
+        const edad = document.getElementById('edad').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        // Crear el texto del mensaje con formato
+        const textoMensaje = `Hola Melissa, te escribo desde la web de Disciplina con Alma.\n\n` +
+                             `👤 *Nombre:* ${nombre}\n` +
+                             `🎂 *Edad:* ${edad}\n` +
+                             `📱 *Teléfono:* ${telefono}\n\n` +
+                             `💬 *Mensaje:* ${mensaje}`;
+
+        // Codificar el mensaje para la URL
+        const mensajeCodificado = encodeURIComponent(textoMensaje);
+
+        // Crear la URL de WhatsApp
+        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+        // Abrir WhatsApp en una nueva pestaña
+        window.open(urlWhatsApp, '_blank');
+        
+        // Limpiar el formulario (opcional)
+        form.reset();
+      });
+    });
+  </script>
+
 </body>
 </html>

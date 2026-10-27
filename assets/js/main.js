@@ -1,22 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
   const navbarToggle = document.querySelector('.navbar__toggle');
   const navbarMenu = document.querySelector('.navbar__menu');
+  const navbar = document.querySelector('.navbar');
 
-  // Lógica del Menú Móvil
+  // 1. Lógica del Menú Móvil
   if (navbarToggle && navbarMenu) {
     navbarToggle.addEventListener('click', () => {
       navbarMenu.classList.toggle('active');
+      navbarToggle.classList.toggle('active');
     });
 
-    // Cerrar menú al hacer clic en un enlace
     navbarMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navbarMenu.classList.remove('active');
+        navbarToggle.classList.remove('active');
       });
     });
   }
 
-  // Actualizar el año en el footer automáticamente
+  // 2. Efecto de scroll para el Navbar (se queda fijo y cambia de fondo)
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  }
+
+  // 3. Actualizar el año en el footer
   const yearElements = document.querySelectorAll('[data-year]');
   const currentYear = new Date().getFullYear();
   yearElements.forEach(el => el.textContent = currentYear);

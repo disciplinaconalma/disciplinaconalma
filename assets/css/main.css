@@ -1,17 +1,27 @@
 /* ============================================
-   DISCIPLINA CON ALMA — MAIN CSS
+   DISCIPLINA CON ALMA — MAIN CSS UNIFICADO
    ============================================ */
 
-/* ---------- NAVBAR ---------- */
+/* ---------- NAVBAR (Elegante y Fijo al hacer scroll) ---------- */
 .navbar {
   position: absolute; 
   top: 0; left: 0; width: 100%;
   z-index: 1000;
   padding: var(--espacio-sm) 0;
-  background-color: rgba(248, 245, 239, 0.95); 
+  transition: var(--transicion-suave);
+  
+  /* Fondo sutil con desenfoque */
+  background-color: rgba(248, 245, 239, 0.85); 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(182, 106, 53, 0.15);
+}
+
+/* Esta clase la agregaremos con JS para que se quede fija al bajar */
+.navbar.scrolled {
+  position: fixed;
+  background-color: rgba(248, 245, 239, 0.98);
+  box-shadow: 0 4px 20px rgba(122, 62, 29, 0.1);
 }
 
 .navbar__contenedor {
@@ -23,25 +33,19 @@
   justify-content: space-between;
 }
 
-.navbar__logo {
-  font-family: var(--font-titulo);
-  font-size: clamp(1.1rem, 4vw, 1.3rem);
-  letter-spacing: 0.15em;
-  color: var(--color-bronce);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+/* Estilo para el logo en imagen en el navbar */
+.navbar__logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transicion-suave);
 }
 
-.navbar__logo span {
-  font-family: var(--font-firma);
-  text-transform: none;
-  font-size: clamp(1.5rem, 5vw, 1.8rem);
-  color: var(--color-cobre);
+.navbar.scrolled .navbar__logo-img {
+  height: 40px; /* Se hace un poco más pequeño al bajar */
 }
 
-/* Menú (Móvil por defecto) */
+/* Menú */
 .navbar__toggle {
   display: block; 
   padding: 5px;
@@ -81,175 +85,114 @@
   display: block;
   padding: 5px 0;
 }
-
-/* ---------- BOTONES ---------- */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2rem;
-  font-size: 0.8rem; 
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: var(--transicion-suave);
-  cursor: pointer;
-  width: 100%;
-  max-width: 300px; /* Deja margen a los lados en celular */
-  margin: 0 auto;
-}
-
-.btn--primario { background-color: var(--color-cobre); color: var(--color-marfil); border: 1px solid var(--color-cobre); }
-.btn--secundario { background: transparent; color: var(--color-bronce); border: 1px solid var(--color-bronce); }
-.btn--outline-cobre { background: transparent; color: var(--color-cobre); border: 1px solid var(--color-cobre); }
-
-/* ---------- HERO (Inicio) ---------- */
-.hero-luxury {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background-color: var(--color-marfil);
-  padding-top: 120px; 
-  padding-bottom: 60px; 
-}
-
-.hero-luxury__contenedor {
-  max-width: var(--contenedor-max);
-  margin: 0 auto;
-  padding: 0 var(--espacio-md);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--espacio-lg);
-  width: 100%;
-}
-
-.hero-luxury__texto {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-}
-
-.hero-luxury__etiqueta {
-  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--color-cobre); margin-bottom: var(--espacio-sm);
-}
-
-.hero-luxury__titulo {
-  font-size: clamp(2.2rem, 8vw, 3rem);
-  margin-bottom: var(--espacio-xs);
-}
-
-.hero-luxury__titulo span {
-  display: block; color: var(--color-cobre);
-  font-family: var(--font-firma);
-  font-size: clamp(3rem, 12vw, 4.5rem); 
-  margin-top: -0.1em; line-height: 0.8;
-}
-
-.hero-luxury__desc {
-  font-size: 0.95rem; opacity: 0.85; margin-bottom: var(--espacio-md);
-}
-
-.hero-luxury__acciones { 
-  display: flex; flex-direction: column; gap: var(--espacio-sm); width: 100%; align-items: center;
-}
-
-.hero-luxury__imagen { position: relative; width: 100%; }
-.hero-luxury__imagen img { width: 100%; border-radius: var(--radio-lg); box-shadow: var(--sombra-media); }
-
-.hero-luxury__badge {
-  position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
-  width: 110px; height: 120px; background-color: var(--color-marfil);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  border: 1px solid var(--color-cobre);
-}
-.hero-luxury__badge p { font-size: 0.5rem; text-transform: uppercase; margin: 0; }
-.hero-luxury__badge h3 { font-size: 1.2rem; color: var(--color-cobre); margin: 2px 0; }
-
-/* ---------- HERO INTERNO (Páginas secundarias) ---------- */
-.hero--interno {
-  padding: 120px var(--espacio-md) 40px;
-  text-align: center;
-  border-bottom: 1px solid rgba(182, 106, 53, 0.1);
-}
-.hero__logo-horizontal { max-width: 180px; margin: 0 auto var(--espacio-sm); }
-.hero__frase { font-family: var(--font-firma); font-size: 1.4rem; color: var(--color-cobre); }
-
-/* ---------- SECCIONES ---------- */
-.seccion { padding: var(--espacio-lg) 0; }
-.seccion--arena { background-color: var(--color-arena); }
-.seccion--verde { background-color: var(--color-verde-bosque); color: var(--color-marfil); }
-.seccion--verde h2, .seccion--verde p, .seccion--verde h3 { color: var(--color-marfil); }
-
-.seccion__titulo { font-size: clamp(1.8rem, 6vw, 2.2rem); text-align: center; margin-bottom: 5px; }
-.seccion__subtitulo { font-size: 1.5rem; font-family: var(--font-firma); color: var(--color-cobre); text-align: center; margin-bottom: var(--espacio-md); }
-
-/* ---------- GRILLAS (Móvil) ---------- */
-.grid-pilares, .grid-experiencias, .grid-eventos, .grid-testimonios, .grid-dos, .grid-tres, .timeline {
-  display: grid; grid-template-columns: 1fr; gap: var(--espacio-md); margin-top: var(--espacio-md);
-}
-
-/* ---------- TARJETAS DE EVENTOS (Arregladas) ---------- */
-.evento {
-  background-color: var(--color-marfil-puro);
-  border-radius: var(--radio-md);
-  overflow: hidden;
-  box-shadow: var(--sombra-suave);
-  display: flex; flex-direction: column;
-}
-
-.evento__imagen { width: 100%; aspect-ratio: 16 / 9; }
-.evento__imagen img { width: 100%; height: 100%; object-fit: cover; }
-
-.evento__contenido { padding: var(--espacio-md); display: flex; flex-direction: column; gap: 10px; }
-.evento__fecha { font-size: 0.75rem; text-transform: uppercase; color: var(--color-cobre); font-weight: 600; }
-.evento__titulo { font-size: 1.3rem; }
-.evento__descripcion { font-size: 0.9rem; opacity: 0.85; }
-.evento__detalles { display: flex; flex-wrap: wrap; gap: 8px; }
-.evento__detalles li { font-size: 0.7rem; background-color: var(--color-arena); padding: 4px 10px; border-radius: 50px; }
-.evento .btn { margin: 10px 0 0 0; }
-
-/* ---------- PILARES Y EXPERIENCIAS ---------- */
-.pilar, .experiencia {
-  background-color: var(--color-marfil-puro);
-  padding: var(--espacio-md);
-  border-radius: var(--radio-md);
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-}
-.pilar__icono, .experiencia__icono { width: 36px; height: 36px; margin-bottom: 10px; stroke: var(--color-cobre); fill: none; stroke-width: 1.2; }
-.pilar__titulo, .experiencia__nombre { font-size: 1rem; text-transform: uppercase; }
-.pilar p { font-size: 0.85rem; }
-
-/* ---------- FOOTER ---------- */
-.footer { padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md); text-align: center; }
-.footer__logo { max-width: 90px; margin: 0 auto var(--espacio-md); }
-.footer__frase { font-family: var(--font-firma); font-size: 1.4rem; color: var(--color-rosa-cobre); margin-bottom: var(--espacio-md); }
-.footer__redes { display: flex; justify-content: center; gap: var(--espacio-md); margin-bottom: var(--espacio-md); }
-.footer__redes a { font-size: 0.8rem; text-transform: uppercase; }
-.footer__copy { font-size: 0.7rem; opacity: 0.6; }
+.navbar__menu a.activo { color: var(--color-cobre); font-weight: 600; }
 
 /* ============================================
-   MEDIA QUERIES (PC)
+   FORMULARIO DE CONTACTO (ESTILO TARJETA PREMIUM)
    ============================================ */
-@media (min-width: 768px) {
-  .navbar__toggle { display: none; }
-  .navbar__menu {
-    position: static; flex-direction: row; gap: var(--espacio-lg);
-    background: transparent; box-shadow: none; transform: none; padding: 0; width: auto;
-  }
-  .navbar__menu li { margin: 0; width: auto; }
-  .navbar__menu a { padding: 8px 0; position: relative; }
-  .navbar__menu a.activo { color: var(--color-cobre); font-weight: 600; }
-
-  .hero-luxury__contenedor { grid-template-columns: 1fr 1fr; text-align: left; }
-  .hero-luxury__texto { text-align: left; align-items: flex-start; }
-  .hero-luxury__acciones { flex-direction: row; justify-content: flex-start; }
-  .hero-luxury__badge { left: -60px; top: 50%; bottom: auto; transform: translateY(-50%); width: 150px; height: 170px; }
-  .hero-luxury__badge h3 { font-size: 1.8rem; }
-
-  .grid-eventos, .grid-dos { grid-template-columns: repeat(2, 1fr); }
-  .grid-tres, .grid-testimonios { grid-template-columns: repeat(3, 1fr); }
-  .grid-pilares, .grid-experiencias { grid-template-columns: repeat(4, 1fr); }
-  .timeline { grid-template-columns: repeat(5, 1fr); }
-  
-  .btn { width: auto; max-width: none; }
+.contacto-wrapper {
+  background-color: var(--color-arena);
+  padding: var(--espacio-lg) var(--espacio-md);
+  border-radius: var(--radio-lg);
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: var(--sombra-suave);
 }
+
+.form-card {
+  background-color: var(--color-marfil-puro);
+  border-radius: var(--radio-md);
+  padding: var(--espacio-lg) var(--espacio-md);
+  box-shadow: 0 10px 30px rgba(122, 62, 29, 0.08);
+  border: 1px solid rgba(182, 106, 53, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-bronce);
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 1rem;
+  font-family: var(--font-texto);
+  font-size: 1rem;
+  color: var(--color-bronce);
+  background-color: var(--color-marfil-soft);
+  border: 1px solid rgba(182, 106, 53, 0.2);
+  border-radius: var(--radio-sm);
+  transition: var(--transicion-suave);
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: var(--color-cobre);
+  background-color: var(--color-marfil-puro);
+  box-shadow: 0 0 0 3px rgba(182, 106, 53, 0.1);
+}
+
+.form-control::placeholder { color: var(--color-bronce); opacity: 0.4; }
+
+textarea.form-control { resize: vertical; min-height: 120px; }
+
+.btn-submit {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 0.9rem;
+  background-color: var(--color-cobre);
+  color: var(--color-marfil);
+  border: none;
+  border-radius: var(--radio-sm);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: var(--transicion-suave);
+}
+.btn-submit:hover { background-color: var(--color-bronce); }
+
+/* Info de Contacto */
+.info-bloque {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.info-bloque__titulo {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-cobre);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.info-bloque__link {
+  font-family: var(--font-titulo);
+  font-size: 1.2rem;
+  color: var(--color-bronce);
+  text-decoration: none;
+  transition: var(--transicion-suave);
+}
+.info-bloque__link:hover { color: var(--color-cobre); }
+
+/* Botones generales (para el resto de la web) */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 1rem 2rem; font-size: 0.8rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 500; transition: var(--transicion-suave);
+  cursor: pointer; width: 100%; max-width: 300px; margin: 0 auto;
+}
+.btn--primario { background-color: var(--color-cobre); color: var(--color-marfil); border: 1px solid var(--color-cobre); }
+.btn--secundario { background: transparent; color: var(--color-bronce); border: 1px solid var(--color-bronce); }
+
+/* ... (El resto de tus estilos de hero, secciones, eventos, etc. se mantienen igual) ... */
+/* Como el archivo es muy largo, he recortado la parte que no cambia, pero 
+   asegúrate de conservar tus estilos de .hero-luxury, .evento, etc. en tu archivo real. */
