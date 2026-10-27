@@ -1,64 +1,64 @@
 /* ============================================
-   DISCIPLINA CON ALMA — MAIN CSS UNIFICADO
+   DISCIPLINA CON ALMA — MAIN CSS
    ============================================ */
 
-/* ---------- NAVBAR (Elegante y Fijo al hacer scroll) ---------- */
+/* ---------- NAVBAR (Fijo y Proporcionado) ---------- */
 .navbar {
   position: absolute; 
   top: 0; left: 0; width: 100%;
   z-index: 1000;
-  padding: var(--espacio-sm) 0;
+  padding: 10px 0;
   transition: var(--transicion-suave);
-  
-  /* Fondo sutil con desenfoque */
-  background-color: rgba(248, 245, 239, 0.85); 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(182, 106, 53, 0.15);
+  background-color: rgba(248, 245, 239, 0.95); 
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(182, 106, 53, 0.1);
 }
 
-/* Esta clase la agregaremos con JS para que se quede fija al bajar */
 .navbar.scrolled {
   position: fixed;
   background-color: rgba(248, 245, 239, 0.98);
-  box-shadow: 0 4px 20px rgba(122, 62, 29, 0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 5px 0;
 }
 
 .navbar__contenedor {
   max-width: var(--contenedor-max);
   margin: 0 auto;
-  padding: 0 var(--espacio-md);
+  padding: 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Estilo para el logo en imagen en el navbar */
+/* EL LOGO EN EL NAVBAR (Control de tamaño estricto) */
 .navbar__logo-img {
-  height: 50px;
+  height: 45px; /* Altura fija para que no se desborde */
   width: auto;
+  max-width: 200px;
   object-fit: contain;
-  transition: var(--transicion-suave);
+  display: block;
 }
 
 .navbar.scrolled .navbar__logo-img {
-  height: 40px; /* Se hace un poco más pequeño al bajar */
+  height: 35px;
 }
 
-/* Menú */
+/* ---------- MENÚ MÓVIL ---------- */
 .navbar__toggle {
   display: block; 
   padding: 5px;
-  z-index: 1001;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .navbar__toggle span {
   display: block;
-  width: 22px; 
-  height: 1.5px;
+  width: 25px; 
+  height: 2px;
   background-color: var(--color-cobre);
   margin: 5px 0;
-  transition: var(--transicion-suave);
+  transition: all 0.3s ease;
 }
 
 .navbar__menu {
@@ -68,131 +68,118 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--espacio-md) 0;
+  padding: 20px 0;
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
   transform: translateY(-150%);
   transition: transform 0.4s ease;
   z-index: -1;
+  list-style: none;
 }
 
 .navbar__menu.active { transform: translateY(0); z-index: 999; }
 .navbar__menu li { margin: 10px 0; width: 100%; text-align: center; }
 .navbar__menu a {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-bronce);
   display: block;
   padding: 5px 0;
+  text-decoration: none;
 }
 .navbar__menu a.activo { color: var(--color-cobre); font-weight: 600; }
 
-/* ============================================
-   FORMULARIO DE CONTACTO (ESTILO TARJETA PREMIUM)
-   ============================================ */
-.contacto-wrapper {
-  background-color: var(--color-arena);
-  padding: var(--espacio-lg) var(--espacio-md);
-  border-radius: var(--radio-lg);
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: var(--sombra-suave);
+/* ---------- ICONOS SVG (Control estricto de tamaño) ---------- */
+.pilar__icono, .experiencia__icono {
+  width: 40px;
+  height: 40px;
+  stroke: var(--color-cobre);
+  stroke-width: 1.5;
+  fill: none;
+  margin: 0 auto 15px auto;
+  display: block;
 }
 
-.form-card {
+/* ---------- IMÁGENES (Control para que no se deformen) ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-luxury__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radio-lg);
+}
+
+/* ---------- TARJETAS Y BOTONES ---------- */
+.btn {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 15px 30px; 
+  font-size: 0.8rem; 
+  letter-spacing: 0.1em;
+  text-transform: uppercase; 
+  font-weight: 600; 
+  transition: all 0.3s ease;
+  cursor: pointer; 
+  width: 100%; 
+  max-width: 320px; 
+  margin: 0 auto;
+  border: none;
+  text-decoration: none;
+}
+
+.btn--primario { background-color: var(--color-cobre); color: var(--color-marfil); border: 1px solid var(--color-cobre); }
+.btn--primario:hover { background-color: var(--color-bronce); }
+.btn--secundario { background: transparent; color: var(--color-bronce); border: 1px solid var(--color-bronce); }
+
+/* ---------- TARJETAS DE EXPERIENCIA ---------- */
+.grid-experiencias {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 0 15px;
+}
+
+.experiencia {
   background-color: var(--color-marfil-puro);
+  padding: 20px 15px;
   border-radius: var(--radio-md);
-  padding: var(--espacio-lg) var(--espacio-md);
-  box-shadow: 0 10px 30px rgba(122, 62, 29, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--sombra-suave);
   border: 1px solid rgba(182, 106, 53, 0.1);
 }
 
-.form-group {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-bronce);
-  font-weight: 600;
-}
-
-.form-control {
-  width: 100%;
-  padding: 1rem;
-  font-family: var(--font-texto);
-  font-size: 1rem;
-  color: var(--color-bronce);
-  background-color: var(--color-marfil-soft);
-  border: 1px solid rgba(182, 106, 53, 0.2);
-  border-radius: var(--radio-sm);
-  transition: var(--transicion-suave);
-  outline: none;
-}
-
-.form-control:focus {
-  border-color: var(--color-cobre);
-  background-color: var(--color-marfil-puro);
-  box-shadow: 0 0 0 3px rgba(182, 106, 53, 0.1);
-}
-
-.form-control::placeholder { color: var(--color-bronce); opacity: 0.4; }
-
-textarea.form-control { resize: vertical; min-height: 120px; }
-
-.btn-submit {
-  width: 100%;
-  padding: 1.2rem;
-  font-size: 0.9rem;
-  background-color: var(--color-cobre);
-  color: var(--color-marfil);
-  border: none;
-  border-radius: var(--radio-sm);
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: var(--transicion-suave);
-}
-.btn-submit:hover { background-color: var(--color-bronce); }
-
-/* Info de Contacto */
-.info-bloque {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-.info-bloque__titulo {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-cobre);
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-.info-bloque__link {
+.experiencia__nombre {
   font-family: var(--font-titulo);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--color-bronce);
-  text-decoration: none;
-  transition: var(--transicion-suave);
+  margin: 0;
 }
-.info-bloque__link:hover { color: var(--color-cobre); }
 
-/* Botones generales (para el resto de la web) */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 1rem 2rem; font-size: 0.8rem; letter-spacing: 0.1em;
-  text-transform: uppercase; font-weight: 500; transition: var(--transicion-suave);
-  cursor: pointer; width: 100%; max-width: 300px; margin: 0 auto;
+.experiencia p {
+  font-size: 0.8rem;
+  color: var(--color-bronce);
+  opacity: 0.8;
+  margin: 5px 0 0 0;
+  line-height: 1.4;
 }
-.btn--primario { background-color: var(--color-cobre); color: var(--color-marfil); border: 1px solid var(--color-cobre); }
-.btn--secundario { background: transparent; color: var(--color-bronce); border: 1px solid var(--color-bronce); }
 
-/* ... (El resto de tus estilos de hero, secciones, eventos, etc. se mantienen igual) ... */
-/* Como el archivo es muy largo, he recortado la parte que no cambia, pero 
-   asegúrate de conservar tus estilos de .hero-luxury, .evento, etc. en tu archivo real. */
+/* ---------- HERO Y SECCIONES ---------- */
+.hero-luxury { padding: 120px 20px 60px; background-color: var(--color-marfil); }
+.hero-luxury__contenedor { display: flex; flex-direction: column; gap: 30px; }
+.hero-luxury__texto { text-align: center; }
+.hero-luxury__titulo { font-size: 2.5rem; margin-bottom: 15px; line-height: 1.1; }
+.hero-luxury__titulo span { display: block; font-family: var(--font-firma); font-size: 3.5rem; color: var(--color-cobre); margin-top: -10px; }
+.hero-luxury__desc { font-size: 1rem; margin-bottom: 25px; }
+
+.seccion { padding: 40px 0; }
+.seccion__titulo { font-size: 2rem; margin-bottom: 10px; }
+.seccion__subtitulo { font-size: 1.3rem; color: var(--color-cobre); font-family: var(--font-firma); margin-bottom: 20px; }
