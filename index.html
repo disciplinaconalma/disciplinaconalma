@@ -14,46 +14,100 @@
   <link rel="stylesheet" href="assets/css/main.css">
 
   <style>
-    /* Estilos para el botón flotante sobre la imagen */
-    .hero-imagen-wrapper {
+    /* --- ESTILOS DEL CARRUSEL DE FOTOS INTERACTIVO --- */
+    .carrusel-wrapper {
       position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .carrusel-item {
+      position: absolute;
+      transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Transición suave y elegante */
       border-radius: var(--radio-lg);
       overflow: hidden;
-      box-shadow: var(--sombra-media);
+      box-shadow: var(--sombra-fuerte);
+      cursor: pointer;
+      width: 55%;
+      height: 85%;
+      opacity: 0;
+      transform: scale(0.6);
+      z-index: 1;
     }
 
-    .hero-imagen-wrapper img {
+    .carrusel-item img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
     }
 
-    /* El botón flotante en el centro */
-    .btn-flotante-imagen {
+    /* Estado de la foto activa (Centro) */
+    .carrusel-item.activo {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 3;
+      cursor: default;
+    }
+
+    /* Estado de la foto anterior (Izquierda) */
+    .carrusel-item.prev {
+      opacity: 0.6;
+      transform: translateX(-60%) scale(0.75);
+      z-index: 2;
+    }
+
+    /* Estado de la foto siguiente (Derecha) */
+    .carrusel-item.next {
+      opacity: 0.6;
+      transform: translateX(60%) scale(0.75);
+      z-index: 2;
+    }
+
+    /* --- ESTILOS DEL CARRUSEL DE VIDEOS (SHORTS) --- */
+    .carrusel-videos {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 20px 15px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .carrusel-videos::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .video-item {
+      flex: 0 0 75%; /* Toma el 75% del ancho en celular */
+      scroll-snap-align: center;
+      border-radius: var(--radio-md);
+      overflow: hidden;
+      box-shadow: var(--sombra-media);
+      position: relative;
+      padding-bottom: 133%; /* Proporción 3:4 (ideal para Shorts) */
+      background-color: #000;
+    }
+
+    @media (min-width: 768px) {
+      .video-item {
+        flex: 0 0 350px; /* En PC tiene un ancho fijo */
+        padding-bottom: 622px;
+      }
+    }
+
+    .video-item iframe {
       position: absolute;
-      top: 55%; /* Ajustado para que quede justo donde marcaste el círculo */
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #D1495B; /* Color rosa solidario */
-      color: white;
-      padding: 12px 25px;
-      border-radius: 50px;
-      font-family: var(--font-texto);
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(209, 73, 91, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      z-index: 10;
-    }
-
-    .btn-flotante-imagen:hover {
-      background-color: #b53c4c;
-      transform: translate(-50%, -50%) scale(1.05);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
     }
   </style>
 </head>
@@ -79,31 +133,18 @@
   <!-- HERO -->
   <header class="hero-luxury">
     <div class="hero-luxury__contenedor">
-      
-      <!-- Texto y Botones -->
       <div class="hero-luxury__texto">
         <div class="hero-luxury__etiqueta">Presencia · Comunidad · Transformación</div>
         <h1 class="hero-luxury__titulo">Disciplina <span>con Alma</span></h1>
         <p class="hero-luxury__desc">Donde el alma guía y la disciplina sostiene. Un espacio donde las mujeres pueden detenerse, escucharse y volver a conectar con aquello que muchas veces queda en silencio.</p>
-        
         <div class="hero-luxury__acciones">
-          <!-- Botón cambiado a "Ver Eventos" -->
           <a href="eventos.html" class="btn btn--primario">Ver Eventos</a>
-          <!-- Botón de WhatsApp -->
           <a href="https://chat.whatsapp.com/Jvy4qAzStPl2k3BB4wOs66?mode=gi_t" target="_blank" rel="noopener" class="btn btn--secundario">Únete a la comunidad</a>
         </div>
       </div>
-
-      <!-- Imagen con botón flotante -->
-      <div class="hero-luxury__imagen hero-imagen-wrapper">
-        <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Comunidad Disciplina con Alma">
-        
-        <!-- BOTÓN FLOTANTE PARA INSCRIBIRSE -->
-        <a href="registro-evento.html?evento=Movimiento con Alma" class="btn-flotante-imagen">
-          Inscribirme
-        </a>
+      <div class="hero-luxury__imagen">
+        <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Comunidad Disciplina con Alma" style="border-radius: var(--radio-lg); box-shadow: var(--sombra-media);">
       </div>
-
     </div>
   </header>
 
@@ -113,6 +154,56 @@
       <h2 class="seccion__titulo">Una invitación que nació de una necesidad real</h2>
       <p class="seccion__subtitulo">¿Cómo volver a escucharnos?</p>
       <p>Durante años muchas mujeres aprendieron a cumplir, resolver y sostener. Pero pocas encontraron espacios para detenerse, respirar y recordar quiénes son más allá de sus responsabilidades.</p>
+    </div>
+  </section>
+
+  <!-- CARRUSEL DE FOTOS INTERACTIVO -->
+  <section class="seccion seccion--arena" style="overflow: hidden;">
+    <div class="contenedor text-center">
+      <h2 class="seccion__titulo">Momentos que Transforman</h2>
+      <p class="seccion__subtitulo">Nuestra comunidad en imágenes</p>
+      
+      <div class="carrusel-wrapper">
+        <!-- Las fotos de ejemplo (luego las cambias por las tuyas) -->
+        <div class="carrusel-item" data-index="0">
+          <img src="assets/img/solidarios/movimiento-funcional.jpg" alt="Momento 1">
+        </div>
+        <div class="carrusel-item" data-index="1">
+          <img src="assets/img/solidarios/movimiento-zumba.jpg" alt="Momento 2">
+        </div>
+        <div class="carrusel-item" data-index="2">
+          <img src="assets/img/solidarios/movimiento-zumba-2.jpg" alt="Momento 3">
+        </div>
+        <!-- Agrega aquí más imágenes si quieres, el código se adaptará -->
+        <div class="carrusel-item" data-index="3">
+          <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Momento 4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRUSEL DE VIDEOS (SHORTS) -->
+  <section class="seccion">
+    <div class="contenedor text-center">
+      <h2 class="seccion__titulo">Nuestra Esencia en Movimiento</h2>
+      <p class="seccion__subtitulo">Conéctate con nuestra energía (Desliza para ver más)</p>
+    </div>
+    
+    <div class="carrusel-videos">
+      <!-- Videos de EJEMPLO (Cambia los src cuando tengas los tuyos) -->
+      <div class="video-item">
+        <!-- Reemplaza dQw4w9WgXcQ por el ID de tu Short -->
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Short 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Short 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Short 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Short 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
 
@@ -128,5 +219,49 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- SCRIPT PARA EL CARRUSEL DE FOTOS INTERACTIVO -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.carrusel-item');
+      let currentIndex = 0;
+
+      // Función que actualiza las clases para crear el efecto de rotación
+      function renderCarrusel() {
+        items.forEach((item, index) => {
+          item.classList.remove('activo', 'prev', 'next');
+          
+          if (index === currentIndex) {
+            item.classList.add('activo');
+          } else if (index === (currentIndex - 1 + items.length) % items.length) {
+            item.classList.add('prev');
+          } else if (index === (currentIndex + 1) % items.length) {
+            item.classList.add('next');
+          }
+        });
+      }
+
+      // Agregar evento clic a cada imagen
+      items.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          // Si la foto clickeada no es la activa, se convierte en la activa
+          if (index !== currentIndex) {
+            currentIndex = index;
+            renderCarrusel();
+          }
+        });
+      });
+
+      // Iniciar el carrusel
+      renderCarrusel();
+      
+      // Opcional: Auto-rotación cada 5 segundos
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        renderCarrusel();
+      }, 5000);
+    });
+  </script>
+
 </body>
 </html>
