@@ -3,135 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movimiento con Alma — Evento Solidario | Disciplina con Alma</title>
-  
+  <title>Movimiento con Alma | Disciplina con Alma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
-
   <style>
-    /* --- HERO (Portada con imagen completa) --- */
-    .hero-solidario {
-      position: relative;
-      width: 100%;
-      background-color: var(--color-marfil); /* Fondo marfil para los bordes vacíos */
-      padding-top: 80px; /* Espacio para que no pegue con el navbar */
-      padding-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    /* Contenedor de la imagen para que no se recorte */
-    .hero-solidario__imagen-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 800px; /* Límite para que no se vea gigante en PC */
-      margin: 0 auto;
-    }
-
-    /* La imagen se adapta al ancho y mantiene su proporción */
-    .hero-solidario__imagen {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain; /* Muestra la imagen completa */
-      border-radius: var(--radio-md); /* Bordes redondeados opcionales */
-      box-shadow: var(--sombra-fuerte);
-    }
-    
-    /* El botón flota encima de la imagen, en la parte inferior */
-    .hero-solidario__boton {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-
-    /* El botón rosa elegante */
-    .btn-hero {
-      display: inline-block;
-      background-color: #D1495B;
-      color: white;
-      font-family: var(--font-texto);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(209, 73, 91, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      white-space: nowrap;
-    }
-    
-    .btn-hero:hover {
-      background-color: #b53c4c;
-      transform: translateX(-50%) translateY(-3px);
-      box-shadow: 0 12px 25px rgba(209, 73, 91, 0.7), inset 0 0 0 2px rgba(255, 255, 255, 0.5);
-    }
-
-    /* En celulares, ajustamos el botón para que no tape tanta imagen */
-    @media (max-width: 768px) {
-      .hero-solidario__boton {
-        bottom: 20px;
-      }
-      .btn-hero {
-        font-size: 0.8rem;
-        padding: 0.8rem 1.8rem;
-      }
-    }
-
-    /* --- INFO DEL EVENTO --- */
+    .hero-solidario { position: relative; width: 100%; background-color: var(--color-marfil); padding-top: 80px; padding-bottom: 20px; display: flex; flex-direction: column; align-items: center; }
+    .hero-solidario__imagen-wrapper { position: relative; width: 100%; max-width: 800px; margin: 0 auto; }
+    .hero-solidario__imagen { display: block; width: 100%; height: auto; object-fit: contain; border-radius: var(--radio-md); box-shadow: var(--sombra-fuerte); }
+    .hero-solidario__boton { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; }
+    .btn-hero { display: inline-block; background-color: #D1495B; color: white; font-family: var(--font-texto); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(209, 73, 91, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.3); border: 1px solid rgba(255, 255, 255, 0.2); white-space: nowrap; }
+    .btn-hero:hover { background-color: #b53c4c; transform: translateX(-50%) translateY(-3px); }
+    @media (max-width: 768px) { .hero-solidario__boton { bottom: 20px; } .btn-hero { font-size: 0.8rem; padding: 0.8rem 1.8rem; } }
     .info-evento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 2rem 0; }
     @media (min-width: 768px) { .info-evento { grid-template-columns: repeat(4, 1fr); } }
     .info-item { background-color: var(--color-marfil-puro); padding: 1.5rem 1rem; border-radius: var(--radio-md); text-align: center; border: 1px solid rgba(182, 106, 53, 0.2); box-shadow: var(--sombra-suave); }
-    .info-item strong { display: block; font-size: 0.75rem; text-transform: uppercase; color: var(--color-cobre); margin-bottom: 5px; letter-spacing: 0.1em; }
+    .info-item strong { display: block; font-size: 0.75rem; text-transform: uppercase; color: var(--color-cobre); margin-bottom: 5px; }
     .info-item span { font-family: var(--font-titulo); font-size: 1.3rem; font-weight: 600; color: var(--color-bronce); }
-    
     .actividades-lista { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 1.5rem 0 2rem; }
     .actividades-lista li { background-color: var(--color-marfil-puro); padding: 10px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; color: var(--color-bronce); border: 1px solid rgba(182, 106, 53, 0.2); }
-    
     .card-inscripcion { background-color: var(--color-marfil-soft); border: 1px dashed var(--color-cobre); padding: 2rem; border-radius: var(--radio-md); margin-top: 2rem; }
-
-    /* --- TARJETAS DE INSTRUCTORES --- */
-    .instructor-card {
-      background-color: var(--color-marfil-puro);
-      border-radius: var(--radio-md);
-      overflow: hidden;
-      box-shadow: var(--sombra-suave);
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      transition: var(--transicion-suave);
-    }
+    .instructor-card { background-color: var(--color-marfil-puro); border-radius: var(--radio-md); overflow: hidden; box-shadow: var(--sombra-suave); display: flex; flex-direction: column; text-align: center; transition: var(--transicion-suave); }
     .instructor-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-media); }
-    
-    .instructor-card img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      object-position: top;
-    }
+    .instructor-card img { width: 100%; height: 350px; object-fit: cover; object-position: top; }
     .instructor-card .info { padding: 1.5rem; }
     .instructor-card h3 { font-family: var(--font-titulo); font-size: 1.3rem; color: var(--color-bronce); margin-bottom: 5px; }
     .instructor-card p { font-size: 0.85rem; color: var(--color-cobre); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin: 0; }
   </style>
 </head>
 <body>
-
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
-      <button class="navbar__toggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="navbar__toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
@@ -143,98 +49,54 @@
       </ul>
     </div>
   </nav>
-
-  <!-- HERO (Imagen completa + Botón) -->
   <header class="hero-solidario">
     <div class="hero-solidario__imagen-wrapper">
-      <!-- Imagen completa -->
       <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Movimiento con Alma" class="hero-solidario__imagen">
-      
-      <!-- Botón flotante encima de la imagen -->
       <div class="hero-solidario__boton">
-        <a href="registro-evento.html?evento=Movimiento con Alma" class="btn-hero">
-          Inscribirme ahora
-        </a>
+        <a href="registro-evento.html?evento=Movimiento con Alma" class="btn-hero">Inscribirme ahora</a>
       </div>
     </div>
   </header>
-
   <section class="seccion">
     <div class="contenedor-texto text-center">
-      
       <h2 class="seccion__titulo">Un evento para dar y recibir</h2>
       <p class="seccion__subtitulo">¡Acompáñanos!</p>
       <p>Únete a esta jornada de bienestar, ejercicio y comunidad. Todo lo recaudado será a beneficio de una causa solidaria que transforma vidas.</p>
-
       <div class="info-evento">
         <div class="info-item"><strong>Fecha</strong><span>Sábado 14 Nov</span></div>
         <div class="info-item"><strong>Hora</strong><span>7:00 A.M.</span></div>
         <div class="info-item"><strong>Aporte</strong><span>RD$500</span></div>
         <div class="info-item"><strong>Lugar</strong><span>Club Luciola Pión</span></div>
       </div>
-
       <ul class="actividades-lista">
-        <li>Charla Inspiradora</li>
-        <li>Zumba y Baile</li>
-        <li>Entrenamiento Funcional</li>
-        <li>Invitados Especiales</li>
-        <li>¡Y más sorpresas!</li>
+        <li>Charla Inspiradora</li><li>Zumba y Baile</li><li>Entrenamiento Funcional</li><li>Invitados Especiales</li><li>¡Y más sorpresas!</li>
       </ul>
-
       <div class="card-inscripcion">
         <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--color-bronce);">Este es un evento abierto para hombres y mujeres. Para participar, debes realizar tu inscripción previa.</p>
         <a href="registro-evento.html?evento=Movimiento con Alma" class="btn btn--primario" style="width: 100%; max-width: 300px; margin: 0 auto; display: inline-block; background-color: #D1495B; border-color: #D1495B;">Inscribirme ahora</a>
       </div>
-
     </div>
   </section>
-
-  <!-- GALERÍA DE INSTRUCTORES -->
   <section class="seccion seccion--arena">
     <div class="contenedor text-center">
       <h2 class="seccion__titulo">Instructores Invitados</h2>
       <p class="seccion__subtitulo">Energía de primer nivel</p>
-      
       <div class="grid-tres">
-        
-        <div class="instructor-card">
-          <img src="assets/img/solidarios/movimiento-funcional.jpg" alt="New Body Fitness RD" loading="lazy">
-          <div class="info">
-            <h3>New Body Fitness RD</h3>
-            <p>Entrenamiento Funcional</p>
-          </div>
-        </div>
-
-        <div class="instructor-card">
-          <img src="assets/img/solidarios/movimiento-zumba.jpg" alt="Zin Roberto Martínez" loading="lazy">
-          <div class="info">
-            <h3>Zin Roberto Martínez</h3>
-            <p>Zumba</p>
-          </div>
-        </div>
-
-        <div class="instructor-card">
-          <img src="assets/img/solidarios/movimiento-zumba-2.jpg" alt="Zin Cenia Adolphus" loading="lazy">
-          <div class="info">
-            <h3>Zin Cenia Adolphus</h3>
-            <p>Zumba</p>
-          </div>
-        </div>
-
+        <div class="instructor-card"><img src="assets/img/solidarios/movimiento-funcional.jpg" alt="New Body"><div class="info"><h3>New Body Fitness RD</h3><p>Entrenamiento Funcional</p></div></div>
+        <div class="instructor-card"><img src="assets/img/solidarios/movimiento-zumba.jpg" alt="Zin Roberto"><div class="info"><h3>Zin Roberto Martínez</h3><p>Zumba</p></div></div>
+        <div class="instructor-card"><img src="assets/img/solidarios/movimiento-zumba-2.jpg" alt="Zin Cenia"><div class="info"><h3>Zin Cenia Adolphus</h3><p>Zumba</p></div></div>
       </div>
     </div>
   </section>
-
   <footer class="footer">
     <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
     <div class="footer__redes">
-      <a href="https://instagram.com/disciplinaconalma" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener">Instagram</a>
       <a href="contacto.html">Contacto</a>
     </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
-
   <script src="assets/js/main.js"></script>
 </body>
 </html>

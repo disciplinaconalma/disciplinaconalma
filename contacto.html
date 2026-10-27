@@ -11,113 +11,60 @@
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html" class="navbar__logo">Disciplina <span>con Alma</span></a>
-      <button class="navbar__toggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="navbar__toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
         <li><a href="experiencias.html">Experiencias</a></li>
         <li><a href="comunidad.html">Comunidad</a></li>
         <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="solidarios.html">Solidarios</a></li>
         <li><a href="contacto.html" class="activo">Contacto</a></li>
       </ul>
     </div>
   </nav>
-
   <header class="hero--interno">
     <img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="hero__logo-horizontal">
     <p class="hero__frase">"Sigamos construyendo juntas."</p>
   </header>
-
   <section class="seccion">
     <div class="contenedor-texto text-center animar">
       <h2 class="seccion__titulo">Hablemos</h2>
       <p class="seccion__subtitulo">Estamos aquí para ti</p>
-      <p>¿Quieres reservar tu lugar en la próxima experiencia, tienes alguna pregunta o simplemente quieres saludarnos? Escríbenos. Nos encantará leerte.</p>
+      <p>¿Quieres reservar tu lugar, tienes alguna pregunta o simplemente quieres saludarnos? Escríbenos.</p>
     </div>
   </section>
-
   <section class="seccion seccion--arena">
     <div class="contenedor animar">
       <div class="contacto__grid">
         <form class="formulario" action="https://formspree.io/f/tu-id-aqui" method="POST">
-          <div class="formulario__grupo">
-            <label for="nombre" class="formulario__label">Nombre</label>
-            <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="Tu nombre" required>
-          </div>
-          <div class="formulario__grupo">
-            <label for="email" class="formulario__label">Email</label>
-            <input type="email" id="email" name="email" class="formulario__input" placeholder="tu@email.com" required>
-          </div>
-          <div class="formulario__grupo">
-            <label for="telefono" class="formulario__label">Teléfono <span class="formulario__opcional">(opcional)</span></label>
-            <input type="tel" id="telefono" name="telefono" class="formulario__input" placeholder="+1 234 567 8900">
-          </div>
-          <div class="formulario__grupo">
-            <label for="interes" class="formulario__label">Me interesa</label>
-            <select id="interes" name="interes" class="formulario__input" required>
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="retiro">Retiro de Yoga y Respiración</option>
-              <option value="cacao">Ceremonia de Cacao</option>
-              <option value="kintsugi">Taller de Kintsugi</option>
-              <option value="caminata">Caminata Consciente</option>
-              <option value="comunidad">Unirme a la comunidad</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-          <div class="formulario__grupo">
-            <label for="mensaje" class="formulario__label">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" class="formulario__textarea" rows="5" placeholder="Cuéntanos qué te trae aquí..." required></textarea>
-          </div>
+          <div class="formulario__grupo"><label class="formulario__label">Nombre</label><input type="text" name="nombre" class="formulario__input" placeholder="Tu nombre" required></div>
+          <div class="formulario__grupo"><label class="formulario__label">Email</label><input type="email" name="email" class="formulario__input" placeholder="tu@email.com" required></div>
+          <div class="formulario__grupo"><label class="formulario__label">Teléfono</label><input type="tel" name="telefono" class="formulario__input" placeholder="+1 809 000 0000"></div>
+          <div class="formulario__grupo"><label class="formulario__label">Mensaje</label><textarea name="mensaje" class="formulario__textarea" rows="5" placeholder="Cuéntanos..." required></textarea></div>
           <button type="submit" class="btn btn--primario">Enviar mensaje</button>
-          <p class="formulario__aviso">Responderemos en un máximo de 48 horas.</p>
         </form>
-
         <aside class="info-contacto">
-          <div class="info-bloque">
-            <h3 class="info-bloque__titulo">Email</h3>
-            <a href="mailto:hola@disciplinaconalma.com" class="info-bloque__link">hola@disciplinaconalma.com</a>
-          </div>
-          <div class="info-bloque">
-            <h3 class="info-bloque__titulo">Instagram</h3>
-            <a href="https://instagram.com/disciplinaconalma" target="_blank" rel="noopener" class="info-bloque__link">@disciplinaconalma</a>
-          </div>
-          <div class="info-bloque">
-            <h3 class="info-bloque__titulo">WhatsApp</h3>
-            <a href="https://wa.me/18098438291" target="_blank" rel="noopener" class="info-bloque__link">+1 809 843 8291</a>
-          </div>
-          <div class="info-bloque">
-            <h3 class="info-bloque__titulo">Ubicación</h3>
-            <p class="info-bloque__texto">Encuentros en espacios naturales y estudios seleccionados. Consulta cada evento para más detalles.</p>
-          </div>
-          <div class="info-bloque info-bloque--frase">
-            <p class="info-bloque__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
-          </div>
+          <div class="info-bloque"><h3 class="info-bloque__titulo">Email</h3><a href="mailto:hola@disciplinaconalma.com" class="info-bloque__link">hola@disciplinaconalma.com</a></div>
+          <div class="info-bloque"><h3 class="info-bloque__titulo">Instagram</h3><a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener" class="info-bloque__link">@disciplinaconalma_</a></div>
+          <div class="info-bloque"><h3 class="info-bloque__titulo">WhatsApp</h3><a href="https://wa.me/18098438291" target="_blank" rel="noopener" class="info-bloque__link">+1 809 843 8291</a></div>
+          <div class="info-bloque"><h3 class="info-bloque__titulo">Ubicación</h3><p class="info-bloque__texto">Encuentros en espacios naturales y estudios seleccionados.</p></div>
         </aside>
       </div>
     </div>
   </section>
-
-  <section class="seccion seccion--verde text-center">
-    <div class="contenedor-texto animar">
-      <h2 class="seccion__titulo">Gracias por estar aquí</h2>
-      <p class="seccion__subtitulo">Nos vemos pronto</p>
-      <p class="promesa__frase">"Cuando una mujer transforma su vida, también transforma su familia, su comunidad y el mundo que la rodea."</p>
-    </div>
-  </section>
-
   <footer class="footer">
-    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
+    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
-    <div class="footer__redes"><a href="#">Instagram</a><a href="contacto.html">Contacto</a></div>
+    <div class="footer__redes">
+      <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener">Instagram</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
-
   <script src="assets/js/main.js"></script>
   <script src="assets/js/formulario.js"></script>
 </body>
