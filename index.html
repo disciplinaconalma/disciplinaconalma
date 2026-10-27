@@ -4,17 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Disciplina con Alma — Donde el alma guía y la disciplina sostiene</title>
+  <meta name="description" content="Comunidad y experiencia transformacional para mujeres que desean reconectar consigo mismas.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* Estilos para el botón flotante sobre la imagen */
+    .hero-imagen-wrapper {
+      position: relative;
+      border-radius: var(--radio-lg);
+      overflow: hidden;
+      box-shadow: var(--sombra-media);
+    }
+
+    .hero-imagen-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* El botón flotante en el centro */
+    .btn-flotante-imagen {
+      position: absolute;
+      top: 55%; /* Ajustado para que quede justo donde marcaste el círculo */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #D1495B; /* Color rosa solidario */
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-family: var(--font-texto);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(209, 73, 91, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .btn-flotante-imagen:hover {
+      background-color: #b53c4c;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+  </style>
 </head>
 <body>
+
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html"><img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="navbar__logo-img"></a>
-      <button class="navbar__toggle"><span></span><span></span><span></span></button>
+      <button class="navbar__toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
       <ul class="navbar__menu">
         <li><a href="index.html" class="activo">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
@@ -27,23 +76,38 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <header class="hero-luxury">
     <div class="hero-luxury__contenedor">
+      
+      <!-- Texto y Botones -->
       <div class="hero-luxury__texto">
         <div class="hero-luxury__etiqueta">Presencia · Comunidad · Transformación</div>
         <h1 class="hero-luxury__titulo">Disciplina <span>con Alma</span></h1>
         <p class="hero-luxury__desc">Donde el alma guía y la disciplina sostiene. Un espacio donde las mujeres pueden detenerse, escucharse y volver a conectar con aquello que muchas veces queda en silencio.</p>
+        
         <div class="hero-luxury__acciones">
-          <a href="experiencias.html" class="btn btn--primario">Conoce las experiencias</a>
-          <a href="https://chat.whatsapp.com/Jvy4qAzStPl2k3BB4wOs66?mode=gi_t" target="_blank" class="btn btn--secundario">Únete a la comunidad</a>
+          <!-- Botón cambiado a "Ver Eventos" -->
+          <a href="eventos.html" class="btn btn--primario">Ver Eventos</a>
+          <!-- Botón de WhatsApp -->
+          <a href="https://chat.whatsapp.com/Jvy4qAzStPl2k3BB4wOs66?mode=gi_t" target="_blank" rel="noopener" class="btn btn--secundario">Únete a la comunidad</a>
         </div>
       </div>
-      <div class="hero-luxury__imagen">
-        <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Comunidad">
+
+      <!-- Imagen con botón flotante -->
+      <div class="hero-luxury__imagen hero-imagen-wrapper">
+        <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Comunidad Disciplina con Alma">
+        
+        <!-- BOTÓN FLOTANTE PARA INSCRIBIRSE -->
+        <a href="registro-evento.html?evento=Movimiento con Alma" class="btn-flotante-imagen">
+          Inscribirme
+        </a>
       </div>
+
     </div>
   </header>
 
+  <!-- INTRO -->
   <section class="seccion">
     <div class="contenedor-texto text-center">
       <h2 class="seccion__titulo">Una invitación que nació de una necesidad real</h2>
@@ -52,15 +116,17 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
+    <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
     <div class="footer__redes">
-      <a href="https://instagram.com/disciplinaconalma_" target="_blank">Instagram</a>
+      <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener">Instagram</a>
       <a href="contacto.html">Contacto</a>
     </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>
