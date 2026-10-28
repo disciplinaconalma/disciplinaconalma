@@ -7,14 +7,56 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* Estilos para el carrusel de galería de fotos */
+    .galeria-scroll {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 20px 15px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .galeria-scroll::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .galeria-item {
+      flex: 0 0 80%; /* En celular, cada foto ocupa el 80% del ancho */
+      scroll-snap-align: center;
+      border-radius: var(--radio-md);
+      overflow: hidden;
+      box-shadow: var(--sombra-suave);
+      position: relative;
+      aspect-ratio: 4 / 5; /* Proporción vertical elegante */
+    }
+
+    @media (min-width: 768px) {
+      .galeria-item {
+        flex: 0 0 350px; /* En PC, cada foto tiene un ancho fijo */
+      }
+    }
+
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
 </head>
 <body>
+
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html"><img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="navbar__logo-img"></a>
-      <button class="navbar__toggle"><span></span><span></span><span></span></button>
+      <button class="navbar__toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
       <ul class="navbar__menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="sobre.html">Sobre</a></li>
@@ -39,6 +81,7 @@
     </div>
   </section>
 
+  <!-- GRILLA DE ICONOS DE EXPERIENCIAS -->
   <section class="seccion seccion--arena">
     <div class="contenedor">
       <ul class="grid-experiencias">
@@ -54,15 +97,53 @@
     </div>
   </section>
 
+  <!-- NUEVA SECCIÓN: GALERÍA DE EVENTOS REALIZADOS -->
+  <section class="seccion" style="overflow: hidden;">
+    <div class="contenedor text-center">
+      <h2 class="seccion__titulo">Momentos Reales</h2>
+      <p class="seccion__subtitulo">"Arte, Conversación y Mujeres Reales"</p>
+      <p style="max-width: 600px; margin: 0 auto 20px auto;">Un recorrido por nuestro primer encuentro. Un espacio donde el arte, las palabras y la comunidad se unieron para recordarnos que no estamos solas.</p>
+    </div>
+
+    <!-- CARRUSEL DE FOTOS DEL EVENTO -->
+    <div class="galeria-scroll">
+      <!-- Aquí van las 20 fotos. El código asume que se llaman 1.jpg, 2.jpg... 20.jpg -->
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/1.jpg" alt="Arte, Conversación y Mujeres Reales 1" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/2.jpg" alt="Arte, Conversación y Mujeres Reales 2" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/3.jpg" alt="Arte, Conversación y Mujeres Reales 3" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/4.jpg" alt="Arte, Conversación y Mujeres Reales 4" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/5.jpg" alt="Arte, Conversación y Mujeres Reales 5" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/6.jpg" alt="Arte, Conversación y Mujeres Reales 6" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/7.jpg" alt="Arte, Conversación y Mujeres Reales 7" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/8.jpg" alt="Arte, Conversación y Mujeres Reales 8" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/9.jpg" alt="Arte, Conversación y Mujeres Reales 9" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/10.jpg" alt="Arte, Conversación y Mujeres Reales 10" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/11.jpg" alt="Arte, Conversación y Mujeres Reales 11" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/12.jpg" alt="Arte, Conversación y Mujeres Reales 12" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/13.jpg" alt="Arte, Conversación y Mujeres Reales 13" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/14.jpg" alt="Arte, Conversación y Mujeres Reales 14" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/15.jpg" alt="Arte, Conversación y Mujeres Reales 15" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/16.jpg" alt="Arte, Conversación y Mujeres Reales 16" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/17.jpg" alt="Arte, Conversación y Mujeres Reales 17" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/18.jpg" alt="Arte, Conversación y Mujeres Reales 18" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/19.jpg" alt="Arte, Conversación y Mujeres Reales 19" loading="lazy"></div>
+      <div class="galeria-item"><img src="assets/img/galerias/arte-conversacion-mujeres-reales/20.jpg" alt="Arte, Conversación y Mujeres Reales 20" loading="lazy"></div>
+    </div>
+    <div class="text-center" style="margin-top: 10px;">
+      <p style="font-size: 0.8rem; color: var(--color-cobre); opacity: 0.7;">← Desliza para ver más fotos →</p>
+    </div>
+  </section>
+
   <footer class="footer">
     <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
     <div class="footer__redes">
-      <a href="https://instagram.com/disciplinaconalma_" target="_blank">Instagram</a>
+      <a href="https://instagram.com/disciplinaconalma_" target="_blank" rel="noopener">Instagram</a>
       <a href="contacto.html">Contacto</a>
     </div>
     <p class="footer__copy">© <span data-year></span> Disciplina con Alma · By Melissa García</p>
   </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>

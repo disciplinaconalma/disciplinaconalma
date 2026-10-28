@@ -21,116 +21,48 @@
       overflow: hidden;
       box-shadow: var(--sombra-media);
     }
-
-    .hero-imagen-wrapper img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* El botón flotante */
+    .hero-imagen-wrapper img { width: 100%; height: auto; display: block; }
     .btn-flotante-imagen {
-      position: absolute;
-      top: 55%; /* Ajustado para que quede en el centro de la foto */
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #D1495B; /* Color rosa solidario */
-      color: white;
-      padding: 15px 30px;
-      border-radius: 50px;
-      font-family: var(--font-texto);
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
+      position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+      background-color: #D1495B; color: white; padding: 15px 30px; border-radius: 50px;
+      font-family: var(--font-texto); font-weight: 600; font-size: 0.9rem;
+      text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none;
       box-shadow: 0 8px 20px rgba(209, 73, 91, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      z-index: 10;
+      border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease;
+      white-space: nowrap; z-index: 10;
     }
-
-    .btn-flotante-imagen:hover {
-      background-color: #b53c4c;
-      transform: translate(-50%, -50%) scale(1.05);
-    }
+    .btn-flotante-imagen:hover { background-color: #b53c4c; transform: translate(-50%, -50%) scale(1.05); }
 
     /* --- ESTILOS DEL CARRUSEL DE FOTOS INTERACTIVO --- */
     .carrusel-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      position: relative; width: 100%; max-width: 800px; margin: 0 auto;
+      height: 400px; display: flex; justify-content: center; align-items: center; overflow: hidden;
     }
-
     .carrusel-item {
-      position: absolute;
-      transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-      border-radius: var(--radio-lg);
-      overflow: hidden;
-      box-shadow: var(--sombra-fuerte);
-      cursor: pointer;
-      width: 55%;
-      height: 85%;
-      opacity: 0;
-      transform: scale(0.6);
-      z-index: 1;
+      position: absolute; transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      border-radius: var(--radio-lg); overflow: hidden; box-shadow: var(--sombra-fuerte);
+      cursor: pointer; width: 55%; height: 85%; opacity: 0; transform: scale(0.6); z-index: 1;
     }
-
-    .carrusel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      pointer-events: none;
-    }
-
+    .carrusel-item img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
     .carrusel-item.activo { opacity: 1; transform: scale(1); z-index: 3; cursor: default; }
     .carrusel-item.prev { opacity: 0.6; transform: translateX(-60%) scale(0.75); z-index: 2; }
     .carrusel-item.next { opacity: 0.6; transform: translateX(60%) scale(0.75); z-index: 2; }
 
     /* --- ESTILOS DEL CARRUSEL DE VIDEOS (SHORTS) --- */
     .carrusel-videos {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 20px 15px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 20px 15px; -webkit-overflow-scrolling: touch; scrollbar-width: none;
     }
-
     .carrusel-videos::-webkit-scrollbar { display: none; }
-
     .video-item {
-      flex: 0 0 75%;
-      scroll-snap-align: center;
-      border-radius: var(--radio-md);
-      overflow: hidden;
-      box-shadow: var(--sombra-media);
-      position: relative;
-      padding-bottom: 133%;
-      background-color: #000;
+      flex: 0 0 75%; scroll-snap-align: center; border-radius: var(--radio-md);
+      overflow: hidden; box-shadow: var(--sombra-media); position: relative;
+      padding-bottom: 133%; background-color: #000;
     }
-
     @media (min-width: 768px) {
-      .video-item {
-        flex: 0 0 350px;
-        padding-bottom: 622px;
-      }
+      .video-item { flex: 0 0 350px; padding-bottom: 622px; }
     }
-
-    .video-item iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
+    .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
   </style>
 </head>
 <body>
@@ -151,7 +83,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <header class="hero-luxury">
     <div class="hero-luxury__contenedor">
       <div class="hero-luxury__texto">
@@ -163,17 +94,10 @@
           <a href="https://chat.whatsapp.com/Jvy4qAzStPl2k3BB4wOs66?mode=gi_t" target="_blank" rel="noopener" class="btn btn--secundario">Únete a la comunidad</a>
         </div>
       </div>
-      
-      <!-- IMAGEN CON EL BOTÓN FLOTANTE RESTAURADO -->
       <div class="hero-luxury__imagen hero-imagen-wrapper">
         <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Comunidad Disciplina con Alma">
-        
-        <!-- BOTÓN FLOTANTE -->
-        <a href="registro-evento.html?evento=Movimiento con Alma" class="btn-flotante-imagen">
-          Inscribirme
-        </a>
+        <a href="registro-evento.html?evento=Movimiento con Alma" class="btn-flotante-imagen">Inscribirme</a>
       </div>
-      
     </div>
   </header>
 
@@ -190,19 +114,9 @@
       <h2 class="seccion__titulo">Momentos que Transforman</h2>
       <p class="seccion__subtitulo">Nuestra comunidad en imágenes</p>
       
-      <div class="carrusel-wrapper">
-        <div class="carrusel-item" data-index="0">
-          <img src="assets/img/solidarios/movimiento-funcional.jpg" alt="Momento 1">
-        </div>
-        <div class="carrusel-item" data-index="1">
-          <img src="assets/img/solidarios/movimiento-zumba.jpg" alt="Momento 2">
-        </div>
-        <div class="carrusel-item" data-index="2">
-          <img src="assets/img/solidarios/movimiento-zumba-2.jpg" alt="Momento 3">
-        </div>
-        <div class="carrusel-item" data-index="3">
-          <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Momento 4">
-        </div>
+      <!-- El JS llenará este contenedor con 4 fotos aleatorias -->
+      <div class="carrusel-wrapper" id="carrusel-fotos">
+        <!-- Aquí se insertarán las fotos dinámicamente -->
       </div>
     </div>
   </section>
@@ -214,15 +128,9 @@
     </div>
     
     <div class="carrusel-videos">
-      <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/RxySiyVyRcM" title="Short 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/ZHhGy-24Cxo" title="Short 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/wUtj32lchws" title="Short 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+      <div class="video-item"><iframe src="https://www.youtube.com/embed/RxySiyVyRcM" title="Short 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="video-item"><iframe src="https://www.youtube.com/embed/ZHhGy-24Cxo" title="Short 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="video-item"><iframe src="https://www.youtube.com/embed/wUtj32lchws" title="Short 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </div>
   </section>
 
@@ -237,38 +145,102 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- SCRIPT DEL CARRUSEL CON FOTOS ALEATORIAS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const items = document.querySelectorAll('.carrusel-item');
-      let currentIndex = 0;
+      // 1. Definimos el "banco" de todas las fotos disponibles
+      const todasLasFotos = [
+        // Fotos del evento solidario
+        "assets/img/solidarios/movimiento-funcional.jpg",
+        "assets/img/solidarios/movimiento-zumba.jpg",
+        "assets/img/solidarios/movimiento-zumba-2.jpg",
+        "assets/img/solidarios/movimiento-portada.jpg",
+        // Fotos del evento "Arte, Conversación y Mujeres Reales"
+        "assets/img/galerias/arte-conversacion-mujeres-reales/1.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/2.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/3.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/4.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/5.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/6.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/7.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/8.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/9.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/10.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/11.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/12.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/13.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/14.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/15.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/16.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/17.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/18.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/19.jpg",
+        "assets/img/galerias/arte-conversacion-mujeres-reales/20.jpg"
+      ];
 
+      const contenedorCarrusel = document.getElementById('carrusel-fotos');
+      let currentIndex = 0;
+      let itemsCargados = [];
+
+      // 2. Función para mezclar el arreglo y sacar 4 fotos al azar
+      function obtenerFotosAleatorias(arr, num) {
+        const mezclado = [...arr].sort(() => 0.5 - Math.random());
+        return mezclado.slice(0, num);
+      }
+
+      // 3. Función para inyectar las fotos en el HTML
+      function construirCarrusel() {
+        const fotosSeleccionadas = obtenerFotosAleatorias(todasLasFotos, 4);
+        contenedorCarrusel.innerHTML = ''; // Limpiar
+        
+        fotosSeleccionadas.forEach((src, index) => {
+          const div = document.createElement('div');
+          div.className = 'carrusel-item';
+          div.dataset.index = index;
+          div.innerHTML = `<img src="${src}" alt="Momento ${index + 1}" loading="lazy">`;
+          contenedorCarrusel.appendChild(div);
+        });
+
+        itemsCargados = document.querySelectorAll('.carrusel-item');
+        agregarEventos();
+        renderCarrusel();
+      }
+
+      // 4. Lógica de rotación del carrusel
       function renderCarrusel() {
-        items.forEach((item, index) => {
+        itemsCargados.forEach((item, index) => {
           item.classList.remove('activo', 'prev', 'next');
           if (index === currentIndex) {
             item.classList.add('activo');
-          } else if (index === (currentIndex - 1 + items.length) % items.length) {
+          } else if (index === (currentIndex - 1 + itemsCargados.length) % itemsCargados.length) {
             item.classList.add('prev');
-          } else if (index === (currentIndex + 1) % items.length) {
+          } else if (index === (currentIndex + 1) % itemsCargados.length) {
             item.classList.add('next');
           }
         });
       }
 
-      items.forEach((item, index) => {
-        item.addEventListener('click', () => {
-          if (index !== currentIndex) {
-            currentIndex = index;
-            renderCarrusel();
-          }
+      function agregarEventos() {
+        itemsCargados.forEach((item, index) => {
+          item.addEventListener('click', () => {
+            if (index !== currentIndex) {
+              currentIndex = index;
+              renderCarrusel();
+            }
+          });
         });
-      });
+      }
 
-      renderCarrusel();
-      
+      // Iniciar todo
+      construirCarrusel();
+
+      // Auto-rotación cada 5 segundos
       setInterval(() => {
-        currentIndex = (currentIndex + 1) % items.length;
-        renderCarrusel();
+        if(itemsCargados.length > 0) {
+          currentIndex = (currentIndex + 1) % itemsCargados.length;
+          renderCarrusel();
+        }
       }, 5000);
     });
   </script>
