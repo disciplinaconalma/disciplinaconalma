@@ -29,7 +29,7 @@
 
     .carrusel-item {
       position: absolute;
-      transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Transición suave y elegante */
+      transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
       border-radius: var(--radio-lg);
       overflow: hidden;
       box-shadow: var(--sombra-fuerte);
@@ -48,27 +48,9 @@
       pointer-events: none;
     }
 
-    /* Estado de la foto activa (Centro) */
-    .carrusel-item.activo {
-      opacity: 1;
-      transform: scale(1);
-      z-index: 3;
-      cursor: default;
-    }
-
-    /* Estado de la foto anterior (Izquierda) */
-    .carrusel-item.prev {
-      opacity: 0.6;
-      transform: translateX(-60%) scale(0.75);
-      z-index: 2;
-    }
-
-    /* Estado de la foto siguiente (Derecha) */
-    .carrusel-item.next {
-      opacity: 0.6;
-      transform: translateX(60%) scale(0.75);
-      z-index: 2;
-    }
+    .carrusel-item.activo { opacity: 1; transform: scale(1); z-index: 3; cursor: default; }
+    .carrusel-item.prev { opacity: 0.6; transform: translateX(-60%) scale(0.75); z-index: 2; }
+    .carrusel-item.next { opacity: 0.6; transform: translateX(60%) scale(0.75); z-index: 2; }
 
     /* --- ESTILOS DEL CARRUSEL DE VIDEOS (SHORTS) --- */
     .carrusel-videos {
@@ -78,27 +60,25 @@
       scroll-snap-type: x mandatory;
       padding: 20px 15px;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Firefox */
+      scrollbar-width: none;
     }
 
-    .carrusel-videos::-webkit-scrollbar {
-      display: none; /* Chrome/Safari */
-    }
+    .carrusel-videos::-webkit-scrollbar { display: none; }
 
     .video-item {
-      flex: 0 0 75%; /* Toma el 75% del ancho en celular */
+      flex: 0 0 75%;
       scroll-snap-align: center;
       border-radius: var(--radio-md);
       overflow: hidden;
       box-shadow: var(--sombra-media);
       position: relative;
-      padding-bottom: 133%; /* Proporción 3:4 (ideal para Shorts) */
+      padding-bottom: 133%;
       background-color: #000;
     }
 
     @media (min-width: 768px) {
       .video-item {
-        flex: 0 0 350px; /* En PC tiene un ancho fijo */
+        flex: 0 0 350px;
         padding-bottom: 622px;
       }
     }
@@ -113,7 +93,6 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="navbar__contenedor">
       <a href="index.html"><img src="assets/img/logo/logo-horizontal.png" alt="Disciplina con Alma" class="navbar__logo-img"></a>
@@ -130,7 +109,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <header class="hero-luxury">
     <div class="hero-luxury__contenedor">
       <div class="hero-luxury__texto">
@@ -148,7 +126,6 @@
     </div>
   </header>
 
-  <!-- INTRO -->
   <section class="seccion">
     <div class="contenedor-texto text-center">
       <h2 class="seccion__titulo">Una invitación que nació de una necesidad real</h2>
@@ -157,14 +134,12 @@
     </div>
   </section>
 
-  <!-- CARRUSEL DE FOTOS INTERACTIVO -->
   <section class="seccion seccion--arena" style="overflow: hidden;">
     <div class="contenedor text-center">
       <h2 class="seccion__titulo">Momentos que Transforman</h2>
       <p class="seccion__subtitulo">Nuestra comunidad en imágenes</p>
       
       <div class="carrusel-wrapper">
-        <!-- Las fotos de ejemplo (luego las cambias por las tuyas) -->
         <div class="carrusel-item" data-index="0">
           <img src="assets/img/solidarios/movimiento-funcional.jpg" alt="Momento 1">
         </div>
@@ -174,7 +149,6 @@
         <div class="carrusel-item" data-index="2">
           <img src="assets/img/solidarios/movimiento-zumba-2.jpg" alt="Momento 3">
         </div>
-        <!-- Agrega aquí más imágenes si quieres, el código se adaptará -->
         <div class="carrusel-item" data-index="3">
           <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Momento 4">
         </div>
@@ -182,7 +156,7 @@
     </div>
   </section>
 
-  <!-- CARRUSEL DE VIDEOS (SHORTS) -->
+  <!-- CARRUSEL DE VIDEOS CON TUS SHORTS REALES -->
   <section class="seccion">
     <div class="contenedor text-center">
       <h2 class="seccion__titulo">Nuestra Esencia en Movimiento</h2>
@@ -190,24 +164,25 @@
     </div>
     
     <div class="carrusel-videos">
-      <!-- Videos de EJEMPLO (Cambia los src cuando tengas los tuyos) -->
+      
+      <!-- VIDEO 1 (RxySiyVyRcM) -->
       <div class="video-item">
-        <!-- Reemplaza dQw4w9WgXcQ por el ID de tu Short -->
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Short 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/RxySiyVyRcM" title="Short 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+
+      <!-- VIDEO 2 (ZHhGy-24Cxo) -->
       <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Short 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ZHhGy-24Cxo" title="Short 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+
+      <!-- VIDEO 3 (wUtj32lchws) -->
       <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Short 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wUtj32lchws" title="Short 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <div class="video-item">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Short 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <img src="assets/img/logo/logo-icono.png" alt="Disciplina con Alma" class="footer__logo" loading="lazy">
     <p class="footer__frase">"Aquí no vienes a cambiar. Vienes a recordarte."</p>
@@ -220,17 +195,14 @@
 
   <script src="assets/js/main.js"></script>
 
-  <!-- SCRIPT PARA EL CARRUSEL DE FOTOS INTERACTIVO -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const items = document.querySelectorAll('.carrusel-item');
       let currentIndex = 0;
 
-      // Función que actualiza las clases para crear el efecto de rotación
       function renderCarrusel() {
         items.forEach((item, index) => {
           item.classList.remove('activo', 'prev', 'next');
-          
           if (index === currentIndex) {
             item.classList.add('activo');
           } else if (index === (currentIndex - 1 + items.length) % items.length) {
@@ -241,10 +213,8 @@
         });
       }
 
-      // Agregar evento clic a cada imagen
       items.forEach((item, index) => {
         item.addEventListener('click', () => {
-          // Si la foto clickeada no es la activa, se convierte en la activa
           if (index !== currentIndex) {
             currentIndex = index;
             renderCarrusel();
@@ -252,16 +222,13 @@
         });
       });
 
-      // Iniciar el carrusel
       renderCarrusel();
       
-      // Opcional: Auto-rotación cada 5 segundos
       setInterval(() => {
         currentIndex = (currentIndex + 1) % items.length;
         renderCarrusel();
       }, 5000);
     });
   </script>
-
 </body>
 </html>
