@@ -14,6 +14,48 @@
   <link rel="stylesheet" href="assets/css/main.css">
 
   <style>
+    /* --- ESTILOS DEL BOTÓN FLOTANTE EN LA IMAGEN --- */
+    .hero-imagen-wrapper {
+      position: relative;
+      border-radius: var(--radio-lg);
+      overflow: hidden;
+      box-shadow: var(--sombra-media);
+    }
+
+    .hero-imagen-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* El botón flotante */
+    .btn-flotante-imagen {
+      position: absolute;
+      top: 55%; /* Ajustado para que quede en el centro de la foto */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #D1495B; /* Color rosa solidario */
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-family: var(--font-texto);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(209, 73, 91, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .btn-flotante-imagen:hover {
+      background-color: #b53c4c;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
     /* --- ESTILOS DEL CARRUSEL DE FOTOS INTERACTIVO --- */
     .carrusel-wrapper {
       position: relative;
@@ -109,6 +151,7 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <header class="hero-luxury">
     <div class="hero-luxury__contenedor">
       <div class="hero-luxury__texto">
@@ -120,9 +163,17 @@
           <a href="https://chat.whatsapp.com/Jvy4qAzStPl2k3BB4wOs66?mode=gi_t" target="_blank" rel="noopener" class="btn btn--secundario">Únete a la comunidad</a>
         </div>
       </div>
-      <div class="hero-luxury__imagen">
-        <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Comunidad Disciplina con Alma" style="border-radius: var(--radio-lg); box-shadow: var(--sombra-media);">
+      
+      <!-- IMAGEN CON EL BOTÓN FLOTANTE RESTAURADO -->
+      <div class="hero-luxury__imagen hero-imagen-wrapper">
+        <img src="assets/img/solidarios/movimiento-portada.jpg" alt="Comunidad Disciplina con Alma">
+        
+        <!-- BOTÓN FLOTANTE -->
+        <a href="registro-evento.html?evento=Movimiento con Alma" class="btn-flotante-imagen">
+          Inscribirme
+        </a>
       </div>
+      
     </div>
   </header>
 
@@ -156,7 +207,6 @@
     </div>
   </section>
 
-  <!-- CARRUSEL DE VIDEOS CON TUS SHORTS REALES -->
   <section class="seccion">
     <div class="contenedor text-center">
       <h2 class="seccion__titulo">Nuestra Esencia en Movimiento</h2>
@@ -164,22 +214,15 @@
     </div>
     
     <div class="carrusel-videos">
-      
-      <!-- VIDEO 1 (RxySiyVyRcM) -->
       <div class="video-item">
         <iframe src="https://www.youtube.com/embed/RxySiyVyRcM" title="Short 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-
-      <!-- VIDEO 2 (ZHhGy-24Cxo) -->
       <div class="video-item">
         <iframe src="https://www.youtube.com/embed/ZHhGy-24Cxo" title="Short 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-
-      <!-- VIDEO 3 (wUtj32lchws) -->
       <div class="video-item">
         <iframe src="https://www.youtube.com/embed/wUtj32lchws" title="Short 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-
     </div>
   </section>
 
@@ -194,7 +237,6 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const items = document.querySelectorAll('.carrusel-item');
